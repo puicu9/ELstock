@@ -2,6 +2,7 @@ package com.shopping.entity;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
+import com.elstock.constant.Role;
 import com.querydsl.core.types.dsl.*;
 
 import com.querydsl.core.types.PathMetadata;
@@ -40,7 +41,7 @@ public class QMember extends EntityPathBase<Member> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> regDate = _super.regDate;
 
-    public final EnumPath<com.shopping.constant.Role> role = createEnum("role", com.shopping.constant.Role.class);
+    public final EnumPath<Role> role = createEnum("role", Role.class);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> updateDate = _super.updateDate;

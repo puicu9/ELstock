@@ -2,6 +2,7 @@ package com.shopping.entity;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
+import com.elstock.entity.OrderProduct;
 import com.querydsl.core.types.dsl.*;
 
 import com.querydsl.core.types.PathMetadata;

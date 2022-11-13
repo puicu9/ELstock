@@ -2,6 +2,8 @@ package com.shopping.entity;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
+import com.elstock.constant.ProductStatus;
+import com.elstock.entity.Product;
 import com.querydsl.core.types.dsl.*;
 
 import com.querydsl.core.types.PathMetadata;
@@ -35,7 +37,7 @@ public class QProduct extends EntityPathBase<Product> {
 
     public final NumberPath<Integer> price = createNumber("price", Integer.class);
 
-    public final EnumPath<com.shopping.constant.ProductStatus> productStatus = createEnum("productStatus", com.shopping.constant.ProductStatus.class);
+    public final EnumPath<ProductStatus> productStatus = createEnum("productStatus", ProductStatus.class);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> regDate = _super.regDate;

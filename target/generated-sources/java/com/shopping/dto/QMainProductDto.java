@@ -1,7 +1,5 @@
 package com.shopping.dto;
 
-import com.querydsl.core.types.dsl.*;
-
 import com.querydsl.core.types.ConstructorExpression;
 import javax.annotation.processing.Generated;
 
