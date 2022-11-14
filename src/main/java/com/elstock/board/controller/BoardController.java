@@ -1,6 +1,7 @@
 package com.elstock.board.controller;
 
-import com.elstock.entity.Board;
+import com.elstock.board.entity.Board;
+import com.elstock.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

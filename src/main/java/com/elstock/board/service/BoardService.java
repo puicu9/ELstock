@@ -1,6 +1,6 @@
 package com.elstock.board.service;
 
-import com.elstock.entity.Board;
+import com.elstock.board.entity.Board;
 import com.elstock.mapper.BoardMapperInterface;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

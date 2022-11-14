@@ -1,7 +1,7 @@
 package com.elstock.order.entity;
 
-import com.elstock.entity.BaseEntity;
-import com.elstock.entity.Product;
+import com.elstock.member.entity.BaseEntity;
+import com.elstock.product.entity.Product;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

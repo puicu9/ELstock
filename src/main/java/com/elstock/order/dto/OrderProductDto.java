@@ -1,6 +1,6 @@
 package com.elstock.order.dto;
 
-import com.elstock.entity.OrderProduct;
+import com.elstock.order.entity.OrderProduct;
 import lombok.Getter;
 import lombok.Setter;
 
