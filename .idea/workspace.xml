@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba5bec35-5cd8-488b-9127-0e264d59dd21" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shopping/ShoppingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/ElstockApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shopping/controller/EmployeeTestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/controller/EmployeeTestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shopping/controller/PersonTestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/controller/PersonTestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shopping/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/entity/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shopping/entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/entity/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
