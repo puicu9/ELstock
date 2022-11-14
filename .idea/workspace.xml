@@ -5,15 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba5bec35-5cd8-488b-9127-0e264d59dd21" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/elstock/board/entity/Board.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/elstock/member/entity/BaseEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/elstock/member/entity/BaseTimeEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/board/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/board/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/board/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/board/service/BoardService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/order/dto/OrderProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/order/dto/OrderProductDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/order/entity/OrderProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/order/entity/OrderProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/cart/entity/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/cart/entity/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/cart/entity/CartProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/cart/entity/CartProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/cart/entity/CartTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/cart/entity/CartTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/cart/repository/CartProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/cart/repository/CartProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/cart/repository/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/cart/repository/CartRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/cart/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/cart/service/CartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/cart/service/CartServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/cart/service/CartServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/exception/OutOfStockException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/exception/OutOfStockException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/main/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/main/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/mapper/BoardMapperInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/mapper/BoardMapperInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/member/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/member/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/member/entity/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/member/entity/BaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/member/entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/member/entity/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/member/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/member/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/member/service/MemberServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/member/service/MemberServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/order/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/order/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/order/dto/OrderHistDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/order/dto/OrderHistDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/order/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/order/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/order/entity/OrderTestA.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/order/entity/OrderTestB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/order/entity/OrderTestC.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/order/repository/OrderProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/order/repository/OrderProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/order/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/order/repository/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/order/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/order/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/order/service/OrderServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/order/service/OrderServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/product/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/product/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/product/dto/ProductFormDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/product/dto/ProductFormDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/product/dto/ProductImageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/product/dto/ProductImageDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/product/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/product/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/product/entity/ProductImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/product/entity/ProductImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/product/repository/ProductImageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/product/repository/ProductImageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/product/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/product/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/product/repository/ProductRepositoryCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/product/repository/ProductRepositoryCustom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/product/repository/ProductRepositoryCustomImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/product/repository/ProductRepositoryCustomImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/product/repository/ProductRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/product/repository/ProductRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/product/service/ProductImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/product/service/ProductImageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/product/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elstock/product/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/service/FileService.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
