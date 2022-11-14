@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba5bec35-5cd8-488b-9127-0e264d59dd21" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ba5bec35-5cd8-488b-9127-0e264d59dd21" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +14,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -37,27 +36,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kimyeonghun/Documents/GitHub/ELstock/src/main/java/com/elstock/member/entity&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/kimyeonghun/Documents/GitHub/ELstock/src/main/java/com/elstock"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/elstock" />
       <recent name="$PROJECT_DIR$/src/main/java/com/elstock/member/entity" />
       <recent name="$PROJECT_DIR$/src/main/java/com/elstock/product/service" />
       <recent name="$PROJECT_DIR$/src/main/java/com/elstock/product/repository" />
       <recent name="$PROJECT_DIR$/src/main/java/com/elstock/product/entity" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/elstock/product/dto" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="templates.example" />
       <recent name="com.elstock.product.controller" />
       <recent name="com.elstock.order.controller" />
       <recent name="com.elstock.cart.controller" />
       <recent name="com.elstock.board.service" />
-      <recent name="com.elstock.board.controller" />
     </key>
   </component>
   <component name="RunManager">
