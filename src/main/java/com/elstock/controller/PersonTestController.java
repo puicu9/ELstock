@@ -1,6 +1,6 @@
-package com.shopping.controller;
+package com.elstock.controller;
 
-import com.shopping.entity.Person;
+import com.elstock.entity.Person;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

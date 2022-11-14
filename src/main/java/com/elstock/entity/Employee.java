@@ -1,4 +1,4 @@
-package com.shopping.entity;
+package com.elstock.entity;
 
 import lombok.Getter;
 import lombok.Setter;
