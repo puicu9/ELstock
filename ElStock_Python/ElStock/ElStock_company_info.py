@@ -1,5 +1,7 @@
 # 네이버 기본 정보 크롤링(종목코드, 시가총액, 시가총액순위,상장주식수, 액면가, 투자의견, 목표주가, 52주 최고, 52주 최저, 기업 주소 크롤링, 기업 개요 크롤링)
 
+#지민이형 크로링 하셨죠??
+
 import urllib.request
 from datetime import datetime
 import pandas as pd
