@@ -30,8 +30,8 @@ for page in range(30):
             er_result.insert(1, num)
 er_array = np.array(er_result)
 # print(er_result)
-# print(len(er_array))
-result = er_array.reshape(300, 2)
+start=int(len(er_array)/2)
+result = er_array.reshape(start, 2)
 # print(result)
 from pandas import DataFrame
 er_frame=DataFrame(result,columns=er_colunm)
