@@ -1,1 +1,2 @@
-com\shopping\ShoppingApplication.class
+com\elstock\ElstockApplication.class
+com\elstock\member\entity\QMember.class
