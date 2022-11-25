@@ -16,7 +16,7 @@ public class GetNickname {
         String url = "https://nickname.hwanmoo.kr/?format=json&count=2";
         JSONObject json = readJsonFromUrl(url);
         JSONArray jsonArray = json.getJSONArray("words");
-        
+//
 //        jsonArray에는 jsonArray 형태로 2개의 닉네임을 부여함. 여기에 더하여 랜덤(0~1)값으로 닉네임 가져오게 하게끔 설정
         int random = (int) Math.floor(Math.random() * 2) ;
         String nickname = jsonArray.getString(random);
