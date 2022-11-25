@@ -2,40 +2,41 @@
 <html xmlns:th="http://www.thymeleaf.org"
     xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <div th:fragment="asdf">
-    <!-- partial -->
-    <nav class="navbar-breadcrumb col-xl-12 col-12 d-flex flex-row p-0">
-        <div class="navbar-links-wrapper d-flex">
-            <div class="nav-link">
-                <a href="/">HOME</a>
-            </div>
-            <div class="nav-link">
-                <a href="/members/login">로그인</a>
-            </div>
-            <div class="nav-link">
-                <a href="/stockMarket/home">국내증시</a>
-            </div>
-            <div class="nav-link">
-                <a href="javascript:;">관심종목</a>
-            </div>
-            <div class="nav-link">
-                <a href="javascript:;">매수매도</a>
-            </div>
-        </div>
-        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/">Shop</a>
 
-            <ul class="navbar-nav navbar-nav-right">
-                <li class="nav-item nav-search d-none d-md-block mr-0">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search..." aria-label="search" aria-describedby="search">
-                        <div class="input-group-prepend">
-                <span class="input-group-text" id="search">
-                  <i class="typcn typcn-zoom"></i>
-                </span>
-                        </div>
-                    </div>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+                    <a class="nav-link" href="/admin/products/new">상품 등록</a>
+                </li>
+                <li class="nav-item" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+                    <a class="nav-link" href="/admin/products/list">상품 관리</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" href="/cart">장바구니</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" href="/orders">구매 이력</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAnonymous()">
+                    <a class="nav-link" href="/members/login">로그인</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" href="/members/logout">로그 아웃</a>
                 </li>
             </ul>
+            <form class="form-inline my-2 my-lg-0" th:action="@{/}" method="get">
+                <input name="searchQuery" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
     </nav>
 </div>
