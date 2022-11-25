@@ -42,7 +42,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/kosmo/Documents/GitHub/ELstock/ElStock_Spring",
+    "last_opened_file_path": "C:/Users/kosmo/Documents/GitHub/ELstock/ElStock_Spring/src/main/resources/templates/member",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -51,11 +51,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\resources\templates\member" />
       <recent name="D:\ElStock_Spring\src\main\resources\templates\stockMarket" />
       <recent name="D:\ElStock_Spring\src\main\java\com\elstock\main" />
       <recent name="D:\ElStock_Spring\src\main\resources\static" />
       <recent name="D:\ElStock_Spring\src\main\java\com\elstock\FS" />
-      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\resources\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\ElStock_Spring\src\main\resources\templates" />
