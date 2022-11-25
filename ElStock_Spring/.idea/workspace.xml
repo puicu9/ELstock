@@ -13,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -51,11 +51,15 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\resources\templates" />
-      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\java\com\elstock" />
-      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\java\com\elstock\test" />
-      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\java\com\elstock\examples\service" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/elstock" />
+      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\resources\templates\member" />
+      <recent name="D:\ElStock_Spring\src\main\resources\templates\stockMarket" />
+      <recent name="D:\ElStock_Spring\src\main\java\com\elstock\main" />
+      <recent name="D:\ElStock_Spring\src\main\resources\static" />
+      <recent name="D:\ElStock_Spring\src\main\java\com\elstock\FS" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ElStock_Spring\src\main\resources\templates" />
+      <recent name="D:\ElStock_Spring\src\main\resources\templates\main" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.elstock.exception" />
