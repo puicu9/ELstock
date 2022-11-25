@@ -42,11 +42,11 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/kosmo/Documents/GitHub/ELstock/ElStock_Spring",
+    "last_opened_file_path": "D:/MySpringBoot",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "MavenSettings"
+    "settings.editor.selected.configurable": "configurable.group.tools"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -120,5 +120,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
