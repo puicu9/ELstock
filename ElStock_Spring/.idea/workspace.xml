@@ -13,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -58,11 +58,11 @@
       <recent name="$PROJECT_DIR$/src/main/java/com/elstock" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.elstock.member.entity" />
       <recent name="com.elstock.exception" />
       <recent name="com.elstock.examples.entity" />
       <recent name="com.elstock.examples.repository" />
       <recent name="com.elstock.examples.dto" />
-      <recent name="com.elstock.example" />
     </key>
   </component>
   <component name="RunManager" selected="Application.ElstockApplication">
@@ -92,9 +92,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="com.elstock.member.entity.NicknameTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.elstock.member.entity.NicknameTest" />
+      <module name="ElStock_Spring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.elstock.member.entity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ElstockApplication" />
+        <item itemvalue="Application.com.elstock.member.entity.NicknameTest" />
         <item itemvalue="Application.ShoppingApplication" />
       </list>
     </recent_temporary>
