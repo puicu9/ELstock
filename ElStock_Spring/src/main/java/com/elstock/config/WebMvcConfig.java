@@ -2,13 +2,14 @@ package com.elstock.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 // WebMvcConfiguer는 스프링의 MVC를 위하여 자바 기반의 구성 설정을 도와주는 인터페이스입니다.
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
-    @Value("${uploadPath}")
-    String uploadPath ;
+//    @Value("${uploadPath}")
+//    String uploadPath ;
 
 /*   addResourceHandler 메소드
       Add handlers to serve static resources such as images, js, and, css files
@@ -21,4 +22,12 @@ public class WebMvcConfig implements WebMvcConfigurer {
 //        String basePath = "/images/**" ;
 //        registry.addResourceHandler(basePath).addResourceLocations(uploadPath) ;
 //    }
+
+    // 포트 번호 react 와 Spring 통합
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:3000")
+                .allowedMethods("OPTIONS", "GET", "POST", "PUT", "DELETE");
+    }
+
 }
