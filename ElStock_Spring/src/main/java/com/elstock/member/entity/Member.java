@@ -1,7 +1,7 @@
 package com.elstock.member.entity;
 
 import com.elstock.constant.Role;
-import com.elstock.member.dto.MemberFormDto;
+import com.elstock.member.dto.MemberNewDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -34,7 +34,7 @@ public class Member {
 
 
     // 폼 화면에서 넘어오는 dto 객체를 이용하여 해당 회원에 대한 비번번호의 암호화를 처리해주는 메소드입니다.
-    public static Member createMember(MemberFormDto dto, PasswordEncoder passEncoder){
+    public static Member createMember(MemberNewDto dto, PasswordEncoder passEncoder){
         Member member = new Member() ;
 
         member.setName(dto.getName());

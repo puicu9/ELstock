@@ -1,12 +1,23 @@
 import { Component } from "react";
+import NavigationBar from './fragments/NavigationBar';
 
 
 class Main extends Component{
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   render(){
     return(
-      <div>
-        메인페이지
-      </div>
+      <>
+        <NavigationBar/>
+      </>
 
     );
   }

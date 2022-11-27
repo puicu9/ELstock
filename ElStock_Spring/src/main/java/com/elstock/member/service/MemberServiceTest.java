@@ -1,6 +1,6 @@
 package com.elstock.member.service;
 
-import com.elstock.member.dto.MemberFormDto;
+import com.elstock.member.dto.MemberNewDto;
 import com.elstock.member.entity.Member;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -22,7 +22,7 @@ public class MemberServiceTest {
 
     private Member createMember(){
         // DTO는 차후에 폼 양식에서 기입하는 내용이 됩니다.
-        MemberFormDto dto = new MemberFormDto() ;
+        MemberNewDto dto = new MemberNewDto() ;
         dto.setAddress("마포구 합정동") ;
         dto.setName("김유신") ;
         dto.setPassword("1234") ;

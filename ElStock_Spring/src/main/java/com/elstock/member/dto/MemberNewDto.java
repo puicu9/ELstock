@@ -13,7 +13,7 @@ import javax.validation.constraints.NotEmpty;
 // cf) VO(Value Object), Java Bean
 // 회원 가입 화면(<form> 태그)에서 넘겨지는(transfer) 파라미터를 저장할 Dto 클래스
 @Getter @Setter @ToString
-public class MemberFormDto {
+public class MemberNewDto {
     @NotBlank(message = "이름은 필수입력 사항입니다.")
     private String name ;
 

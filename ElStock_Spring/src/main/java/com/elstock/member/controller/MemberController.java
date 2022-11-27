@@ -1,6 +1,6 @@
 package com.elstock.member.controller;
 
-import com.elstock.member.dto.MemberFormDto;
+import com.elstock.member.dto.MemberNewDto;
 import com.elstock.member.entity.Member;
 import com.elstock.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +11,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
@@ -23,7 +22,7 @@ public class MemberController {
 
     @GetMapping(value = "/new")
     public String insertForm(Model model){ // MemberController01
-        model.addAttribute("memberFormDto", new MemberFormDto()) ;
+        model.addAttribute("memberFormDto", new MemberNewDto()) ;
         return urlPrefix + "/meInsertForm" ;
     }
 
@@ -35,7 +34,7 @@ public class MemberController {
     // @Valid 는 command 객체에 유효성 검사를 진행해 줍니다.
     // BindingResult 는 유효성 검사에 문제가 있으면, 해당 정보가 들어 있습니다.
     @PostMapping(value = "/new")
-    public String insertForm2(@Valid MemberFormDto dto, BindingResult error, Model model){ // MemberController02
+    public String insertForm2(@Valid MemberNewDto dto, BindingResult error, Model model){ // MemberController02
         if(error.hasErrors()){ // 유효성 검사를 충족하지 못하면 다시 가입 페이지로 이동
             return urlPrefix + "/meInsertForm" ;
         }
