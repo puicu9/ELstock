@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba5bec35-5cd8-488b-9127-0e264d59dd21" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/elstock/domestic/controller/DomesticController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/elstock/domestic/service/DomesticService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/elstock/ticker/service/TickerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elstock/examples/ProductStatus.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +48,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/kimyeonghun/Documents/GitHub/ELstock/ElStock_Spring",
+    "last_opened_file_path": "/Users/kimyeonghun/Documents/GitHub/ELstock/ElStock_Spring/src/main/java/com/elstock/ticker/service",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -53,13 +57,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/elstock/ticker/service" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/elstock/domestic/service" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/elstock/domestic/controller" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/elstock" />
       <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\java\com\elstock" />
-      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\resources\templates\member" />
-      <recent name="D:\ElStock_Spring\src\main\resources\templates\stockMarket" />
-      <recent name="D:\ElStock_Spring\src\main\java\com\elstock\main" />
-      <recent name="D:\ElStock_Spring\src\main\resources\static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/elstock/ticker" />
       <recent name="D:\ElStock_Spring\src\main\resources\templates" />
       <recent name="D:\ElStock_Spring\src\main\resources\templates\main" />
     </key>
