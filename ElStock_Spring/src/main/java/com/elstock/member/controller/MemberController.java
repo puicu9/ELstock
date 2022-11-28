@@ -4,6 +4,7 @@ import com.elstock.member.dto.MemberNewDto;
 import com.elstock.member.entity.Member;
 import com.elstock.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.json.JSONException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.io.IOException;
 
 @Controller
 @RequiredArgsConstructor // for MemberController02
@@ -23,7 +25,7 @@ public class MemberController {
     @GetMapping(value = "/new")
     public String insertForm(Model model){ // MemberController01
         model.addAttribute("memberFormDto", new MemberNewDto()) ;
-        return urlPrefix + "/meInsertForm" ;
+        return urlPrefix + "/register" ;
     }
 
     // for MemberController02
@@ -45,6 +47,10 @@ public class MemberController {
         } catch (IllegalStateException err){
             model.addAttribute("errorMessage", err.getMessage()) ;
             return urlPrefix + "/meInsertForm" ;
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
         // 메인 페이지로 이동

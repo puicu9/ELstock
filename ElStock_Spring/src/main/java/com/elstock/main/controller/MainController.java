@@ -11,7 +11,7 @@ public class MainController {
 
     @GetMapping(value = "/99")
     public String main(){
-        return "index.html";
+        return "main.html";
     }
 
 

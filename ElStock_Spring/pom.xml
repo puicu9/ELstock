@@ -12,7 +12,7 @@
 	<artifactId>elstock</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>elstock</name>
-	<description>Shopping project for Spring Boot</description>
+	<description>ElStock project for Spring Boot</description>
 	<properties>
 		<java.version>12</java.version>
 	</properties>
