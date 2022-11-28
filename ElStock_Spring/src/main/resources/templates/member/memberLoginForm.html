@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/mylayout}">
 
 <head>
   <!-- Required meta tags -->
@@ -19,6 +21,7 @@
 </head>
 
 <body>
+<div class="content" layout:fragment="content">
   <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
       <div class="content-wrapper d-flex align-items-center auth px-0">
@@ -57,6 +60,9 @@
                 <div class="text-center mt-4 font-weight-light">
                   Don't have an account? <a href="register.html" class="text-primary">Create</a>
                 </div>
+
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
               </form>
             </div>
           </div>
@@ -77,6 +83,8 @@
   <script src="../../js/settings.js"></script>
   <script src="../../js/todolist.js"></script>
   <!-- endinject -->
+
+</div>
 </body>
 
 </html>

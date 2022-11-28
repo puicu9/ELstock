@@ -18,14 +18,14 @@ import java.io.IOException;
 
 @Controller
 @RequiredArgsConstructor // for MemberController02
-@RequestMapping(value = "/members")
+@RequestMapping(value = "members")
 public class MemberController {
     private final String urlPrefix = "/member" ; // MemberController01
 
     @GetMapping(value = "/new")
     public String insertForm(Model model){ // MemberController01
         model.addAttribute("memberFormDto", new MemberNewDto()) ;
-        return urlPrefix + "/register" ;
+        return urlPrefix + "/memberInsertForm" ;
     }
 
     // for MemberController02
@@ -38,7 +38,7 @@ public class MemberController {
     @PostMapping(value = "/new")
     public String insertForm2(@Valid MemberNewDto dto, BindingResult error, Model model){ // MemberController02
         if(error.hasErrors()){ // 유효성 검사를 충족하지 못하면 다시 가입 페이지로 이동
-            return urlPrefix + "/meInsertForm" ;
+            return urlPrefix + "/memberInsertForm" ;
         }
 
         try{
@@ -46,7 +46,7 @@ public class MemberController {
             this.memberService.saveMember(member) ;
         } catch (IllegalStateException err){
             model.addAttribute("errorMessage", err.getMessage()) ;
-            return urlPrefix + "/meInsertForm" ;
+            return urlPrefix + "/memberInsertForm" ;
         } catch (JSONException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
