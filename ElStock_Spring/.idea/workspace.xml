@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba5bec35-5cd8-488b-9127-0e264d59dd21" name="Changes" comment="" />
+    <list default="true" id="ba5bec35-5cd8-488b-9127-0e264d59dd21" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,7 +21,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/ELstock" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -42,31 +44,32 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/ElStock_Spring/test",
+    "last_opened_file_path": "C:/Users/kosmo/Documents/GitHub/ELstock/ElStock_Spring",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "MavenSettings"
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\ElStock_Spring\src\main\resources\templates\stockMarket" />
-      <recent name="D:\ElStock_Spring\src\main\java\com\elstock\main" />
-      <recent name="D:\ElStock_Spring\src\main\resources\static" />
-      <recent name="D:\ElStock_Spring\src\main\java\com\elstock\FS" />
-      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\resources\templates" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/elstock/ticker/service" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/elstock/domestic/service" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/elstock/domestic/controller" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/elstock" />
+      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\java\com\elstock" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/elstock/ticker" />
       <recent name="D:\ElStock_Spring\src\main\resources\templates" />
       <recent name="D:\ElStock_Spring\src\main\resources\templates\main" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.elstock.ticker.controller" />
       <recent name="com.elstock.exception" />
       <recent name="com.elstock.examples.entity" />
       <recent name="com.elstock.examples.repository" />
       <recent name="com.elstock.examples.dto" />
-      <recent name="com.elstock.example" />
     </key>
   </component>
   <component name="RunManager" selected="Application.ElstockApplication">
