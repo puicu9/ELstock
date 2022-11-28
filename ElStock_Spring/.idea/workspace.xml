@@ -45,22 +45,24 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/kosmo/Documents/GitHub/ELstock/ElStock_Spring",
+    "last_opened_file_path": "C:/Users/kosmo/Documents/GitHub/ELstock/ElStock_Spring/src/main/resources/templates/fragments",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+    "settings.editor.selected.configurable": "project.propCompiler"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\resources\templates\fragments" />
       <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\resources\templates" />
       <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\resources\templates\member" />
       <recent name="$PROJECT_DIR$/src/main/java/com/elstock/ticker/service" />
       <recent name="$PROJECT_DIR$/src/main/java/com/elstock/domestic/service" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/elstock/domestic/controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\resources\templates\images" />
+      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\resources\templates" />
       <recent name="$PROJECT_DIR$/src/main/java/com/elstock/ticker" />
       <recent name="D:\ElStock_Spring\src\main\resources\templates" />
       <recent name="D:\ElStock_Spring\src\main\resources\templates\main" />
@@ -87,19 +89,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShoppingApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.shopping.ShoppingApplication" />
-      <module name="elstock" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.shopping.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ShoppingApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ElStock_Spring" />
       <extension name="coverage">
@@ -115,11 +104,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.ElstockApplication" />
+      <item itemvalue="JUnit.ShoppingApplicationTests" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ElstockApplication" />
         <item itemvalue="JUnit.ShoppingApplicationTests" />
-        <item itemvalue="Application.ShoppingApplication" />
       </list>
     </recent_temporary>
   </component>

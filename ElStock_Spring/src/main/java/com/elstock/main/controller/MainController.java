@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(value="/test")
+//@RequestMapping(value="/")
 public class MainController {
 
-    @GetMapping(value = "/99")
+    @GetMapping(value = "/")
     public String main(){
         return "main.html";
     }
