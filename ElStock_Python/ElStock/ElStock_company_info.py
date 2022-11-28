@@ -72,7 +72,7 @@ def getData():
     # 총액 / 순위 / 상장주식수 / None(액면가만 없음)
     #  tr  /  tr  /  tr(상장주식수)
 
-    for ticker_code in ticker_list[0:10:]:
+    for ticker_code in ticker_list[0::]:
         print('종목코드 : ' + ticker_code)
 
 # 기업정보 크롤링
@@ -252,6 +252,25 @@ def getData():
                   company_comment, # 기업개요
                   company_url] # 기업 url
         saveData.append(mydata)
+
+        mycolumns = ['ticker_code',  # 종목 코드
+                     'company_capitalization',  # 시가총액
+                     'company_rank',  # 시가순위
+                     'company_share',  # 상장주식수
+                     'company_value',  # 액면가
+                     'company_opinion',  # 투자의견
+                     'company_targetPrice',  # 목표주가
+                     'company_52weeks_max',  # 52주최고가
+                     'company_52weeks_min',  # 52주최저가
+                     'company_comment',  # 기업개요
+                     'company_url']  # 기업 url
+        myframe = DataFrame(saveData, columns=mycolumns)
+
+        #테이블명
+        tableName = 'Company'
+
+        toDatabase(myframe, tableName)
+
     # print(saveData)
     print('총 크롤링한 종목코드 개수 : ', count)
 # def getData():
@@ -277,7 +296,7 @@ def saveFile():
 # end def saveFile():
 
 # DB에 넣는 함수
-def toDatabase():
+def toDatabase(myframe, tableName):
     #mysql에 필요한 것 import
     import pymysql
     from sqlalchemy import create_engine
@@ -286,38 +305,14 @@ def toDatabase():
     db_connection = create_engine(db_connection_str)
     conn = db_connection.connect()
 
-
-    # 연결
-    # conn = pymysql.connect(host='localhost',
-    #                        user='root',
-    #                        password='mysql',
-    #                        db='elstock',
-    #                        charset='utf8')
-
-    mycolumns = ['ticker_code',  # 종목 코드
-                 'company_capitalization',  # 시가총액
-                 'company_rank',  # 시가순위
-                 'company_share',  # 상장주식수
-                 'company_value',  # 액면가
-                 'company_opinion',  # 투자의견
-                 'company_targetPrice',  # 목표주가
-                 'company_52weeks_max',  # 52주최고가
-                 'company_52weeks_min',  # 52주최저가
-                 'company_comment',  # 기업개요
-                 'company_url']  # 기업 url
-    myframe = DataFrame(saveData, columns=mycolumns)
-    myframe.to_sql(name='Company', con=db_connection, if_exists='append',index=False)
-    
-
+    myframe.to_sql(name=tableName, con=db_connection, if_exists='append',index=False)
 #end def toDatabase():
 
 
-
+############################################################
 print('크롤링 시작')
 getData()
-toDatabase()
 # saveFile()
-
 print('크롤링 종료')
 
 
