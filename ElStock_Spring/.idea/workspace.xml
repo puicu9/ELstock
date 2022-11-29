@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba5bec35-5cd8-488b-9127-0e264d59dd21" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ba5bec35-5cd8-488b-9127-0e264d59dd21" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -44,7 +45,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/kosmo/Documents/GitHub/ELstock/ElStock_Spring",
+    "last_opened_file_path": "C:/Users/kosmo/Documents/GitHub/ELstock/ElStock_Spring/src/main/resources/templates/fragments",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -53,13 +54,15 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\resources\templates\fragments" />
+      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\resources\templates" />
+      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\resources\templates\member" />
       <recent name="$PROJECT_DIR$/src/main/java/com/elstock/ticker/service" />
       <recent name="$PROJECT_DIR$/src/main/java/com/elstock/domestic/service" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/elstock/domestic/controller" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/elstock" />
-      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\java\com\elstock" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\resources\templates\images" />
+      <recent name="C:\Users\kosmo\Documents\GitHub\ELstock\ElStock_Spring\src\main\resources\templates" />
       <recent name="$PROJECT_DIR$/src/main/java/com/elstock/ticker" />
       <recent name="D:\ElStock_Spring\src\main\resources\templates" />
       <recent name="D:\ElStock_Spring\src\main\resources\templates\main" />
@@ -86,23 +89,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShoppingApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.shopping.ShoppingApplication" />
-      <module name="elstock" />
+    <configuration name="ShoppingApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ElStock_Spring" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.shopping.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.shopping" />
+      <option name="MAIN_CLASS_NAME" value="com.shopping.ShoppingApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.ElstockApplication" />
+      <item itemvalue="JUnit.ShoppingApplicationTests" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ElstockApplication" />
-        <item itemvalue="Application.ShoppingApplication" />
+        <item itemvalue="JUnit.ShoppingApplicationTests" />
       </list>
     </recent_temporary>
   </component>
@@ -127,5 +136,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/ELstock" />
+      <path value="$PROJECT_DIR$/test" />
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ElStock_Spring$ElstockApplication.ic" NAME="ElstockApplication Coverage Results" MODIFIED="1669619285475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.elstock.*</FILTER>
+    </SUITE>
   </component>
 </project>
