@@ -63,6 +63,10 @@ while True:
 
 
 # 1년치 주가 데이터 가져오기
+
+# stock.get_market_ohlcv(가져올 날짜 시작일, 가져올 날짜 종료일, 가져올 코드 명)
+
+
 # df = stock.get_market_ohlcv("20211101","20221125",company_codes)
 #
 # header = ['date','open','high','low','close','volume']
