@@ -1,0 +1,18 @@
+<!-- 특정 url로 이동 -->
+<a th:href="@{https://developer-rooney.tistory.com}">글 상세보기</a>
+
+
+<!-- 현재 서버 내에서 이동 -->
+<a th:href="@{/board/list}">게시글 리스트</a>
+
+
+<!-- 파라미터를 넘길 시 -->
+<a th:href="@{/board/view(id = ${board.id})}">글 상세보기</a>
+
+
+<!-- 파라미터를 여러 개 넘길 시 -->
+<a th:href="@{/board/view(id = ${board.id}, writer = ${board.writer}})}">글 상세보기</a>
+
+
+<!-- PathVariable 사용 시 -->
+<a th:href="@{/board/view/{id}(id = ${board.id})}">글 상세보기</a>
