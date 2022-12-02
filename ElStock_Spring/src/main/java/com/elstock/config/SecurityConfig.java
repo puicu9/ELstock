@@ -65,7 +65,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { // SecurityCo
     @Override
     public void configure(WebSecurity web) throws Exception {  // SecurityConfig03
         // static file(js, css, 이미지 등등) 에 대해서는 그냥 무시하겠습니다.
-        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
+        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**", "/vendors/**");
     }
 
 
