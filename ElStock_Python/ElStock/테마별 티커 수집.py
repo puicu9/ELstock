@@ -45,6 +45,8 @@ ticker_url='https://finance.naver.com/sise/sise_group_detail.naver?type=theme&no
 code_list=myframe['테마코드']
 # print(code_list)
 ticker_list= []
+
+############### 등락률(전일대비 및 3일 평균) 추가해야 함. ###############
 ticker_column=['테마코드','티커명','티커']
 
 result_list= {}

@@ -16,8 +16,10 @@ for code in stock_code:
 
   webdata = requests.get(URL)
   html = webdata.text
+  # print(html)
 
   financial_stmt = pd.read_html(webdata.text)[3]
+
 
   financial_stmt.set_index(('주요재무정보', '주요재무정보', '주요재무정보'), inplace=True)
   financial_stmt.index.rename('주요재무정보', inplace=True)
@@ -28,6 +30,8 @@ for code in stock_code:
   financial_stmt = financial_stmt.transpose()
   financial_stmt = financial_stmt.reset_index()
   financial_stmt = financial_stmt[4:] # 연간 제무정보 제외(분기별 제무정보만 포함)
+
+
 
   columns = ['date','revenue','operating_profit','earnings','operation_income',
    'net_profit_rate','roe','debt_ratio','quick_ratio','reserve_ratio','eps',
