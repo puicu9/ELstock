@@ -3,6 +3,9 @@ import numpy as np
 import requests
 from bs4 import BeautifulSoup
 import ssl
+
+from ElStock import dbInsert
+
 myencoding='cp949'
 
 # 환율 : 엔화는 url주소는 JPYKRW로 바꾸면된다.
@@ -35,7 +38,15 @@ result = er_array.reshape(start, 2)
 # print(result)
 from pandas import DataFrame
 er_frame=DataFrame(result,columns=er_colunm)
-filename='환율(엔화).csv'
-er_frame.to_csv(filename,encoding='utf-8')
-print('끝!')
+
+
+# filename='환율(엔화).csv'
+# er_frame.to_csv(filename,encoding='utf-8')
+
+
+# DB에 넣기
+dbTableName = 'jpys'
+dbInsert.dbInsert(er_frame, dbTableName)
+
+print('환율(엔화) 크롤링 끝!')
 
