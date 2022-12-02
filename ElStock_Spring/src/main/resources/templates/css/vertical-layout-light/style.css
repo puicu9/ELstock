@@ -24094,7 +24094,7 @@ div.tagsinput span.tag a {
 
 .main-panel {
   transition: width 0.25s ease, margin 0.25s ease;
-  width: calc(100%);
+  width: calc(100% - 236px);
   min-height: calc(100vh - 4.625rem);
   display: -webkit-flex;
   display: flex;
@@ -25091,7 +25091,7 @@ div.tagsinput span.tag a {
 
 .navbar-breadcrumb {
   background: #00c8bf;
-  margin-top: 0rem;
+  margin-top: 4.625rem;
 }
 
 .navbar-breadcrumb .navbar-links-wrapper {
@@ -25099,7 +25099,7 @@ div.tagsinput span.tag a {
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease;
-  width: 800px;
+  width: calc(236px + 0.5rem);
   height: 4.062rem;
 }
 
@@ -25133,7 +25133,7 @@ div.tagsinput span.tag a {
 
 .navbar-breadcrumb .navbar-links-wrapper .nav-link a {
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.187rem;
 }
 
 .navbar-breadcrumb .navbar-menu-wrapper {
@@ -25144,7 +25144,7 @@ div.tagsinput span.tag a {
   color: #001737;
   padding-left: 1.812rem;
   padding-right: 1.812rem;
-  width: calc(100% - 236px - 0.5rem);/******************/
+  width: calc(100% - 236px - 0.5rem);
   height: 4.062rem;
 }
 
