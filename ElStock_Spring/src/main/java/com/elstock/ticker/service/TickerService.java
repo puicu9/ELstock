@@ -1,4 +1,4 @@
-package com.elstock.templates.service;
+package com.elstock.ticker.service;
 
 import com.elstock.member.entity.Member;
 import com.elstock.member.repository.MemberRepository;

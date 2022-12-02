@@ -49,7 +49,7 @@ def no_space(target):
 # 크롤링하는 함수
 def getData():
     count = 0  # 종목코드로 크롤링 얼마나 했는지 세는 count 변수
-    company_code = ''  # 종목 코드
+    ticker_code = ''  # 종목 코드
     company_capitalization = ''  # 시가총액
     company_rank = ''  # 시가 총액 순위
     company_share = ''  # 상장주식수
@@ -72,11 +72,11 @@ def getData():
     # 총액 / 순위 / 상장주식수 / None(액면가만 없음)
     #  tr  /  tr  /  tr(상장주식수)
 
-    for company_code in ticker_list[0::]:
-        print('종목코드 : ' + company_code)
+    for ticker_code in ticker_list[0::]:
+        print('종목코드 : ' + ticker_code)
 
 # 기업정보 크롤링
-        url = base_url + company_code
+        url = base_url + ticker_code
         html = requests.get(url)
         html = html.content.decode('cp949', 'replace')
         soup = BeautifulSoup(html, 'html.parser')
@@ -212,7 +212,7 @@ def getData():
         #end if (first_th == "투자의견l목표주가"):
 
 # 기업 주소 크롤링
-        get_url = get_url_site + company_code
+        get_url = get_url_site + ticker_code
         html_url = requests.get(get_url)
         html_url = html_url.content.decode('cp949', 'replace')
         url_soup = BeautifulSoup(html_url, 'html.parser')
@@ -225,7 +225,7 @@ def getData():
         # print(company_url)
 
 # 기업 개요 크롤링
-        comment_url = get_comment_url + company_code
+        comment_url = get_comment_url + ticker_code
         html_comment_url = requests.get(comment_url)
         html_comment = html_comment_url.content.decode('cp949', 'replace')
         comment_soup = BeautifulSoup(html_comment, 'html.parser')
@@ -240,7 +240,7 @@ def getData():
 
         count += 1
         # end for
-        mydata = [company_code,# 종목 코드
+        mydata = [ticker_code,# 종목 코드
                   company_capitalization,# 시가총액
                   company_rank,# 시가순위
                   company_share,# 상장주식수
@@ -252,14 +252,34 @@ def getData():
                   company_comment, # 기업개요
                   company_url] # 기업 url
         saveData.append(mydata)
+
+        mycolumns = ['ticker_code',  # 종목 코드
+                     'company_capitalization',  # 시가총액
+                     'company_rank',  # 시가순위
+                     'company_share',  # 상장주식수
+                     'company_value',  # 액면가
+                     'company_opinion',  # 투자의견
+                     'company_targetPrice',  # 목표주가
+                     'company_52weeks_max',  # 52주최고가
+                     'company_52weeks_min',  # 52주최저가
+                     'company_comment',  # 기업개요
+                     'company_url']  # 기업 url
+        myframe = DataFrame(saveData, columns=mycolumns)
+
+        #테이블명
+        tableName = 'Company'
+
+        toDatabase(myframe, tableName)
+
     # print(saveData)
     print('총 크롤링한 종목코드 개수 : ', count)
 # def getData():
 
 
+# to_csv 넣는 함수
 def saveFile():
     filename = 'company_info_file.csv'
-    mycolumns = ['company_code',# 종목 코드
+    mycolumns = ['ticker_code',# 종목 코드
                   'company_capitalization',# 시가총액
                   'company_rank',# 시가순위
                   'company_share',# 상장주식수
@@ -275,9 +295,24 @@ def saveFile():
     print(filename + '으로 저장되었습니다.')
 # end def saveFile():
 
+# DB에 넣는 함수
+def toDatabase(myframe, tableName):
+    #mysql에 필요한 것 import
+    import pymysql
+    from sqlalchemy import create_engine
+
+    db_connection_str = 'mysql+pymysql://root:mysql@localhost/elstock'
+    db_connection = create_engine(db_connection_str)
+    conn = db_connection.connect()
+
+    myframe.to_sql(name=tableName, con=db_connection, if_exists='append',index=False)
+#end def toDatabase():
+
+
+############################################################
 print('크롤링 시작')
 getData()
-saveFile()
+# saveFile()
 print('크롤링 종료')
 
 
