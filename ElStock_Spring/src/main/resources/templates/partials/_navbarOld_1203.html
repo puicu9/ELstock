@@ -16,22 +16,22 @@
         <ul class="navbar-nav mr-lg-2">
             <li class="nav-item nav-profile dropdown">
                 <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
-<!--                    <img src="images/faces/face5.jpg" alt="profile"/>-->
-                    <span class="nav-profile-name">닉네임 받기</span>
+                    <img src="images/faces/face5.jpg" alt="profile"/>
+                    <span class="nav-profile-name">Eugenia Mullins</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                     <a class="dropdown-item">
                         <i class="typcn typcn-cog-outline text-primary"></i>
-                        마이페이지
+                        Settings
                     </a>
                     <a class="dropdown-item">
                         <i class="typcn typcn-eject text-primary"></i>
-                        로그아웃
+                        Logout
                     </a>
                 </div>
             </li>
             <li class="nav-item nav-user-status dropdown">
-                <p class="mb-0">님 환영합니다</p>
+                <p class="mb-0">Last login was 23 hours ago.</p>
             </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
@@ -149,48 +149,58 @@
 <!-- partial 두 번째 navbar2 -->
 
 <nav th:fragment="navbar2" class="navbar-breadcrumb col-xl-12 col-12 d-flex flex-row p-0">
-    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <ul class="navbar-nav mr-lg-2">
+    <div class="navbar-links-wrapper d-flex flex-row align-items-stretch">
+        <ul class="nav">
 
-            <li class="nav-item ml-4">
-                <a class="atag" href="/news">
-                    <h4 class="mb-0">뉴스</h4>
+            <div class="nav-link">
+                <a href="javascript:;">
+                    <li class="nav-item">
+                        가나다라1
+                    </li>
                 </a>
-            </li>
+            </div>
 
-            <li class="nav-item ml-4">
-                <a class="atag" href="/domestic">
-                    <h4 class="mb-0">국내증시</h4>
+            <div class="nav-link">
+                <a href="javascript:;">
+                    <li class="nav-item">
+                        가나다라2
+                    </li>
                 </a>
-            </li>
+            </div>
 
-            <li class="nav-item ml-4">
-                <a class="atag" href="/theme">
-                    <h4 class="mb-0">테마</h4>
+            <div class="nav-link">
+                <a href="javascript:;">
+                    <li class="nav-item">
+                        가나다라3
+                    </li>
                 </a>
-            </li>
+            </div>
 
-            <li class="nav-item ml-4">
-                <a class="atag" href="/chart">
-                    <h4 class="mb-0">차트</h4>
+            <div class="nav-link">
+                <a href="javascript:;">
+                    <li class="nav-item">
+                        가나다라4
+                    </li>
                 </a>
-            </li>
+            </div>
 
-            <li class="nav-item ml-4">
-                <a class="atag" href="/finance">
-                    <h4 class="mb-0">재무</h4>
+            <div class="nav-link">
+                <a href="javascript:;">
+                    <li class="nav-item">
+                        가나다라5
+                    </li>
                 </a>
-            </li>
-
+            </div>
 
         </ul>
+    </div>
 
-        <!-- 검색 -->
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
 
         <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-search d-none d-md-block mr-0">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="종목명" aria-label="search"
+                    <input type="text" class="form-control" placeholder="Search..." aria-label="search"
                            aria-describedby="search">
                     <div class="input-group-prepend">
                 <span class="input-group-text" id="search">

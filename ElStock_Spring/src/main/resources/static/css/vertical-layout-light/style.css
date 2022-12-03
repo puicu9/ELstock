@@ -1,3 +1,11 @@
+/*
+    영훈 적용
+*/
+.atag{
+    color:white;
+}
+
+
 /*------------------------------------------------------------------
  [Master Stylesheet]
 
@@ -24201,7 +24209,7 @@ div.tagsinput span.tag a {
   vertical-align: middle;
 }
 
-.sidebar .nav .nav-item .nav-link i.menu-arrow {
+.sidebar .nav .nav-item .nav-link i.menu-heart {
   display: inline-block;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -24210,13 +24218,13 @@ div.tagsinput span.tag a {
   color: #686868;
 }
 
-.rtl .sidebar .nav .nav-item .nav-link i.menu-arrow {
+.rtl .sidebar .nav .nav-item .nav-link i.menu-heart {
   margin-left: 0;
   margin-right: auto;
 }
 
-.sidebar .nav .nav-item .nav-link i.menu-arrow:before {
-  content: "\e0cf";
+.sidebar .nav .nav-item .nav-link i.menu-heart:before {
+  content: "\e088";
   font-family: "typicons";
   font-style: normal;
   display: block;
@@ -24246,8 +24254,9 @@ div.tagsinput span.tag a {
   margin-right: auto;
 }
 
-.sidebar .nav .nav-item .nav-link[aria-expanded="true"] i.menu-arrow:before {
-  content: "\e0bd";
+
+.sidebar .nav .nav-item .nav-link[aria-expanded="true"] i.menu-heart:before {
+  content: "\e087";
 }
 
 .sidebar .nav .nav-item.active > .nav-link {
@@ -24257,7 +24266,7 @@ div.tagsinput span.tag a {
 
 .sidebar .nav .nav-item.active > .nav-link i,
 .sidebar .nav .nav-item.active > .nav-link .menu-title,
-.sidebar .nav .nav-item.active > .nav-link .menu-arrow {
+.sidebar .nav .nav-item.active > .nav-link .menu-heart {
   color: #12253f;
 }
 
@@ -25099,7 +25108,7 @@ div.tagsinput span.tag a {
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease;
-  width: calc(236px + 0.5rem);
+  width: calc(600px + 0.5rem);
   height: 4.062rem;
 }
 
@@ -25288,7 +25297,7 @@ div.tagsinput span.tag a {
     margin-left: auto;
     margin-bottom: .625rem;
   }
-  .sidebar-mini .sidebar .nav .nav-item .nav-link i.menu-arrow {
+  .sidebar-mini .sidebar .nav .nav-item .nav-link i.menu-heart {
     display: inline-block;
     margin-left: 5px;
     position: absolute;
@@ -25338,7 +25347,7 @@ div.tagsinput span.tag a {
     width: calc(100% - 70px - 0.5rem);
   }
   .sidebar-icon-only .sidebar {
-    width: 70px;
+    width: 0px;
   }
   .sidebar-icon-only .sidebar .nav {
     overflow: visible;
@@ -25368,7 +25377,7 @@ div.tagsinput span.tag a {
     margin-left: 0;
     margin-bottom: 0;
   }
-  .sidebar-icon-only .sidebar .nav .nav-item .nav-link i.menu-arrow {
+  .sidebar-icon-only .sidebar .nav .nav-item .nav-link i.menu-heart {
     display: none;
   }
   .sidebar-icon-only .sidebar .nav .nav-item .nav-link[aria-expanded] .menu-title {
