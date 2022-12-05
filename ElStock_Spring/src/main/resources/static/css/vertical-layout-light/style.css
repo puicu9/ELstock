@@ -1,8 +1,9 @@
 /*
     영훈 적용
 */
-.atag{
-    color:white;
+
+i .fav{
+padding : 1px;
 }
 
 
@@ -19717,11 +19718,11 @@ code {
 }
 
 .accordion .card .card-header a[aria-expanded="true"]:before {
-  content: "\e0cf";
+  content: "\e088";
 }
 
 .accordion .card .card-header a[aria-expanded="false"]:before {
-  content: "\e0bd";
+  content: "\e087";
 }
 
 .accordion .card .card-body {
