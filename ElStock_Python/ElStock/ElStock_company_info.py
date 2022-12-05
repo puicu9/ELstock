@@ -237,7 +237,7 @@ def getData():
         else:
             find_summary_info = comment_soup.find('div', attrs={'class':'summary_info'})
             # print(find_summary_info)
-            company_comment = no_space(find_summary_info).replace('기업개요','')
+            company_comment = no_space(find_summary_info).replace('기업개요','').replace('\n', '').replace('\t', '')
             # print(company_comment)
 
         count += 1
