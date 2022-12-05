@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface TickerRepositoryCustom {
 
-    // 메인페이지에서 검색하고자 할 때 사용
-    Page<Market> getMainTickerPage(TickerSearchDto dto, Pageable pageable) ;
+    // 메인페이지에서 티커 검색 목록을 보여주고자 할 때 사용
+    Page<Market> getTickerPage(TickerSearchDto dto, Pageable pageable) ;
+
 }

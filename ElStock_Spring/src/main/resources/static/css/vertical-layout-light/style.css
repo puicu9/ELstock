@@ -2,10 +2,32 @@
     영훈 적용
 */
 
+/*
+시도해보려했응나 실패
 i .fav{
 padding : 1px;
 }
 
+li .nav_item, span .menu-title, a .nav-link, span .mb-1{
+display: inline-block
+display:flex;
+flex-wrap: nowrap;
+flex-direction:row;
+flex-basis:auto;
+flex-grow:1;
+text-decoration-line:none;
+font-color:black;
+padding: 0.87rem 0.875rem 0.87rem 0.6rem;
+
+}
+
+.btnFav{
+background:white;
+padding:0;
+border:0px;
+justify-content:flex-end;
+}
+*/
 
 /*------------------------------------------------------------------
  [Master Stylesheet]
@@ -25283,6 +25305,7 @@ div.tagsinput span.tag a {
     text-align: center;
     position: relative;
     border-bottom: none;
+    flex-wrap: nowrap;
   }
   .sidebar-mini .sidebar .nav .nav-item .nav-link .menu-title {
     display: block;
@@ -25390,7 +25413,7 @@ div.tagsinput span.tag a {
   .sidebar-icon-only .sidebar .nav .nav-item .collapse {
     display: none;
   }
-  .sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title {
+  .sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title .btnFav {
     display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
