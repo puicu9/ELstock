@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thumeleaf/layout">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+$(document).ready(function(){
+      $('#searchButton').on('click', function(event){
+        event.preventDefault(); /* 이벤트 전파 방지 효과 */
+        gotoPage(0) ; /* 시작하자마자 1페이지로 이동하기 */
+      });
+    });
+
+    function gotoPage(page){
+      /* 해당 태그에는 field 이름을 속성 값으로 하는 id 속성이 자동으로 만들어 집니다. */
+      var searchQuery = $("#searchQuery").val();
+
+      location.href="/search/list/" + page + "?searchQuery=" + searchQuery;
+    }
+    </script>
+</th:block>
+
+
+<!-- 사용자 정의 CSS 추가 -->
+<th:block layout:fragment="css">
+    <style>
+    select{margin-right:10px;}
+  </style>
+</th:block>
+
+    <title>Title</title>
+
+
+<div class="content" layout:fragment="content">
+    <form role="form" method="get" th:object="${tickers}"
+          th:action="@{'/search/lists/'+${tickers.ticker_code}}" >
+
+        <input type="hidden" name="searchQuery" th:value="${searchDto.searchQuery}">
+        <div th:if="${not #strings.isEmpty(searchDto.searchQuery)}" class="center">
+            <p class="h3 font-weight-bold" th:text="${searchDto.searchQuery} + '검색 결과'"></p>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <td>종목명</td>
+                <td>종목코드</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="bean, status:${tickers.getContent()}">
+                <td th:text="${bean.ticker_name}"></td>
+                <td>
+                <td th:text="${bean.ticker_code}"></td>
+<!--                    <a th:href="'/admin/tickers/'+${bean.id}" th:text="${bean.name}"></a>-->
+            </tr>
+            </tbody>
+        </table>
+
+        <!--/* 하단 페이징 영역 */-->
+        <div th:with="start=${(tickers.number/maxPage)*maxPage+1}, end=(${(tickers.totalPages==0) ? 1 : (start + (maxPage-1) < tickers.totalPages ? start + (maxPage-1) : tickers.totalPages)})">
+            <ul class="pagination justify-content-center">
+                <!--/* Previous */-->
+                <li class="page-item" th:classappend="${tickers.first}?'disabled'">
+                    <a th:onclick="'javascript:gotoPage('+${tickers.number-1}+')'" aria-label='Previous' class="page-link">
+                        <span aria-hidden='true'>Previous</span>
+                    </a>
+                </li>
+
+                <!--/* 숫자 반복 영역 */-->
+                <li class="page-item" th:each="page:${#numbers.sequence(start, end)}" th:classappend="${tickers.number eq page-1}?'active':''">
+                    <a th:onclick="'javascript:gotoPage('+ ${page-1}+')'" th:inline="text" class="page-link">[[${page}]]</a>
+                </li>
+
+                <!--/* Next */-->
+                <li class="page-item" th:classappend="${tickers.last}?'disabled'">
+                    <a th:onclick="'javascript:gotoPage('+${tickers.number+1}+')'" aria-label='Next' class="page-link">
+                        <span aria-hidden='true'>Next</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!--/* 필드 검색 옵션 */-->
+        <div th:with="start=${(tickers.number/maxPage)*maxPage + 1}, end=(${(tickers.totalPages == 0) ? 1 : (start + (maxPage - 1) < tickers.totalPages ? start + (maxPage - 1) : tickers.totalPages)})" >
+            <ul class="pagination justify-content-center">
+
+                <li class="page-item" th:classappend="${tickers.number eq 0}?'disabled':''">
+                    <a th:href="@{'/' + '?searchQuery=' + ${searchDto.searchQuery} + '&page=' + ${tickers.number-1}}" aria-label='Previous' class="page-link">
+                        <span aria-hidden='true'>Previous</span>
+                    </a>
+                </li>
+
+                <li class="page-item" th:each="page: ${#numbers.sequence(start, end)}" th:classappend="${tickers.number eq page-1}?'active':''">
+                    <a th:href="@{'/' +'?searchQuery=' + ${searchDto.searchQuery} + '&page=' + ${page-1}}" th:inline="text" class="page-link">[[${page}]]</a>
+                </li>
+
+                <li class="page-item" th:classappend="${tickers.number+1 ge tickers.totalPages}?'disabled':''">
+                    <a th:href="@{'/' +'?searchQuery=' + ${searchDto.searchQuery} + '&page=' + ${tickers.number+1}}" aria-label='Next' class="page-link">
+                        <span aria-hidden='true'>Next</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
+    </form>
+</div>
+</html>

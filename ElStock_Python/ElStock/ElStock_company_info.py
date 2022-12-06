@@ -74,7 +74,7 @@ def getData():
     # 총액 / 순위 / 상장주식수 / None(액면가만 없음)
     #  tr  /  tr  /  tr(상장주식수)
 
-    for ticker_code in ticker_list[0::]:
+    for ticker_code in ticker_list[0:10:]:
         print('종목코드 : ' + ticker_code)
 
 # 기업정보 크롤링
@@ -237,7 +237,7 @@ def getData():
         else:
             find_summary_info = comment_soup.find('div', attrs={'class':'summary_info'})
             # print(find_summary_info)
-            company_comment = no_space(find_summary_info).replace('기업개요','')
+            company_comment = no_space(find_summary_info).replace('기업개요','').replace('\n', '').replace('\t', '')
             # print(company_comment)
 
         count += 1

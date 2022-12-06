@@ -1,3 +1,34 @@
+/*
+    영훈 적용
+*/
+
+/*
+시도해보려했응나 실패
+i .fav{
+padding : 1px;
+}
+
+li .nav_item, span .menu-title, a .nav-link, span .mb-1{
+display: inline-block
+display:flex;
+flex-wrap: nowrap;
+flex-direction:row;
+flex-basis:auto;
+flex-grow:1;
+text-decoration-line:none;
+font-color:black;
+padding: 0.87rem 0.875rem 0.87rem 0.6rem;
+
+}
+
+.btnFav{
+background:white;
+padding:0;
+border:0px;
+justify-content:flex-end;
+}
+*/
+
 /*------------------------------------------------------------------
  [Master Stylesheet]
 
@@ -19709,11 +19740,11 @@ code {
 }
 
 .accordion .card .card-header a[aria-expanded="true"]:before {
-  content: "\e0cf";
+  content: "\e088";
 }
 
 .accordion .card .card-header a[aria-expanded="false"]:before {
-  content: "\e0bd";
+  content: "\e087";
 }
 
 .accordion .card .card-body {
@@ -24201,7 +24232,7 @@ div.tagsinput span.tag a {
   vertical-align: middle;
 }
 
-.sidebar .nav .nav-item .nav-link i.menu-arrow {
+.sidebar .nav .nav-item .nav-link i.menu-heart {
   display: inline-block;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -24210,13 +24241,13 @@ div.tagsinput span.tag a {
   color: #686868;
 }
 
-.rtl .sidebar .nav .nav-item .nav-link i.menu-arrow {
+.rtl .sidebar .nav .nav-item .nav-link i.menu-heart {
   margin-left: 0;
   margin-right: auto;
 }
 
-.sidebar .nav .nav-item .nav-link i.menu-arrow:before {
-  content: "\e0cf";
+.sidebar .nav .nav-item .nav-link i.menu-heart:before {
+  content: "\e088";
   font-family: "typicons";
   font-style: normal;
   display: block;
@@ -24246,8 +24277,9 @@ div.tagsinput span.tag a {
   margin-right: auto;
 }
 
-.sidebar .nav .nav-item .nav-link[aria-expanded="true"] i.menu-arrow:before {
-  content: "\e0bd";
+
+.sidebar .nav .nav-item .nav-link[aria-expanded="true"] i.menu-heart:before {
+  content: "\e087";
 }
 
 .sidebar .nav .nav-item.active > .nav-link {
@@ -24257,7 +24289,7 @@ div.tagsinput span.tag a {
 
 .sidebar .nav .nav-item.active > .nav-link i,
 .sidebar .nav .nav-item.active > .nav-link .menu-title,
-.sidebar .nav .nav-item.active > .nav-link .menu-arrow {
+.sidebar .nav .nav-item.active > .nav-link .menu-heart {
   color: #12253f;
 }
 
@@ -25099,7 +25131,7 @@ div.tagsinput span.tag a {
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease;
-  width: calc(236px + 0.5rem);
+  width: calc(600px + 0.5rem);
   height: 4.062rem;
 }
 
@@ -25273,6 +25305,7 @@ div.tagsinput span.tag a {
     text-align: center;
     position: relative;
     border-bottom: none;
+    flex-wrap: nowrap;
   }
   .sidebar-mini .sidebar .nav .nav-item .nav-link .menu-title {
     display: block;
@@ -25288,7 +25321,7 @@ div.tagsinput span.tag a {
     margin-left: auto;
     margin-bottom: .625rem;
   }
-  .sidebar-mini .sidebar .nav .nav-item .nav-link i.menu-arrow {
+  .sidebar-mini .sidebar .nav .nav-item .nav-link i.menu-heart {
     display: inline-block;
     margin-left: 5px;
     position: absolute;
@@ -25338,7 +25371,7 @@ div.tagsinput span.tag a {
     width: calc(100% - 70px - 0.5rem);
   }
   .sidebar-icon-only .sidebar {
-    width: 70px;
+    width: 0px;
   }
   .sidebar-icon-only .sidebar .nav {
     overflow: visible;
@@ -25368,7 +25401,7 @@ div.tagsinput span.tag a {
     margin-left: 0;
     margin-bottom: 0;
   }
-  .sidebar-icon-only .sidebar .nav .nav-item .nav-link i.menu-arrow {
+  .sidebar-icon-only .sidebar .nav .nav-item .nav-link i.menu-heart {
     display: none;
   }
   .sidebar-icon-only .sidebar .nav .nav-item .nav-link[aria-expanded] .menu-title {
@@ -25380,7 +25413,7 @@ div.tagsinput span.tag a {
   .sidebar-icon-only .sidebar .nav .nav-item .collapse {
     display: none;
   }
-  .sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title {
+  .sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title .btnFav {
     display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
