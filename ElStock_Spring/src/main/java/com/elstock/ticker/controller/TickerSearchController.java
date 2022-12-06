@@ -44,6 +44,6 @@ public class TickerSearchController {
         System.out.println("tickers : " + tickers.toString());
         System.out.println("dto : " + dto);
 
-        return "/partials/_navbar";
+        return "tickers/tiList";
     }
 }
