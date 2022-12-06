@@ -4,6 +4,7 @@ import com.elstock.ticker.dto.TickerSearchDto;
 import com.elstock.ticker.entity.Market;
 import com.elstock.ticker.entity.QMarket;
 import com.querydsl.core.QueryResults;
+import com.querydsl.core.Tuple;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.data.domain.Page;
@@ -37,22 +38,22 @@ public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryC
     }
 
     @Override
-    public Page<Market> getTickerPage(TickerSearchDto dto, Pageable pageable) {
-        QueryResults<Market> result = this.queryFactory
-//                .selectFrom(QMarket.market)
-//                .select(QMarket.market.ticker_name)
-//                .select(QMarket.market.ti)
-//                .where(searchQueryCondition(dto.getSearchQuery()))
-//                .orderBy(QMarket.market.ticker_name.asc())
-//                .groupBy(QMarket.market.ticker_name)
-//                .groupBy(QMarket.market.ticker_code)
-//                .offset(pageable.getOffset())
-//                .limit(pageable.getPageSize())
-//                .fetchResults();
-        List<Market> content = result.getResults();
+    public Page<Tuple> getTickerPage(TickerSearchDto dto, Pageable pageable) {
+        QMarket market = QMarket.market;
 
+        QueryResults<Tuple> result = this.queryFactory
+                .select(market.ticker_code, market.ticker_name)
+                .from(market)
+                .where(searchQueryCondition(dto.getSearchQuery()))
+                .orderBy(market.ticker_name.asc())
+                .groupBy(market.ticker_name, market.ticker_code)
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
+                .fetchResults();
+        List<Tuple> content = result.getResults();
+
+        // 결과 집합의 총 개수 반환
         long total = result.getTotal();
-
 
         return new PageImpl<>(content, pageable, total);
     }
