@@ -63,7 +63,7 @@ df = pd.DataFrame(news_info_list)
 df.columns = ['news_url','news_header','news_body','news_img']
 print(df)
 
-dbInsert.dbInsert(df,'News')
+dbInsert.dbInsert(df, 'news')
 
 
 

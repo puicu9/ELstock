@@ -12,6 +12,8 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 import requests
 
+from ElStock import dbInsert
+
 saveData = []  # 엑셀로 저장될 리스트
 
 today = datetime.today().strftime("%y%m%d")
@@ -72,7 +74,7 @@ def getData():
     # 총액 / 순위 / 상장주식수 / None(액면가만 없음)
     #  tr  /  tr  /  tr(상장주식수)
 
-    for ticker_code in ticker_list[0::]:
+    for ticker_code in ticker_list[0:10:]:
         print('종목코드 : ' + ticker_code)
 
 # 기업정보 크롤링
@@ -235,7 +237,7 @@ def getData():
         else:
             find_summary_info = comment_soup.find('div', attrs={'class':'summary_info'})
             # print(find_summary_info)
-            company_comment = no_space(find_summary_info).replace('기업개요','')
+            company_comment = no_space(find_summary_info).replace('기업개요','').replace('\n', '').replace('\t', '')
             # print(company_comment)
 
         count += 1
@@ -267,9 +269,9 @@ def getData():
         myframe = DataFrame(saveData, columns=mycolumns)
 
         #테이블명
-        tableName = 'Company'
+        tableName = 'companys'
 
-        toDatabase(myframe, tableName)
+        dbInsert.dbInsert(myframe, tableName)
 
     # print(saveData)
     print('총 크롤링한 종목코드 개수 : ', count)
@@ -296,17 +298,19 @@ def saveFile():
 # end def saveFile():
 
 # DB에 넣는 함수
-def toDatabase(myframe, tableName):
-    #mysql에 필요한 것 import
-    import pymysql
-    from sqlalchemy import create_engine
 
-    db_connection_str = 'mysql+pymysql://root:mysql@localhost/elstock'
-    db_connection = create_engine(db_connection_str)
-    conn = db_connection.connect()
 
-    myframe.to_sql(name=tableName, con=db_connection, if_exists='append',index=False)
-#end def toDatabase():
+# def toDatabase(myframe, tableName):
+#     #mysql에 필요한 것 import
+#     import pymysql
+#     from sqlalchemy import create_engine
+#
+#     db_connection_str = 'mysql+pymysql://root:mysql@localhost/elstock'
+#     db_connection = create_engine(db_connection_str)
+#     conn = db_connection.connect()
+#
+#     myframe.to_sql(name=tableName, con=db_connection, if_exists='append',index=False)
+# #end def toDatabase():
 
 
 ############################################################
