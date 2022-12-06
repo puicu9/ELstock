@@ -7,6 +7,7 @@
 <th:block layout:fragment="script">
     <script th:inline="javascript">
 
+
     </script>
 </th:block>
 
@@ -37,9 +38,10 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="bean:${tickers}">
-                <td th:text="${bean.ticker_name}"></td>
-                <td th:text="${bean.ticker_code}"></td>
+
+            <tr th:each="bean, status:${tickers}">
+                <td th:text="${bean.number}"></td>
+                <td th:text="${bean.number}"></td>
 <!--                    <a th:href="'/admin/tickers/'+${bean.id}" th:text="${bean.name}"></a>-->
             </tr>
             </tbody>
