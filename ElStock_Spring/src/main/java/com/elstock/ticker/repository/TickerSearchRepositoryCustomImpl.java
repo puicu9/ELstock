@@ -14,10 +14,10 @@ import org.thymeleaf.util.StringUtils;
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class TickerRepositoryCustomImpl implements TickerRepositoryCustom{
+public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryCustom {
     private JPAQueryFactory queryFactory ;
 
-    public TickerRepositoryCustomImpl(EntityManager em) {
+    public TickerSearchRepositoryCustomImpl(EntityManager em) {
         this.queryFactory = new JPAQueryFactory(em);
     }
 

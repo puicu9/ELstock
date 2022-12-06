@@ -20,7 +20,7 @@ public class TickerSearchController {
 
     private final TickerSearchService tickerSearchService;
 
-    @GetMapping(value = {"search/lists", "search/lists/{page}"})
+    @GetMapping(value = {"/search/lists", "/search/lists/{page}"})
     public String TickerSearchManage(TickerSearchDto dto, @PathVariable("page") Optional<Integer> page, Model model){
 
         System.out.println("TickerSearchController");
@@ -40,9 +40,9 @@ public class TickerSearchController {
         model.addAttribute("searchDto", dto) ; // for 검색 조건 유지
         model.addAttribute("maxPage", 5) ; // 하단에 보여줄 페이지 번호의 최대 개수
 
-        System.out.println("tickers : " + tickers);
+        System.out.println("tickers : " + tickers.toString());
         System.out.println("dto : " + dto);
 
-        return "tickers/tiList";
+        return "/partials/_navbar";
     }
 }

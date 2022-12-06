@@ -1,13 +1,11 @@
 package com.elstock.ticker.service;
 
-import com.elstock.member.repository.MemberRepository;
 import com.elstock.ticker.dto.TickerSearchDto;
 import com.elstock.ticker.entity.Market;
 import com.elstock.ticker.repository.TickerSearchRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <nav th:fragment="navbar" class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -71,42 +71,26 @@
 
 
         <!-- 검색 ticker_name을 검색하도록 -->
-<!--        +${tickers.ticker_code}}  -->
-    <div class="content" layout:fragment="content">
-        <form role="form" method="get" th:object="${tickers}"
-              th:action="@{/search/lists/}" >
+        <form role="form" method="get" th:action="@{'/search/lists/'+${tickers.ticker_code}}" >
+
             <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item nav-search d-none d-md-block mr-0">
-                    <div class="searchBox input-group">
+                    <div class="input-group">
 
-<!--                        <input name="searchQuery" id="search" type="text" class="form-control" placeholder="종목명" aria-label="search"-->
-<!--                               aria-describedby="search" onkeyup="searchFilter()">-->
-
-                        <input name="searchQuery" id="searchQuery" type="text" class="form-control" placeholder="종목명" aria-label="search"
+                        <input name="searchQuery" type="search" class="form-control" placeholder="종목명" aria-label="search"
                                aria-describedby="search">
 
                         <div class="input-group-prepend">
                             <button class="input-group-prepend" type="submit">
-                                <span class="input-group-text" >
+                                <span class="input-group-text" id="search">
                                   <i class="typcn typcn-zoom"></i>
                                 </span>
                             </button>
                         </div>
-
-<!--                        <div class="listBox">-->
-<!--                            <div th:each="bean :${tickers}" class="listInner" style="display:none">-->
-<!--                                <span th:text="${bean.ticker_code}" class="ticker_code"></span>-->
-<!--                                <span th:text="${bean.ticker_name}" class="ticker_name"></span>-->
-<!--                            </div>-->
-
-<!--                        </div>-->
-
-
                     </div>
                 </li>
             </ul>
         </form>
-    </div>
 
 
         <ul class="navbar-nav navbar-nav-right">
@@ -220,17 +204,6 @@
         </button>
     </div>
 </nav>
-
-<!-- JQuery 링크-->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-<!-- search 활용
-<script src="/js/searchFilter.js"></script>
--->
-
-
 
 
 
