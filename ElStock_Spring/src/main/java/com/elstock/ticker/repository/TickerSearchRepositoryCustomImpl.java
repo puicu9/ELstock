@@ -59,6 +59,7 @@ public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryC
                 .limit(pageable.getPageSize())
                 .fetch();
 
+
         return new PageImpl<>(content, pageable, content.size());
     }
 
