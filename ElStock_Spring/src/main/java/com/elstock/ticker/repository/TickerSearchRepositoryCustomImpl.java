@@ -1,7 +1,6 @@
 package com.elstock.ticker.repository;
 
 import com.elstock.ticker.dto.TickerSearchDto;
-import com.elstock.ticker.entity.Market;
 import com.elstock.ticker.entity.QMarket;
 import com.querydsl.core.QueryResults;
 import com.querydsl.core.Tuple;
