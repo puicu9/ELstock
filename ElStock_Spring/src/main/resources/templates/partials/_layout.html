@@ -49,12 +49,10 @@
         <div th:replace="partials/_sidebar::sidebar"></div>
 
         <!--   메인     -->
-            <div th:replace:fragment="content" class="content main-panel">
+            <div layout:frament="content" class="content main-panel">
+
+
             <!-- content-wrapper ends -->
-
-                <!--본문-->
-                <div class="content" layout:frament="content"></div>
-
 
             <!-- partial:partials/_footer.html -->
             <div th:replace="partials/_footer::footer"></div>
@@ -86,6 +84,7 @@
 <script src="/js/dashboard.js"></script>
 <!-- End custom js for this page-->
 
+<!--JQUery-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </body>
