@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{partials/_layout}">
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>ElStock</title>
-    <!-- base:css -->
-    <link rel="stylesheet" href="/vendors/typicons/typicons.css">
-    <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
-    <!-- endinject -->
-    <link rel="shortcut icon" href="/images/favicon.png"/>
 
-    <th:block layout:fragment="script"></th:block>
-    <th:block layout:fragment="css"></th:block>
+
+    <th:block layout:fragment="script">
+
+    </th:block>
+
+    <th:block layout:fragment="css">
+
+    </th:block>
 
 </head>
-<body>
 
 <!--배너-->
 <!--<div class="row" id="proBanner">-->
@@ -35,62 +31,10 @@
 <!--  </div>-->
 <!--</div>-->
 
-<div class="container-scroller">
-    <!-- partial:partials/_navbar.html -->
-    <div th:replace="partials/_navbar::navbar"></div>
-<!--    <div th:replace="partials/_navbar::navbar2"></div>-->
+<div class="content" layout:frament="content">
 
 
-    <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_settings-panel.html -->
-        <div th:replace="partials/_settings-panel::settings-panel"></div>
-
-        <!-- partial:partials/_sidebar.html -->
-        <div th:replace="partials/_sidebar::sidebar"></div>
-
-        <!--   메인     -->
-        <div class="main-panel">
-            <div class="content-wrapper">
-
-                <div class="row">
-
-                </div>
-
-            </div>
-            <!-- content-wrapper ends -->
-
-            <!-- partial:partials/_footer.html -->
-            <div th:replace="partials/_footer::footer"></div>
-
-
-        </div>
-        <!-- main-panel ends -->
-    </div>
-    <!-- page-body-wrapper ends -->
 </div>
-<!-- container-scroller -->
-
-<!-- base:js -->
-<script src="/vendors/js/vendor.bundle.base.js"></script>
-<!-- endinject -->
-<!-- Plugin js for this page-->
-<script src="/vendors/chart.js/Chart.min.js"></script>
-<!-- End plugin js for this page-->
-<!-- inject:js -->
-<script src="/js/off-canvas.js"></script>
-
-<!-- hover 기능(마우스 대면 목록 나오게하는거-->
-<!--<script src="/js/hoverable-collapse.js"></script>-->
-
-<script src="/js/template.js"></script>
-<script src="/js/settings.js"></script>
-<script src="/js/todolist.js"></script>
-<script src="/js/favorite.js"></script>
-<!-- endinject -->
-<!-- Custom js for this page-->
-<script src="/js/dashboard.js"></script>
-<!-- End custom js for this page-->
-</body>
 
 </html>
 
