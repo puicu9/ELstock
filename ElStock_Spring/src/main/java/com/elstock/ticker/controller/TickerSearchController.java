@@ -40,6 +40,7 @@ public class TickerSearchController {
         model.addAttribute("searchDto", dto) ; // for 검색 조건 유지
         model.addAttribute("maxPage", 5) ; // 하단에 보여줄 페이지 번호의 최대 개수
 
+        System.out.println("pageable : " + pageable.toString());
         System.out.println("tickers : " + tickers.toString());
         System.out.println("dto : " + dto);
 
