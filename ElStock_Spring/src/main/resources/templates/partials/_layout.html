@@ -1,25 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html
+        lagn="ko"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>ElStock</title>
-    <!-- base:css -->
-    <link rel="stylesheet" href="/vendors/typicons/typicons.css">
-    <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
-    <!-- endinject -->
-    <link rel="shortcut icon" href="/images/favicon.png"/>
 
-    <th:block layout:fragment="script"></th:block>
-    <th:block layout:fragment="css"></th:block>
+    <!-- config fragment 사용 -->
+    <th:block th:replace="partials/_config :: configFragment"></th:block>
 
 </head>
 <body>
@@ -49,45 +41,23 @@
         <div th:replace="partials/_sidebar::sidebar"></div>
 
         <!--   메인     -->
-            <div layout:frament="content" class="content main-panel">
-
-
+        <div th:frament="content" class="content main-panel">
             <!-- content-wrapper ends -->
 
+            <!--본문-->
+            <th:block layout:fragment="content"></th:block>
+
+
             <!-- partial:partials/_footer.html -->
-            <div th:replace="partials/_footer::footer"></div>
+            <div th:replace="partials/_footer :: footer"></div>
             <!-- main-panel ends -->
-            </div>
-    <!-- page-body-wrapper ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
     </div>
-<!-- container-scroller -->
+    <!-- container-scroller -->
 </div>
 
-<!-- base:js -->
-<script src="/vendors/js/vendor.bundle.base.js"></script>
-<!-- endinject -->
-<!-- Plugin js for this page-->
-<script src="/vendors/chart.js/Chart.min.js"></script>
-<!-- End plugin js for this page-->
-<!-- inject:js -->
-<script src="/js/off-canvas.js"></script>
-
-<!-- hover 기능(마우스 대면 목록 나오게하는거-->
-<!--<script src="/js/hoverable-collapse.js"></script>-->
-
-<script src="/js/template.js"></script>
-<script src="/js/settings.js"></script>
-<script src="/js/todolist.js"></script>
-<script src="/js/favorite.js"></script>
-<!-- endinject -->
-<!-- Custom js for this page-->
-<script src="/js/dashboard.js"></script>
-<!-- End custom js for this page-->
-
-<!--JQUery-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </body>
 
 </html>
-

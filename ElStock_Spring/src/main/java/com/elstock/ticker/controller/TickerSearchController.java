@@ -43,6 +43,6 @@ public class TickerSearchController {
         System.out.println("tickers : " + tickers.toString());
         System.out.println("dto : " + dto);
 
-        return "/tickers/tiList";
+        return "tickers/tiList";
     }
 }
