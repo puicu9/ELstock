@@ -104,6 +104,7 @@
                             select ticker_name, ticker_code
                             from markets
                             where ticker_name like '%' || #{value} || '%'
+                            group by ticker_name, ticker_code
                         </select>
 
                     </div>

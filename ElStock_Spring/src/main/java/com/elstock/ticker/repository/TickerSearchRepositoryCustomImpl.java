@@ -39,12 +39,16 @@ public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryC
     @Override
     public Page<Market> getTickerPage(TickerSearchDto dto, Pageable pageable) {
         QueryResults<Market> result = this.queryFactory
-                .selectFrom(QMarket.market)
-                .where(searchQueryCondition(dto.getSearchQuery()))
-                .orderBy(QMarket.market.ticker_name.asc())
-                .offset(pageable.getOffset())
-                .limit(pageable.getPageSize())
-                .fetchResults();
+//                .selectFrom(QMarket.market)
+//                .select(QMarket.market.ticker_name)
+//                .select(QMarket.market.ti)
+//                .where(searchQueryCondition(dto.getSearchQuery()))
+//                .orderBy(QMarket.market.ticker_name.asc())
+//                .groupBy(QMarket.market.ticker_name)
+//                .groupBy(QMarket.market.ticker_code)
+//                .offset(pageable.getOffset())
+//                .limit(pageable.getPageSize())
+//                .fetchResults();
         List<Market> content = result.getResults();
 
         long total = result.getTotal();
