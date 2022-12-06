@@ -50,12 +50,11 @@ $(document).ready(function(){
             </tr>
             </thead>
             <tbody>
-<!--            <tr th:each="bean, status:${tickers.getContent()}">-->
-<!--                <td th:text="${bean.ticker_name}"></td>-->
-<!--                <td>-->
-<!--                <td th:text="${bean.ticker_code}"></td>-->
-<!--&lt;!&ndash;                    <a th:href="'/admin/tickers/'+${bean.id}" th:text="${bean.name}"></a>&ndash;&gt;-->
-<!--            </tr>-->
+            <tr th:each="bean:${tickers}">
+                <td th:text="${bean.ticker_name}"></td>
+                <td th:text="${bean.ticker_code}"></td>
+<!--                    <a th:href="'/admin/tickers/'+${bean.id}" th:text="${bean.name}"></a>-->
+            </tr>
             </tbody>
         </table>
 
