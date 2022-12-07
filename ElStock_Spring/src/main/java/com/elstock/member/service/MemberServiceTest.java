@@ -25,7 +25,7 @@ public class MemberServiceTest {
     private Member createMember() throws JSONException, IOException {
         // DTO는 차후에 폼 양식에서 기입하는 내용이 됩니다.
         MemberNewDto dto = new MemberNewDto() ;
-//        dto.setAddress("마포구 합정동") ;
+        dto.setAddress("마포구 합정동") ;
         dto.setName("김유신") ;
         dto.setPassword("1234") ;
         dto.setEmail("asdf@naver.com") ;
@@ -44,7 +44,7 @@ public class MemberServiceTest {
 
         //p. 60 Assertions.assertEquals(before, after) : 두 개의 값을 비교합니다.
         Assertions.assertEquals(member.getEmail(), savedMember.getEmail());
-//        Assertions.assertEquals(member.getAddress(), savedMember.getAddress());
+        Assertions.assertEquals(member.getAddress(), savedMember.getAddress());
         Assertions.assertEquals(member.getName(), savedMember.getName());
         Assertions.assertEquals(member.getRole(), savedMember.getRole());
         Assertions.assertEquals(member.getPassword(), savedMember.getPassword());

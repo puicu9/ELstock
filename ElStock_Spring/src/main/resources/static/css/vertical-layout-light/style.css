@@ -24069,11 +24069,7 @@ div.tagsinput span.tag a {
 }
 
 .auth .brand-logo img {
-  width: 200px;
-  align:center;
-  margin: auto;
-  display: flex;
-  justify-content : center;
+  width: 150px;
 }
 
 .auth form .form-group {

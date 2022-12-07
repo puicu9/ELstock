@@ -1,10 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<mapper namespace="user">
-    <select id="autocomplete" parameterType="map" resultType="map">
-        select ticker_name, ticker_code
-        from markets
-        where ticker_name like '%' || #{value} || '%'
-    </select>
-</mapper>
+<?xml version="1.0" encoding="utf-8" ?>
+<select id="autocomplete" parameterType="map" resultType="map">
+    select ticker_name, ticker_code
+    from markets
+    where ticker_name like '%' || #{value} || '%'
+</select>

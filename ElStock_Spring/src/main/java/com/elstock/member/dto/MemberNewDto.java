@@ -1,15 +1,10 @@
 package com.elstock.member.dto;
 
-import com.elstock.member.repository.MemberRepository;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 
-
-import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -30,8 +25,6 @@ public class MemberNewDto {
     @Length(min = 8, max = 16, message = "비밀번호는 8자리 이상 16자리 이하로 입력해 주세요.")
     private String password ;
 
-
-//    @NotEmpty(message = "주소는 필수 입력 사항입니다.")
-//    private String address ;
-
+    @NotEmpty(message = "주소는 필수 입력 사항입니다.")
+    private String address ;
 }

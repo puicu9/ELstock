@@ -6,15 +6,6 @@
           event.preventDefault(); /* 이벤트 전파 방지 효과 */
           gotoPage(0) ; /* 시작하자마자 1페이지로 이동하기 */
         });
-
-        var now = new Date();
-        var month = now.getMonth();
-//        console.log("월 : ", month);
-        var day = now.getDay();
-
-        $('.date').html(month + ' / ' + day);
-
-
   });
 
   function gotoPage(page){

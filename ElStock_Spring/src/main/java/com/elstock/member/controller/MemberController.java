@@ -14,7 +14,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 import javax.validation.Valid;
@@ -24,12 +23,11 @@ import java.io.IOException;
 @RequiredArgsConstructor // for MemberController02
 @RequestMapping(value = "members")
 public class MemberController {
-
     private final String urlPrefix = "/member" ; // MemberController01
 
     @GetMapping(value = "/new")
     public String insertForm(Model model){ // MemberController01
-        model.addAttribute("memberNewDto", new MemberNewDto()) ;
+        model.addAttribute("memberFormDto", new MemberNewDto()) ;
         return urlPrefix + "/memberInsertForm" ;
     }
 
@@ -41,7 +39,7 @@ public class MemberController {
     // @Valid 는 command 객체에 유효성 검사를 진행해 줍니다.
     // BindingResult 는 유효성 검사에 문제가 있으면, 해당 정보가 들어 있습니다.
     @PostMapping(value = "/new")
-    public String insertForm(@Valid MemberNewDto dto, BindingResult error, Model model){ // MemberController02
+    public String insertForm2(@Valid MemberNewDto dto, BindingResult error, Model model){ // MemberController02
         if(error.hasErrors()){ // 유효성 검사를 충족하지 못하면 다시 가입 페이지로 이동
             return urlPrefix + "/memberInsertForm" ;
         }
@@ -53,15 +51,13 @@ public class MemberController {
             model.addAttribute("errorMessage", err.getMessage()) ;
             return urlPrefix + "/memberInsertForm" ;
         } catch (JSONException e) {
-            e.printStackTrace();
             throw new RuntimeException(e);
         } catch (IOException e) {
-            e.printStackTrace();
             throw new RuntimeException(e);
         }
 
         // 메인 페이지로 이동
-        return urlPrefix + "/memberLoginForm" ; // response.sendRedirect() ; 와 같음
+        return "redirect:/" ; // response.sendRedirect() ; 와 같음
     }
 
 
@@ -75,12 +71,9 @@ public class MemberController {
     // MemberController03
     // SecurityConfig 파일에 정의되어 있습니다.
     @GetMapping(value = "/login/error")
-    public String loginError(@RequestParam(value = "error", required = false) String error, @RequestParam(value = "exception", required = false) String exception, Model model){
+    public String loginError(Model model){
         // "loginErrorMsg" 내용은 memberLoginForm.html 파일 내에 구현되어 있습니다.
-        model.addAttribute("loginErrorMsg", "이메일 또는 비밀번호를 확인해 주세요");
-        model.addAttribute("error", error);
-        model.addAttribute("exception", exception);
-
+        model.addAttribute("loginErrorMsg", "이메일 또는 비밀번호를 확인해 주세요") ;
         return "/member/memberLoginForm" ;
     }
 

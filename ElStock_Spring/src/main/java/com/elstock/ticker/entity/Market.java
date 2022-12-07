@@ -14,8 +14,8 @@ import java.util.Date;
 @Table(name ="markets")
 @Getter @Setter @ToString
 public class Market {
-//    @Temporal(TemporalType.DATE)
-//    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date ;
     private int open;
     private int high;
