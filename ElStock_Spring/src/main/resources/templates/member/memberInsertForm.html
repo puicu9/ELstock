@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thumeleaf/layout"
+      layout:decorate="~{partials/_layout}">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ElStock 회원가입</title>
+    <!-- base:css -->
+    <link rel="stylesheet" href="../../vendors/typicons/typicons.css">
+    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../../images/favicon.png"/>
+
+
+    <th:block layout:fragment="script">
+        <script th:inline="javascript">
+          $(document).ready(function(){
+             var errorMessage = [[${errorMessage}]] ;
+             if(errorMessage != null){
+                alert(errorMessage);
+             }
+          });
+
+<!--          $(function(){-->
+
+<!--        //비밀번호 확인-->
+<!--            $('#password_check').blur(function(){-->
+<!--               if($('#password').val() != $('#password_check').val()){-->
+<!--                    if($('#password_check').val()!=''){-->
+<!--                    alert("비밀번호가 일치하지 않습니다.");-->
+<!--                        $('#password_check').val('');-->
+<!--                      $('#password_check').focus();-->
+<!--                   }-->
+<!--                }-->
+<!--            })-->
+<!--        });-->
+
+        </script>
+    </th:block>
+
+    <!--
+ 사용자 정의 CSS 추가
+ block : 강조하는 의미임
+ -->
+    <th:block layout:fragment="css">
+        <style>
+            .fieldError{color:red; font-size:13pt;}
+        </style>
+    </th:block>
+
+</head>
+
+<body>
+<div class="content" layout:fragment="content">
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-center auth px-0">
+                <div class="row w-100 mx-0">
+                    <div class="col-lg-4 mx-auto">
+                        <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                            <div class="brand-logo">
+                                <img src="/images/elstock_logo11.png" alt="logo">
+                            </div>
+                            <h4 style="text-align:center">회원가입</h4>
+
+                            <!--              <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>-->
+                            <form role="form" method="post" action="/members/new" th:object="${memberNewDto}">
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-lg" id="name" th:field="*{name}" th:for="name"
+                                           placeholder="name">
+                                    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="fieldError">Incorrect data</p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-lg" id="email" th:field="*{email}" th:for="email"
+                                           placeholder="Email">
+                                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="fieldError">Incorrect data</p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-lg" th:field="*{password}" th:for="password"
+                                           id="password" placeholder="Password">
+                                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="fieldError">Incorrect data</p>
+                                </div>
+
+<!--                                <div class="form-group">-->
+<!--                                    <input type="password" class="form-control form-control-lg"-->
+<!--                                           id="password_check" placeholder="password check">-->
+<!--                                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password_confirm}" class="fieldError" required></p>-->
+<!--                                </div>-->
+
+                                <div class="mt-3">
+                                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
+                                        회원가입
+                                    </button>
+
+<!--                                    <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"-->
+<!--                                       href="./members/login">회원가입</a>-->
+                                </div>
+
+                                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+                            </form>
+                            <div class="text-center mt-4 font-weight-light">
+                                <a href="/members/login" class="text-primary">로그인</a>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+</div>
+
+
+</body>
+
+</html>

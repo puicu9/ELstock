@@ -45,29 +45,29 @@
             </tbody>
         </table>
 
-        <!--/* 하단 페이징 영역 */-->
-<!--        <div th:with="start=${(tickers.number/maxPage)*maxPage+1}, end=(${(tickers.totalPages==0) ? 1 : (start + (maxPage-1) < tickers.totalPages ? start + (maxPage-1) : tickers.totalPages)})">-->
-<!--            <ul class="pagination justify-content-center">-->
-<!--                &lt;!&ndash;/* Previous */&ndash;&gt;-->
-<!--                <li class="page-item" th:classappend="${tickers.first}?'disabled'">-->
-<!--                    <a th:onclick="'javascript:gotoPage('+${tickers.number-1}+')'" aria-label='Previous' class="page-link">-->
-<!--                        <span aria-hidden='true'>Previous</span>-->
-<!--                    </a>-->
-<!--                </li>-->
+<!--        /* 하단 페이징 영역 */-->
+        <div th:with="start=${(tickers.number/maxPage)*maxPage+1}, end=(${(tickers.totalPages==0) ? 1 : (start + (maxPage-1) < tickers.totalPages ? start + (maxPage-1) : tickers.totalPages)})">
+            <ul class="pagination justify-content-center">
+                <!--/* Previous */-->
+                <li class="page-item" th:classappend="${tickers.first}?'disabled'">
+                    <a th:onclick="'javascript:gotoPage('+${tickers.number-1}+')'" aria-label='Previous' class="page-link">
+                        <span aria-hidden='true'>Previous</span>
+                    </a>
+                </li>
 
-<!--                &lt;!&ndash;/* 숫자 반복 영역 */&ndash;&gt;-->
-<!--                <li class="page-item" th:each="page:${#numbers.sequence(start, end)}" th:classappend="${tickers.number eq page-1}?'active':''">-->
-<!--                    <a th:onclick="'javascript:gotoPage('+ ${page-1}+')'" th:inline="text" class="page-link">[[${page}]]</a>-->
-<!--                </li>-->
+                <!--/* 숫자 반복 영역 */-->
+                <li class="page-item" th:each="page:${#numbers.sequence(start, end)}" th:classappend="${tickers.number eq page-1}?'active':''">
+                    <a th:onclick="'javascript:gotoPage('+ ${page-1}+')'" th:inline="text" class="page-link">[[${page}]]</a>
+                </li>
 
-<!--                &lt;!&ndash;/* Next */&ndash;&gt;-->
-<!--                <li class="page-item" th:classappend="${tickers.last}?'disabled'">-->
-<!--                    <a th:onclick="'javascript:gotoPage('+${tickers.number+1}+')'" aria-label='Next' class="page-link">-->
-<!--                        <span aria-hidden='true'>Next</span>-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--        </div>-->
+                <!--/* Next */-->
+                <li class="page-item" th:classappend="${tickers.last}?'disabled'">
+                    <a th:onclick="'javascript:gotoPage('+${tickers.number+1}+')'" aria-label='Next' class="page-link">
+                        <span aria-hidden='true'>Next</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
 <!--        &lt;!&ndash;/* 필드 검색 옵션 */&ndash;&gt;-->
 <!--        <div th:with="start=${(tickers.number/maxPage)*maxPage + 1}, end=(${(tickers.totalPages == 0) ? 1 : (start + (maxPage - 1) < tickers.totalPages ? start + (maxPage - 1) : tickers.totalPages)})" >-->
@@ -96,4 +96,7 @@
 
     </form>
 </div>
+
+<!--<script src="/js/searchNavbar.js"></script>-->
+
 </html>

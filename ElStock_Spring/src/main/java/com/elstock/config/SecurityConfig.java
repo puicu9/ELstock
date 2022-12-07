@@ -28,13 +28,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { // SecurityCo
     @Override   // HttpSecurity는 http 요청에 대하여 페이지 권한, 로그인 페이지 설정 등등을 적용시켜주는 클래스
     protected void configure(HttpSecurity http) throws Exception { // SecurityConfig01
 
-
         // SecurityConfig02
         http.formLogin()
                 .loginPage("/members/login")
                 .defaultSuccessUrl("/")
                 .usernameParameter("email")
                 .failureUrl("/members/login/error")
+                .failureHandler(loginFailHandler())
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))
@@ -51,6 +51,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { // SecurityCo
         // SecurityConfig03
         // 허가 받지 않은 사용자가 특정 리소스에 접근 시, 감시(모니터링) 할게요
         http.exceptionHandling().authenticationEntryPoint(new CustomAuthenticationEntryPoint());
+    }
+
+    // 로그인 실패 시 알아보고자 함
+    @Bean
+    public LoginFailHandler loginFailHandler(){
+        return new LoginFailHandler();
     }
 
     // AuthenticationManagerBuilder는 AuthenticationManager 객체를 생성해주는 역할을 합니다.
