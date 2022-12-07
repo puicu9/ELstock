@@ -43,7 +43,7 @@ public class Member {
         Member member = new Member();
 
         member.setName(dto.getName());
-        member.setAddress(dto.getAddress());
+//        member.setAddress(dto.getAddress());
         member.setEmail(dto.getEmail());
         member.setRole(Role.USER); // 차후 관리자와 구분이 필요할 듯 ...
         // member.setId();
@@ -52,9 +52,9 @@ public class Member {
         String nickname = getNickname.Nickname();
         member.setNickname(nickname);
 
-
         String password = passEncoder.encode(dto.getPassword()); // 비번 암호화
         member.setPassword(password);
+
         member.setF_balance(100000000);
 
         return member;

@@ -27,7 +27,7 @@ public class MemberController {
 
     @GetMapping(value = "/new")
     public String insertForm(Model model){ // MemberController01
-        model.addAttribute("memberFormDto", new MemberNewDto()) ;
+        model.addAttribute("memberNewDto", new MemberNewDto()) ;
         return urlPrefix + "/memberInsertForm" ;
     }
 
@@ -57,7 +57,7 @@ public class MemberController {
         }
 
         // 메인 페이지로 이동
-        return "redirect:/" ; // response.sendRedirect() ; 와 같음
+        return urlPrefix + "/memberLoginForm" ; // response.sendRedirect() ; 와 같음
     }
 
 
