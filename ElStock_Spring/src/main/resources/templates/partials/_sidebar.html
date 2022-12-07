@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<!--<nav th:fragment="sidebar" class="sidebar sidebar-offcanvas" id="sidebar">-->
+<!--    <ul class="nav">-->
+<!--        <li class="nav-item">-->
+<!--            <a class="nav-link" style="text-align: center;">-->
+<!--                <i class="typcn typcn-document-text menu-icon"></i>-->
+<!--                <span class="menu-title">관심종목</span>-->
+<!--            </a>-->
+<!--        </li>-->
+
+<!--        &lt;!&ndash; 즐겨찾기 리스트 &ndash;&gt;-->
+<!--        <li class="nav-item">-->
+<!--            <a class="nav-link" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">-->
+<!--                <i class="typcn typcn-heart-full-outline-box"></i>-->
+<!--                <span class="menu-title">회사 명칭</span>-->
+<!--                <span>-->
+<!--                <i class='mdi mdi-star'></i>-->
+<!--              </span>-->
+<!--            </a>-->
+<!--        </li>-->
+<!--        &lt;!&ndash; 즐겨찾기 빈 start &ndash;&gt;-->
+<!--        &lt;!&ndash; <i class='mdi mdi-star-outline'></i> &ndash;&gt;-->
+
+<!--    </ul>-->
+<!--</nav>-->
+
+<!-- 하트 클릭 시, style.css 파일
+ i.menu-arrow 검색 -> i.menu-heart로 변경함
+content: "\e088"; 는 풀하트
+content: "\e087"; 는 빈하트
+
+
+아이콘 + 눌렀을 시 -로 변하는 건
+template.js에서 collapse 를 검색
+
+ -->
+
+<nav th:fragment="sidebar" class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="index.html">
+                <i class="typcn typcn-device-desktop menu-icon"></i>
+                <span class="menu-title">관심종목</span>
+            </a>
+        </li>
+
+        <!--        하트 없음-->
+<!--        <button type="button" class="btnFav"><i class="typcn typcn-heart-outline"></i></button>-->
+
+<!--        하트 있음-->
+<!--        <button type="button" class="btnFav"><i class="typcn typcn-heart-full-outline"></i></button>-->
+
+        <li class="nav-item">
+            <a class="nav-link" href="#form-elements" aria-controls="form-elements">
+                <span class="menu-title">Form elements</span>
+            </a>
+        </li>
+
+
+
+    </ul>
+</nav>
+
+
+</html>
