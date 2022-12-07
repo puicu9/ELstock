@@ -27,7 +27,7 @@ public class MemberController {
 
     @GetMapping(value = "/new")
     public String insertForm(Model model){ // MemberController01
-        model.addAttribute("memberFormDto", new MemberNewDto()) ;
+        model.addAttribute("memberNewDto", new MemberNewDto()) ;
         return urlPrefix + "/memberInsertForm" ;
     }
 
