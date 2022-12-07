@@ -11,8 +11,6 @@ import org.springframework.data.domain.Pageable;
 import org.thymeleaf.util.StringUtils;
 
 import javax.persistence.EntityManager;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryCustom {
@@ -49,10 +47,6 @@ public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryC
 
     @Override
     public Page<Tuple> getTickerPage(TickerSearchDto dto, Pageable pageable) {
-        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDateTime now = LocalDateTime.now();
-        String today = df.format(now);
-
         List<Tuple> content = this.queryFactory
                 .select(QMarket.market.ticker_code,
                         QMarket.market.ticker_name
