@@ -57,7 +57,7 @@ public class MemberController {
         }
 
         // 메인 페이지로 이동
-        return "redirect:/" ; // response.sendRedirect() ; 와 같음
+        return urlPrefix + "/memberLoginForm" ; // response.sendRedirect() ; 와 같음
     }
 
 
