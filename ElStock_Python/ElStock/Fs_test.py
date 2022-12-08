@@ -7,7 +7,8 @@ import dbInsert # 데이터
 
 today = date.today()
 #종목 코드 전체 불러오기
-stock_code = stock.get_market_ticker_list(date=today, market="ALL")
+# stock_code = stock.get_market_ticker_list(date=today, market="ALL")
+stock_code = stock.get_market_ticker_list(date=today)
 
 for code in stock_code[0:50:]:
  print('종목코드 : ', code)
@@ -32,12 +33,12 @@ for code in stock_code[0:50:]:
   financial_stmt = financial_stmt.reset_index()
   financial_stmt = financial_stmt[4:] # 연간 제무정보 제외(분기별 제무정보만 포함)
   financial_stmt = financial_stmt.iloc[ : , :-3] #주당 배당금,시가배당률,배당성향 부분 제외
-  financial_stmt = financial_stmt.replace('-',None) #값 중에 - 표시된부분 데이터베이스에 저장시 에러 발생으로 none으로 치환
+  financial_stmt = financial_stmt.replace('-','-') #값 중에 - 표시된부분 데이터베이스에 저장시 에러 발생으로 none으로 치환
 
   # columns = ['date','revenue','operating_profit','earnings','operation_income',
   #  'net_profit_rate','roe','debt_ratio','quick_ratio','reserve_ratio','eps',
   #  'per','bps','pbr','dividend_per_share','dividend_ratio','dividend_tendency']
-  columns = ['date', 'revenue', 'operating_profit', 'earnings', 'operation_income',
+  columns = ['dates', 'revenue', 'operating_profit', 'earnings', 'operation_income',
              'net_profit_rate', 'roe', 'debt_ratio', 'quick_ratio', 'reserve_ratio', 'eps',
              'per', 'bps', 'pbr']
   financial_stmt.columns = columns # 칼럼명 설정
@@ -47,4 +48,6 @@ for code in stock_code[0:50:]:
 
  except Exception as e:
   print(e)
+  
+print('작업 끝')
 

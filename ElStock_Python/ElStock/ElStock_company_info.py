@@ -74,7 +74,7 @@ def getData():
     # 총액 / 순위 / 상장주식수 / None(액면가만 없음)
     #  tr  /  tr  /  tr(상장주식수)
 
-    for ticker_code in ticker_list[0:10:]:
+    for ticker_code in ticker_list[0:50:]:
         print('종목코드 : ' + ticker_code)
 
 # 기업정보 크롤링

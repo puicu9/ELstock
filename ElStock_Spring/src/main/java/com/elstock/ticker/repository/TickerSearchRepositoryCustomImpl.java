@@ -6,12 +6,9 @@ import com.querydsl.core.Tuple;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.thymeleaf.util.StringUtils;
 
 import javax.persistence.EntityManager;
-import java.util.List;
 
 public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryCustom {
     private JPAQueryFactory queryFactory ;
@@ -33,7 +30,7 @@ public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryC
         
         // 실행하기 위해 만듦 ,, 삭젷애ㅑ함
     @Override
-    public Page<Market> getTickerPage(TickerSearchDto dto, Pageable pageable) {
+    public Page<Tuple> getTickerPage(TickerSearchDto dto, Pageable pageable) {
         return null;
     }
 

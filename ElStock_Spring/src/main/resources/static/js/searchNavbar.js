@@ -8,9 +8,10 @@
         });
 
         var now = new Date();
-        var month = now.getMonth();
-//        console.log("월 : ", month);
-        var day = now.getDay();
+        var month = now.getMonth()+1;
+        console.log("월 : ", month);
+        var day = now.getDate();
+        console.log("일 : ", day);
 
         $('.date').html(month + ' / ' + day);
 
