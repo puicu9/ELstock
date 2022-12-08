@@ -2,15 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thumeleaf/layout"
       layout:decorate="~{partials/_layout}">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>ElStock Login</title>
-
-</head>
 
 <!-- 사용자 CSS 추가 -->
 <th:block layout:fragment="css">
@@ -33,7 +26,6 @@
 </th:block>
 
 
-<body>
 <div class="content" layout:fragment="content">
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper">
@@ -66,7 +58,6 @@
                                 </div>
 
                                 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
-
                             </form>
 
                             <div class="my-2 d-flex justify-content-between align-items-center">
@@ -96,6 +87,6 @@
     </div>
     <!-- container-scroller -->
 </div>
-</body>
+
 
 </html>
