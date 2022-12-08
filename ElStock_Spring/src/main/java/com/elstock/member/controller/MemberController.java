@@ -21,7 +21,7 @@ import java.io.IOException;
 
 @Controller
 @RequiredArgsConstructor // for MemberController02
-@RequestMapping(value = "members")
+@RequestMapping(value = "/members")
 public class MemberController {
     private final String urlPrefix = "/member" ; // MemberController01
 
@@ -30,7 +30,6 @@ public class MemberController {
         model.addAttribute("memberNewDto", new MemberNewDto()) ;
         return urlPrefix + "/memberInsertForm" ;
     }
-
     // for MemberController02
     private final MemberService memberService ;
     private final PasswordEncoder passEncoder ;
@@ -39,7 +38,7 @@ public class MemberController {
     // @Valid 는 command 객체에 유효성 검사를 진행해 줍니다.
     // BindingResult 는 유효성 검사에 문제가 있으면, 해당 정보가 들어 있습니다.
     @PostMapping(value = "/new")
-    public String insertForm2(@Valid MemberNewDto dto, BindingResult error, Model model){ // MemberController02
+    public String insertForm2(@Valid MemberNewDto dto, BindingResult error, Model model) { // MemberController02
         if(error.hasErrors()){ // 유효성 검사를 충족하지 못하면 다시 가입 페이지로 이동
             return urlPrefix + "/memberInsertForm" ;
         }
@@ -47,19 +46,14 @@ public class MemberController {
         try{
             Member member = Member.createMember(dto, passEncoder) ;
             this.memberService.saveMember(member) ;
-        } catch (IllegalStateException err){
+        } catch (IllegalStateException | JSONException | IOException err){
             model.addAttribute("errorMessage", err.getMessage()) ;
             return urlPrefix + "/memberInsertForm" ;
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
 
-        // 메인 페이지로 이동
+        // 로그인 페이지로 이동
         return urlPrefix + "/memberLoginForm" ; // response.sendRedirect() ; 와 같음
     }
-
 
     // MemberController03
     // form 태그와 SecurityConfig 파일에 정의되어 있습니다.
