@@ -1,6 +1,7 @@
 package com.elstock.ticker.controller;
 
 import com.elstock.ticker.dto.TickerSearchDto;
+import com.elstock.ticker.entity.Market;
 import com.elstock.ticker.service.TickerSearchService;
 import com.querydsl.core.Tuple;
 import lombok.RequiredArgsConstructor;
@@ -34,7 +35,7 @@ public class TickerSearchController {
 
         Pageable pageable = PageRequest.of(pageNumber, pageSize) ;
 
-        Page<Tuple> tickers = this.tickerSearchService.getTickerPage(dto, pageable) ;
+        Page<Market> tickers = this.tickerSearchService.getTickerPage(dto, pageable) ;
 
         model.addAttribute("tickers", tickers) ;
         model.addAttribute("searchDto", dto) ; // for 검색 조건 유지
