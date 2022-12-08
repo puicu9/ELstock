@@ -39,20 +39,25 @@ public class MemberController {
     // BindingResult 는 유효성 검사에 문제가 있으면, 해당 정보가 들어 있습니다.
     @PostMapping(value = "/new")
     public String insertForm2(@Valid MemberNewDto dto, BindingResult error, Model model) { // MemberController02
-        if(error.hasErrors()){ // 유효성 검사를 충족하지 못하면 다시 가입 페이지로 이동
-            return urlPrefix + "/memberInsertForm" ;
-        }
+        if (error.hasErrors()) { // 유효성 검사를 충족하지 못하면 다시 가입 페이지로 이동
+            return urlPrefix + "/memberInsertForm";
+        } else {
 
-        try{
-            Member member = Member.createMember(dto, passEncoder) ;
-            this.memberService.saveMember(member) ;
-        } catch (IllegalStateException | JSONException | IOException err){
-            model.addAttribute("errorMessage", err.getMessage()) ;
-            return urlPrefix + "/memberInsertForm" ;
-        }
+            try {
+                Member member = Member.createMember(dto, passEncoder);
+                this.memberService.saveMember(member);
+            } catch (IllegalStateException err) {
+                model.addAttribute("errorMessage", err.getMessage());
+                return urlPrefix + "/memberInsertForm";
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
 
-        // 로그인 페이지로 이동
-        return urlPrefix + "/memberLoginForm" ; // response.sendRedirect() ; 와 같음
+            // 로그인 페이지로 이동
+            return urlPrefix + "/memberLoginForm"; // response.sendRedirect() ; 와 같음
+        }
     }
 
     // MemberController03

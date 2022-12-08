@@ -34,12 +34,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { // SecurityCo
         http.formLogin()
                 .loginPage("/members/login")
                 .defaultSuccessUrl("/")
+                .permitAll()
                 .usernameParameter("email")
                 .failureUrl("/members/login/error")
                 .and()
-                .logout()
+            .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))
-                .logoutSuccessUrl("/") ;
+                .logoutSuccessUrl("/")
+                .invalidateHttpSession(true) ;
 
         // SecurityConfig03
         // authorizeRequests() 메소드는 시큐리티 처리 시, HttpServeletRequests를 사용하겠습니다.
