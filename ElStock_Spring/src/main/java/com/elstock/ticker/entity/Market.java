@@ -3,20 +3,15 @@ package com.elstock.ticker.entity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.Date;
-
 @Entity
 @Table(name ="markets")
 @Getter @Setter @ToString
 public class Market {
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date date ;
+
+    private LocalDateTime date ;
     private int open;
     private int high;
     private int low;
