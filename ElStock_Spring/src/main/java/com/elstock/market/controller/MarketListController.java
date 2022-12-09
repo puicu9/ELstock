@@ -38,9 +38,9 @@ public class MarketListController {
 //        System.out.println(marketDtoList.toString());
 
 
-        List<Tuple> lists = this.marketListService.getMarketList();
+//        List<Tuple> lists = this.marketListService.getMarketList();
 
-        model.addAttribute("lists", lists);
+//        model.addAttribute("lists", lists);
 
 
 
