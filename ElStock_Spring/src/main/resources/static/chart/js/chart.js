@@ -123,7 +123,7 @@ function drawChart(prices) {
             })
             .attr('width', xBand.bandwidth())
             .attr('height', d => (d.open === d.close) ? 1 : yScale(Math.min(d.open, d.close))-yScale(Math.max(d.open, d.close)))
-            .attr("fill", d => (d.open === d.close) ? "silver" : (d.open > d.close) ? "red" : "green")
+            .attr("fill", d => (d.open === d.close) ? "silver" : (d.open > d.close) ? "red" : "blue")
 
             console.log(candles)
 
@@ -137,7 +137,7 @@ function drawChart(prices) {
             .attr("x2", (d, i) => xScale(i) - xBand.bandwidth()/2)
             .attr("y1", d => yScale(d.high))
             .attr("y2", d => yScale(d.low))
-            .attr("stroke", d => (d.open === d.close) ? "white" : (d.open > d.close) ? "red" : "green");
+            .attr("stroke", d => (d.open === d.close) ? "white" : (d.open > d.close) ? "red" : "blue");
 
         svg.append("defs")
             .append("clipPath")
