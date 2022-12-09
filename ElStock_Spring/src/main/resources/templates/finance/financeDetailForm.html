@@ -12,13 +12,22 @@
 
 
 <!-- 사용자 정의 CSS 추가 -->
-<th:block layout:fragment="css">
-    <style>
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/vertical-layout-light/style.css}">
+        <style>
         td{
         word-break: break-all;
         }
+        .aaa{
+            font-weight: bold !important;
+        }
+        .bbb{
+            line-height: 1.3 !important;
+            white-space:normal !important;
+        }
     </style>
-</th:block>
+    </th:block>
+
 
 
 <div class="content" layout:fragment="content">
@@ -132,8 +141,8 @@
                                     <thead>
 
                                     <tr>
-                                        <th>회사개요</th>
-                                        <td th:text="*{company_comment}" style="white-space:nomal !important"></td>
+                                        <th class="aaa">회사개요</th>
+                                        <td class="bbb" th:text="*{company_comment}"></td>
                                     </tr>
 
                                     </thead>

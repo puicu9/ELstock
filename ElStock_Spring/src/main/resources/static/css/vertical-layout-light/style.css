@@ -10176,7 +10176,7 @@ pre code {
 }
 
 .table thead th {
-  vertical-align: bottom;
+  vertical-align: middle;
   border-bottom: 2px solid #f3f3f3;
 }
 
@@ -10497,8 +10497,6 @@ pre code {
 .table-responsive {
   display: block;
   width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 .table-responsive > .table-bordered {
@@ -13301,6 +13299,7 @@ input[type="button"].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+
 }
 
 .card-title {
@@ -23364,7 +23363,7 @@ dl li {
 }
 
 .table td {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .table td img {
