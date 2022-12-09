@@ -13,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -38,20 +38,24 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/pjpjpjpj/ELstock-JaeHwan/ElStock_Spring/src/main/resources/static/chart/js"
+    "last_opened_file_path": "C:/pjpjpjpj/ELstock-JaeHwan/ElStock_Spring/src/main/resources/templates/news",
+    "settings.editor.selected.configurable": "File.Encoding"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\pjpjpjpj\ELstock-JaeHwan\ElStock_Spring\src\main\resources\templates\news" />
+      <recent name="C:\pjpjpjpj\ELstock-JaeHwan\ElStock_Spring\src\main\java\com\elstock\news" />
       <recent name="C:\pjpjpjpj\ELstock-JaeHwan\ElStock_Spring\src\main\resources\static\chart\js" />
       <recent name="C:\pjpjpjpj\ELstock-JaeHwan\ElStock_Spring\src\main\resources\static\chart\css" />
       <recent name="C:\pjpjpjpj\ELstock-JaeHwan\ElStock_Spring\src\main\java\com\elstock\domestock" />
-      <recent name="C:\pjpjpjpj\ELstock-JaeHwan\ElStock_Spring\src\main\java\com\elstock\domestock\controller" />
-      <recent name="C:\pjpjpjpj\ELstock-JaeHwan\ElStock_Spring\src\main\resources\static\chart" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\pjpjpjpj\ELstock-JaeHwan\ElStock_Spring\src\main\resources\static\chart\js" />
       <recent name="C:\pjpjpjpj\ELstock-JaeHwan\ElStock_Spring\src\main\resources\static\chart\css" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.elstock.news.repository" />
     </key>
   </component>
   <component name="RunManager">
