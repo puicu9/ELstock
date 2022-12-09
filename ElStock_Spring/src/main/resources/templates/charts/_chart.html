@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{partials/_layout}">
+
+
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+<!--    <link rel="stylesheet" th:href="@{/css/page/home.css}" >-->
+    <!--차트 css-->
+    <link rel="stylesheet" th:href="@{/chart/css/chart.css}">
+    <!--폰트-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</th:block>
+
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script">
+
+    <!--차트 사용할 때 필요한 스크립트-->
+    <script src="https://cdn.jsdelivr.net/npm/d3-array@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-format@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-interpolate@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-time@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-time-format@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-scale@4"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!--차트 사용할 때 필요한 스크립트-->
+
+    <!--차트 그려주는 스크립트-->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!--차트 그릴 때 필요한 것-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+    <!--차트 함수-->
+    <script th:src="@{/chart/js/chart.js}"></script>
+    <!--차트 실제로 그려주는애-->
+
+</th:block>
+
+
+<body>
+
+
+<div layout:fragment="content" style="display:flex;">
+
+
+    <div class="col-xl-8 col-lg-5">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">삼성전자</h6>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="chart-area">
+                    <div class="col-md-9">
+                        <svg id="container"></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="right-content">
+        <p>1.삼전</p>
+        <p>2.카톡</p>
+        <p>3.삼전</p>
+        <p>4.삼전</p>
+        <p>5.삼전</p>
+        <p>6.삼전</p>
+
+    </nav>
+
+</div>
+
+</body>
+
+
+
+</html>
