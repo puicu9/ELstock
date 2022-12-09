@@ -1,22 +1,30 @@
 package com.elstock.company.entity;
 
+import com.elstock.market.entity.Market;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.apache.ibatis.annotations.Mapper;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="companys")
 @Getter @Setter @ToString
 public class Company {
+    //@Id
+    //@Column(name="ticker_id")
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    //private Long id ; // pk
+//    @JoinColumn(name="ticker_code")
+//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+//    private List<Market> market = new ArrayList<>() ;
     @Id
-    @Column(name="ticker_code")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String ticker_code;
-
     private String company_capitalization;
-    private String company_rank;
+    private int company_rank;
     private String company_share;
     private String company_value;
     private String company_opinion;

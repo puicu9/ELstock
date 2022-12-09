@@ -1,7 +1,7 @@
 package com.elstock.ticker.service;
 
+import com.elstock.market.entity.Market;
 import com.elstock.ticker.dto.TickerSearchDto;
-import com.elstock.ticker.entity.Market;
 import com.elstock.ticker.repository.TickerSearchRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -18,6 +18,7 @@ public class TickerSearchService { //
 
     // 검색 조건과 페이징 객체를 이용하여 페이지 결과를 반환
     public Page<Market> getTickerPage(TickerSearchDto dto, Pageable pageable){
+
         return this.tickerSearchRepository.getTickerPage(dto, pageable);
     }
 
