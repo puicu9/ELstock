@@ -2,7 +2,11 @@
 <html
         lagn="ko"
         xmlns:th="http://www.thymeleaf.org"
+
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
 
 <head>
     <!-- Required meta tags -->
@@ -11,7 +15,11 @@
     <title>ElStock</title>
 
     <!-- config fragment 사용 -->
+
     <th:block th:replace="partials/_config :: configFragment" ></th:block>
+
+    <th:block th:replace="partials/_config :: configFragment"></th:block>
+
 
 </head>
 <body>
@@ -40,6 +48,7 @@
             <!-- partial:partials/_sidebar.html -->
             <div th:replace="partials/_sidebar::sidebar"></div>
 
+
             <!--   메인     -->
                 <div th:frament="content" class="content main-panel">
                 <!-- content-wrapper ends -->
@@ -57,8 +66,25 @@
     <!-- container-scroller -->
     </div>
 
+        <!--   메인     -->
+        <div th:frament="content" class="content main-panel">
+            <!-- content-wrapper ends -->
+
+            <!--본문-->
+            <th:block layout:fragment="content"></th:block>
+
+
+            <!-- partial:partials/_footer.html -->
+            <div th:replace="partials/_footer :: footer"></div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+</div>
+
+
 
 </body>
 
 </html>
-
