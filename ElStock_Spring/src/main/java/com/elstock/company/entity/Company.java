@@ -14,6 +14,7 @@ public class Company {
     @Column(name="ticker_code")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String ticker_code;
+    private String ticker_name;
 
     private String company_capitalization;
     private String company_rank;

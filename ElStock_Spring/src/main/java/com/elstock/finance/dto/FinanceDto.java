@@ -32,7 +32,7 @@ public class FinanceDto {
     private String ticker_code ;
 
 
-    public FinanceDto(String date, double revenue, double operating_profit, double earnings, double operation_income, double net_profit_rate, double roe, double debt_ratio, double quick_ratio, double reserve_ratio, double eps, double per, double bps, double pbr, String ticker_code) {
+    public FinanceDto(String dates, double revenue, double operating_profit, double earnings, double operation_income, double net_profit_rate, double roe, double debt_ratio, double quick_ratio, double reserve_ratio, double eps, double per, double bps, double pbr, String ticker_code) {
         this.dates = dates;
         this.revenue = revenue;
         this.operating_profit = operating_profit;
@@ -48,6 +48,7 @@ public class FinanceDto {
         this.bps = bps;
         this.pbr = pbr;
         this.ticker_code = ticker_code;
+
     }
 
     public FinanceDto() {
