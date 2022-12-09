@@ -279,9 +279,9 @@ def getData():
         myframe = DataFrame(saveData, columns=mycolumns)
 
         #테이블명
-        tableName = 'companys'
-        #DB
-        dbInsert.dbInsert(myframe, tableName)
+    tableName = 'companys'
+    #DB
+    dbInsert.dbInsert(myframe, tableName)
 
     # print(saveData)
     print('총 크롤링한 종목코드 개수 : ', count)
