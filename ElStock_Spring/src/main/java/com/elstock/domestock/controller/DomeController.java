@@ -1,4 +1,4 @@
-package com.elstock.chart.controller;
+package com.elstock.domestock.controller;
 
 import com.elstock.chart.dto.Price;
 import com.elstock.chart.service.TeslaService;

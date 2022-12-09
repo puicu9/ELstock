@@ -6,6 +6,19 @@
     border-color: transparent transparent #00ff00 transparent;
 }
 
+.news-area{
+    position:relative;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    height:10rem;
+    width:100%;
+    white-space:nowrap;
+    font-weight:bold;
+
+}@media (min-width:768px){
+        .news-area{height:20rem}
+}
+
 .downRedArrow{
     width: 0;
     height: 0;
