@@ -34,7 +34,7 @@ mycolumns = ['date',
 ]
 
 res = pd.DataFrame()
-for ticker_code in ticker_list[:10:]:
+for ticker_code in ticker_list[:50:]:
     df = stock.get_market_ohlcv_by_date(fromdate="20210101", todate=today, ticker=ticker_code)
     df = df.assign(종목코드=ticker_code, 종목명=stock.get_market_ticker_name(ticker_code))
     res = pd.concat([res, df], axis=0)

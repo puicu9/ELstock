@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thumeleaf/layout"
+      layout:decorate="~{partials/_layout}">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+
+    </script>
+</th:block>
+
+
+<!-- 사용자 정의 CSS 추가 -->
+<th:block layout:fragment="css">
+    <style>
+        td{
+        word-break: break-all;
+        }
+    </style>
+</th:block>
+
+
+<div class="content" layout:fragment="content">
+
+    <div class="main-panel">
+
+        <div class="content-wrapper" th:object="${financeList}">
+
+            <div class="row">
+                <div class="col-lg-8 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">회사명</h4>
+                            <p class="card-description">
+                                ${financeList.ticker_code}<code>.table</code>
+                            </p>
+
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>주요재무정보</th>
+                                    <th>2021/09</th>
+                                    <th>2021/12</th>
+                                    <th>2022/03</th>
+                                    <th>2022/06</th>
+                                    <th>2022/09</th>
+
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th>매출액</th>
+                                    <td th:each="bean : ${financeDtoList}" th:text="${bean.revenue}"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>영업이익</th>
+                                    <td th:each="bean : ${financeDtoList}" th:text="${bean.operating_profit}"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>당기순이익</th>
+                                    <td th:each="bean : ${financeDtoList}" th:text="${bean.earnings}"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>영업이익율</th>
+                                    <td th:each="bean : ${financeDtoList}" th:text="${bean.operation_income}"></td>
+                                </tr>
+                                <tr>
+                                    <th>순이익률</th>
+                                    <td th:each="bean : ${financeDtoList}" th:text="${bean.net_profit_rate}"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>ROE</th>
+                                    <td th:each="bean : ${financeDtoList}" th:text="${bean.roe}"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>부채비율</th>
+                                    <td th:each="bean : ${financeDtoList}" th:text="${bean.debt_ratio}"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>당좌비율</th>
+                                    <td th:each="bean : ${financeDtoList}" th:text="${bean.quick_ratio}"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>유보율</th>
+                                    <td th:each="bean : ${financeDtoList}" th:text="${bean.reserve_ratio}"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>EPS</th>
+                                    <td th:each="bean : ${financeDtoList}" th:text="${bean.eps}"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>PER</th>
+                                    <td th:each="bean : ${financeDtoList}" th:text="${bean.per}"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>BPS</th>
+                                    <td th:each="bean : ${financeDtoList}" th:text="${bean.bps}"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>PBR</th>
+                                    <td th:each="bean : ${financeDtoList}" th:text="${bean.pbr}"></td>
+                                </tr>
+
+                                </tbody>
+
+                            </table>
+                            <!--                            </div>-->
+                        </div>
+                    </div>
+                </div>
+
+<!--            회사 정보-->
+
+                <div class="col-lg-4 grid-margin stretch-card" th:object="${companyDto}">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">회사 정보</h4>
+
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+
+                                    <tr>
+                                        <th>회사개요</th>
+                                        <td th:text="*{company_comment}" style="white-space:nomal !important"></td>
+                                    </tr>
+
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <th>시가총액</th>
+                                        <td th:text="*{company_capitalization}"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>시가총액순위</th>
+                                        <td th:text="*{company_rank}"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>상장주식수</th>
+                                        <td th:text="*{company_share}"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>액면가</th>
+                                        <td th:text="*{company_value}"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>투자의견</th>
+                                        <td th:text="*{company_opinion}"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>목표주가</th>
+                                        <td th:text="*{company_targetprice}"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>52주 최고가</th>
+                                        <td th:text="*{company_52weeks_max}"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>52주 최저가</th>
+                                        <td th:text="*{company_52weeks_min}"></td>
+                                    </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+
+        </div>
+        <!-- content-wrapper ends -->
+
+    </div>
+
+
+</div>
+</html>
