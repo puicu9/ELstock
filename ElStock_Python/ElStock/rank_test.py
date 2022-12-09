@@ -103,7 +103,7 @@ def getData():
         # print(find_company_rank)
         second_td = no_space(find_second_td)
 
-        # 끝글자가 '위'로 시작하면 company_rank 2번쨰 값은 company_rank
+                # 끝글자가 '위'로 시작하면 company_rank 2번쨰 값은 company_rank
         if second_td[-1:] == '위':
             rankWithSomething = second_td[4::] #ddd위
 
@@ -274,7 +274,7 @@ def getData():
         #테이블명
         tableName = 'companys'
 
-        dbInsert.dbInsert(myframe, tableName)
+        # dbInsert.dbInsert(myframe, tableName)
 
     # print(saveData)
     print('총 크롤링한 종목코드 개수 : ', count)
