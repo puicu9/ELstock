@@ -25,7 +25,7 @@ public class MemberServiceTest {
     private Member createMember() throws JSONException, IOException {
         // DTO는 차후에 폼 양식에서 기입하는 내용이 됩니다.
         MemberNewDto dto = new MemberNewDto() ;
-        dto.setAddress("마포구 합정동") ;
+//        dto.setAddress("마포구 합정동") ;
         dto.setName("김유신") ;
         dto.setPassword("1234") ;
         dto.setEmail("asdf@naver.com") ;

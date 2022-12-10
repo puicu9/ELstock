@@ -5,19 +5,7 @@
 
 <th:block layout:fragment="script">
     <script th:inline="javascript">
-$(document).ready(function(){
-      $('#searchButton').on('click', function(event){
-        event.preventDefault(); /* 이벤트 전파 방지 효과 */
-        gotoPage(0) ; /* 시작하자마자 1페이지로 이동하기 */
-      });
-    });
 
-    function gotoPage(page){
-      /* 해당 태그에는 field 이름을 속성 값으로 하는 id 속성이 자동으로 만들어 집니다. */
-      var searchQuery = $("#searchQuery").val();
-
-      location.href="/search/list/" + page + "?searchQuery=" + searchQuery;
-    }
     </script>
 </th:block>
 
@@ -26,19 +14,97 @@ $(document).ready(function(){
 <th:block layout:fragment="css">
     <style>
     select{margin-right:10px;}
-  </style>
+
+
+    </style>
 </th:block>
 
-    <title>Title</title>
+<title>Title</title>
 
 
 <div class="content" layout:fragment="content">
     <form role="form" method="get" th:object="${tickers}"
-          th:action="@{'/search/lists/'+${tickers.ticker_code}}" >
+          th:action="@{/search/lists/}">
 
-        <input type="hidden" name="searchQuery" th:value="${searchDto.searchQuery}">
-        <div th:if="${not #strings.isEmpty(searchDto.searchQuery)}" class="center">
-            <p class="h3 font-weight-bold" th:text="${searchDto.searchQuery} + '검색 결과'"></p>
+
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <input type="hidden" name="searchQuery" th:value="${searchDto.searchQuery}">
+                            <div th:if="${not #strings.isEmpty(searchDto.searchQuery)}" class="center">
+                                <p class="h3 font-weight-bold" th:text="${searchDto.searchQuery} + ' 검색 결과'"></p>
+                            </div>
+
+                            <div class="table-responsive">
+
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>종목명</th>
+                                        <th>종목코드</th>
+                                        <th>시가</th>
+                                        <th>고가</th>
+                                        <th>저가</th>
+                                        <th>종가</th>
+                                        <th>거래량</th>
+                                        <th>총거래대금</th>
+                                        <th>변동률</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr th:each="bean:${tickers}">
+                                        <a href="'/chart/+${bean.ticker_code}'">
+                                            <td class="py-1" th:text="${bean.ticker_name}"></td>
+                                        </a>
+                                        <a href="'/chart/+${bean.ticker_code}'">
+                                        <td class="py-1" th:text="${bean.ticker_code}"></td>
+                                        </a>
+                                        <td class="py-1" th:text="${bean.open}"></td>
+                                        <td class="py-1" th:text="${bean.high}"></td>
+                                        <td class="py-1" th:text="${bean.low}"></td>
+                                        <td class="py-1" th:text="${bean.close}"></td>
+                                        <td class="py-1" th:text="${bean.volume}"></td>
+                                        <td class="py-1" th:text="${bean.total}"></td>
+                                        <td class="py-1" th:text="${bean.rate}"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div th:with="start=${(tickers.number/maxPage)*maxPage+1}, end=(${(tickers.totalPages==0) ? 1 : (start + (maxPage-1) < tickers.totalPages ? start + (maxPage-1) : tickers.totalPages)})">
+                <ul class="pagination justify-content-center">
+                    <!--/* Previous */-->
+                    <li class="page-item" th:classappend="${tickers.first}?'disabled'">
+                        <a th:onclick="'javascript:gotoPage('+${tickers.number-1}+')'" aria-label='Previous'
+                           class="page-link">
+                            <span aria-hidden='true'>Previous</span>
+                        </a>
+                    </li>
+
+                    <!--/* 숫자 반복 영역 */-->
+                    <li class="page-item" th:each="page:${#numbers.sequence(start, end)}"
+                        th:classappend="${tickers.number eq page-1}?'active':''">
+                        <a th:onclick="'javascript:gotoPage('+ ${page-1}+')'" th:inline="text"
+                           class="page-link">[[${page}]]</a>
+                    </li>
+
+                    <!--/* Next */-->
+                    <li class="page-item" th:classappend="${tickers.last}?'disabled'">
+                        <a th:onclick="'javascript:gotoPage('+${tickers.number+1}+')'" aria-label='Next' class="page-link">
+                            <span aria-hidden='true'>Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
 
         <table class="table">

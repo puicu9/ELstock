@@ -1,5 +1,6 @@
 package com.elstock.ticker.repository;
 
+import com.elstock.market.entity.Market;
 import com.elstock.ticker.dto.TickerSearchDto;
 import com.elstock.ticker.entity.Market;
 import org.springframework.data.domain.Page;
