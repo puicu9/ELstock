@@ -10,7 +10,9 @@ today = date.today()
 # stock_code = stock.get_market_ticker_list(date=today, market="ALL")
 stock_code = stock.get_market_ticker_list(date=today)
 
-for code in stock_code[0:50:]:
+print('총 종목코드 개수 : ', len(stock_code))
+for code in stock_code[0::]:
+
  print('종목코드 : ', code)
  try:
   #URL = f"https://finance.naver.com/item/main.nhn?code=005930"
