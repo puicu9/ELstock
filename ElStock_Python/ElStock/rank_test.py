@@ -74,7 +74,7 @@ def getData():
     # 총액 / 순위 / 상장주식수 / None(액면가만 없음)
     #  tr  /  tr  /  tr(상장주식수)
 
-    for ticker_code in ticker_list[0:10:]:
+    for ticker_code in ticker_list[0:50:]:
         print('종목코드 : ' + ticker_code)
 
 # 기업정보 크롤링
@@ -103,14 +103,12 @@ def getData():
         # print(find_company_rank)
         second_td = no_space(find_second_td)
 
-        # 끝글자가 '위'로 시작하면 company_rank 2번쨰 값은 company_rank
+                # 끝글자가 '위'로 시작하면 company_rank 2번쨰 값은 company_rank
         if second_td[-1:] == '위':
             rankWithSomething = second_td[4::] #ddd위
 
-
-            company_rank = rankWithSomething[:len(rankWithSomething)-1]
-            # print(company_rank)
-
+            company_rank = rankWithSomething[:len(rankWithSomething)-1:]
+            print(company_rank)
 
             # 3번째 순위부터 None인 경우, 해당 -> (상장주식수 : company_share 액면가 : company_value)
             third_tr = findTable.select_one('tr:nth-of-type(3)')
@@ -276,7 +274,7 @@ def getData():
         #테이블명
         tableName = 'companys'
 
-        dbInsert.dbInsert(myframe, tableName)
+        # dbInsert.dbInsert(myframe, tableName)
 
     # print(saveData)
     print('총 크롤링한 종목코드 개수 : ', count)

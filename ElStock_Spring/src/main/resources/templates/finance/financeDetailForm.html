@@ -15,7 +15,7 @@
 <th:block layout:fragment="css">
     <style>
         td{
-        word-break:break-all;
+        word-break: break-all;
         }
     </style>
 </th:block>
@@ -126,16 +126,14 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">회사 정보</h4>
-                            <p class="card-description">
-                                회사 정보 <code>.table-hover</code>
-                            </p>
+
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <thead>
 
                                     <tr>
                                         <th>회사개요</th>
-                                        <td style="height:200px"; th:text="*{company_comment}"></td>
+                                        <td th:text="*{company_comment}" style="white-space:nomal !important"></td>
                                     </tr>
 
                                     </thead>
