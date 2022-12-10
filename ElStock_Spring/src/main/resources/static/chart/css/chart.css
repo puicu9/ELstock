@@ -1,0 +1,101 @@
+.upGreenArrow{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 4.5px 12px 4.5px;
+    border-color: transparent transparent #00ff00 transparent;
+}
+
+.news-area{
+    position:relative;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    height:10rem;
+    width:100%;
+    white-space:nowrap;
+    font-weight:bold;
+
+}@media (min-width:768px){
+        .news-area{height:20rem}
+}
+
+.downRedArrow{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 12px 4.5px 0 4.5px;
+    border-color: #ff0000 transparent transparent transparent;
+}
+
+.upArrow{
+    position: relative;
+    top: -15px;
+    left: -10px;
+    width:0;
+    height:0;
+    border: 6px solid transparent;
+    border-bottom-color: #00ff00;
+}
+.upArrow:after{
+    position: absolute;
+    content: '';
+    top: 20px;
+    left: -3px;
+    width: 6px;
+    height: 10px;
+    background: #00ff00;
+}
+
+.downArrow{
+    position: relative;
+    top: 18px;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-top-color: #ff0000;
+}
+.downArrow:after{
+    position: absolute;
+    content: '';
+    top: -15px;
+    left: -3px;
+    width: 6px;
+    height: 10px;
+    background: #ff0000;
+}
+
+
+/* d3 candle stick start */
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    fill: black;
+}
+
+/* d3 candle stick end */
+
+body {
+    background-color: white;
+}
+
+.right-content {
+    min-height: calc(100vh - 4.625rem);
+    background: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    padding: 0;
+    z-index: 11;
+    margin-left: 0.5rem;
+    margin-bottom: 2.062rem;
+    border-radius: 6px;
+    border: 1px solid #e4e4f4;
+}

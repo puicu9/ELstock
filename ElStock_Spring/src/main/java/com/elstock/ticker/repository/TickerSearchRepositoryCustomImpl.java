@@ -1,9 +1,13 @@
 package com.elstock.ticker.repository;
 
+import com.elstock.market.entity.Market;
+import com.elstock.market.entity.QMarket;
 import com.elstock.ticker.dto.TickerSearchDto;
+
 import com.elstock.ticker.entity.QMarket;
 import com.querydsl.core.QueryResults;
 import com.querydsl.core.Tuple;
+
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.data.domain.Page;
@@ -12,7 +16,9 @@ import org.springframework.data.domain.Pageable;
 
 import javax.persistence.EntityManager;
 import java.time.LocalDateTime;
-import java.util.List;
+
+import java.time.format.DateTimeFormatter;
+
 
 public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryCustom {
     private JPAQueryFactory queryFactory ;
@@ -31,7 +37,7 @@ public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryC
             return null ;
         }
 
-        
+
 
 //        if(StringUtils.equals("ticker_name", searchQuery)){
 //            System.out.println("aaaaa");
@@ -46,40 +52,40 @@ public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryC
 //            return null ;
 //        }
 
+    BooleanExpression dateRange(){
+        LocalDateTime dateTime = LocalDateTime.now();
+        dateTime = dateTime.minusDays(2) ;
+
+//        BooleanExpression dateAfter = QMarket.market.date.after(dateTime);
+        BooleanExpression dateAfter = QMarket.market.date.after(dateTime);
+        return dateAfter ;
+    }
 
 
-//    @Override
-//    public Page<Market> getTickerPage(TickerSearchDto dto, Pageable pageable) {
-//        LocalDateTime dateTime = LocalDateTime.now();
-//
+    @Override
+    public Page<Market> getTickerPage(TickerSearchDto dto, Pageable pageable) {
+        LocalDateTime dateTime = LocalDateTime.now();
+
 //        String dateTimeString = dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd 00:00:00"));
-////        LocalDateTime today = LocalDateTime.parse(dateTime, dateTimeString);
-//
-//        List<Market> content = this.queryFactory
-//                .selectFrom(QMarket.market)
-//                .where(searchQueryCondition(
-//                        dto.getSearchQuery()),
-//                    QMarket.market.date.eq(LocalDateTime.parse(dateTimeString))
-//                )
-//                .orderBy(QMarket.market.ticker_name.asc())
-//                .offset(pageable.getOffset())
-//                .limit(pageable.getPageSize())
-//                .fetch();
-////
-////                .select(QMarket.market.ticker_code,
-////                        QMarket.market.ticker_name
-////                )
-////                .from(QMarket.market)
-////                .where(searchQueryCondition(dto.getSearchQuery()))
-////                .orderBy(QMarket.market.ticker_name.asc())
-////                .groupBy(QMarket.market.ticker_name, QMarket.market.ticker_code)
-////                .offset(pageable.getOffset())
-////                .limit(pageable.getPageSize())
-////                .fetch();
-//
-//
-//        return new PageImpl<>(content, pageable, content.size());
-//    }
+
+//        LocalDateTime today = LocalDateTime.parse(dateTime, dateTimeString);
+
+        List<Market> content = this.queryFactory
+                .selectFrom(QMarket.market)
+                .where(searchQueryCondition(
+                        dto.getSearchQuery())
+                        , dateRange()
+//                        ,QMarket.market.date.eq(LocalDateTime.parse(dateTimeString))
+                )
+                .orderBy(QMarket.market.ticker_name.asc())
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
+                .fetch();
+
+        return new PageImpl<>(content, pageable, content.size());
+    }
+
+
 
     private BooleanExpression dateRange(){
         // 사용자가 지정한 특정 기간 내의 데이터만 조회해주는 메소드입니다.
@@ -112,6 +118,7 @@ public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryC
 
         return new PageImpl<>(content, pageable, total);
     }
+
 
 
 }

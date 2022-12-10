@@ -3,6 +3,7 @@ package com.elstock.ticker.entity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -10,6 +11,10 @@ import java.time.LocalDateTime;
 @Table(name ="markets")
 @Getter @Setter @ToString
 public class Market {
+    @Id
+    @Column(name="ticker_code")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String ticker_code ;
 
     private LocalDateTime date ;
     private int open;
@@ -19,11 +24,5 @@ public class Market {
     private int volumn;
     private Long total;
     private float rate;
-
-    @Id
-    @Column(name="ticker_code")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String ticker_code ;
-
     private String ticker_name;
 }

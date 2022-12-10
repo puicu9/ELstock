@@ -19,8 +19,7 @@ public class Member {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
+    private String id;
     private String name;
 
     @Column(unique = true)
@@ -32,7 +31,6 @@ public class Member {
     @Enumerated(EnumType.STRING)
     private Role role; // 일반 사용자, 관리자 모드 구분
 
-    private LocalDateTime regDate;
     private int f_balance;
 
 

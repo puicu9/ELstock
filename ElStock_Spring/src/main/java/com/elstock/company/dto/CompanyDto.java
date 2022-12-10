@@ -15,7 +15,7 @@ public class CompanyDto {
     private String ticker_code;
     
     private String company_capitalization;
-    private String company_rank;
+    private int company_rank;
     private String company_share;
     private String company_value;
     private String company_opinion;
@@ -25,7 +25,7 @@ public class CompanyDto {
     private String company_comment;
     private String company_url;
 
-    public CompanyDto(String ticker_code, String company_capitalization, String company_rank, String company_share, String company_value, String company_opinion, String company_targetprice, String company_52weeks_max, String company_52weeks_min, String company_comment, String company_url) {
+    public CompanyDto(String ticker_code, String company_capitalization, int company_rank, String company_share, String company_value, String company_opinion, String company_targetprice, String company_52weeks_max, String company_52weeks_min, String company_comment, String company_url) {
         this.ticker_code = ticker_code;
         this.company_capitalization = company_capitalization;
         this.company_rank = company_rank;
