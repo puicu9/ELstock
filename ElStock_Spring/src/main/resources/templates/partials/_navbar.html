@@ -97,18 +97,6 @@
                             </button>
                         </div>
 
-<!--                        <div class="listBox">-->
-<!--                            <div th:each="bean :${tickers}" class="listInner" style="display:none">-->
-<!--                                <span th:text="${bean.ticker_code}" class="ticker_code"></span>-->
-<!--                                <span th:text="${bean.ticker_name}" class="ticker_name"></span>-->
-<!--                            </div>-->
-
-<!--                        </div>-->
-                        <select id="autocomplete" parameterType="map" resultType="map">
-                            select ticker_name, ticker_code
-                            from markets
-                            where ticker_name like '%' || #{value} || '%'
-                        </select>
 
                     </div>
                 </li>

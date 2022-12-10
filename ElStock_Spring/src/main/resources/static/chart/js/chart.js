@@ -215,8 +215,8 @@ function drawChart(prices) {
             clearTimeout(resizeTimer)
             resizeTimer = setTimeout(function() {
 
-                var xmin = new Date(xDateScale(Math.floor(xScaleZ.domain()[0])))
-                xmax = new Date(xDateScale(Math.floor(xScaleZ.domain()[1])))
+                var xmin = new Date(xDateScale(Math.floor(xScaleZ.domain()[0])));
+                xmax = new Date(xDateScale(Math.floor(xScaleZ.domain()[1])));
 
                 filtered = _.filter(prices, d => {
                     const testMin = xmax.getTime();
