@@ -14,18 +14,20 @@ public class CommonController {
 
     private final CommonService commonService;
 
-    public String commonData(Principal principal, Model model){
-        System.out.println("commonData 들어가기 전");
-        String email = principal.getName();
-        Member member = this.commonService.getMemberInfo(email);
+    public String commonData(Principal principal, Model model) {
+        if (principal.getName() != null) {
+            System.out.println("commonData 들어가기 전");
 
-        model.addAttribute("member", member);
+            String email = principal.getName();
+            Member member = this.commonService.getMemberInfo(email);
 
-        System.out.println("commonData");
-        System.out.println(member.toString());
+            model.addAttribute("member", member);
 
-        return "partials/_navbar";
+            System.out.println("commonData");
+            System.out.println(member.toString());
+        }
+            return "partials/_navbar";
+
+
     }
-
-
 }

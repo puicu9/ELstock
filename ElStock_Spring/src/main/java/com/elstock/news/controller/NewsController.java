@@ -1,6 +1,7 @@
 package com.elstock.news.controller;
 
 import com.elstock.chart.service.TeslaService;
+import com.elstock.common.controller.CommonController;
 import com.elstock.news.dto.NewsDto;
 import com.elstock.news.service.NewsService;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -17,6 +19,7 @@ import java.util.List;
 public class NewsController {
 
     private final NewsService newsService;
+    private final CommonController commonController;
 
     @GetMapping(value = {"/news", "/"})
     public String test(Model model){
@@ -31,8 +34,9 @@ public class NewsController {
 //    }
 
     @GetMapping(value = "/news/load")
-    public ResponseEntity<List<NewsDto>> loadNews(){
+    public ResponseEntity<List<NewsDto>> loadNews(Principal principal, Model model){
 
+        commonController.commonData(principal, model);
         return new ResponseEntity<List<NewsDto>>(this.newsService.getNews(), HttpStatus.OK);
     }
 }

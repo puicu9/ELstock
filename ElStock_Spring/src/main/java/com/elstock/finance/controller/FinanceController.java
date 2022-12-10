@@ -38,7 +38,7 @@ public class FinanceController {
         model.addAttribute("companyDto", companyDto) ;
 
 
-        commonController.commonData(principal, model);
+//        commonController.commonData(principal, model);
 
         return "finance/financeDetailForm" ;
     }

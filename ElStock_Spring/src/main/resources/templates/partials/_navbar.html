@@ -62,7 +62,7 @@ nickname
         <ul class="navbar-nav mr-lg-2" sec:authorize="isAuthenticated()">
             <li class="nav-item nav-profile dropdown">
                 <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
-                    <span class="nav-profile-name nickname" sec:authorize="isAuthenticated()" th:if="${not #strings.isEmpty(member.nickname)}" ></span>
+                    <span class="nav-profile-name nickname" sec:authorize="isAuthenticated()" th:text="${member?.nickname}">상상도 못한 치킨마요</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown"
                      sec:authorize="hasAnyAuthority('ROLE_USER')">
