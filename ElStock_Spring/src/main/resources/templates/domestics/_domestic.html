@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{partials/_layout}">
+
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/chart/css/sb-admin-2.min.css}">
+
+</th:block>
+
+<!--<th:block layout:fragment="script">-->
+<!--    <script th:src="@{/chart/js/Chart.min.js}"></script>-->
+<!--    <script th:src="@{/chart/js/chart-area-demo.js}"></script>-->
+
+<!--</th:block>-->
+
+
+
+<!-- Main Content -->
+<div layout:fragment="content" id="content">
+
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+        <!-- Content Row -->
+
+        <div class="row">
+
+            <!-- Area Chart -->
+            <!-- 1 -->
+            <div class="col-xl-6 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">종목 랭킹</h6>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-area">
+                            본문
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="col-xl-6 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">금리</h6>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="domeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="col-xl-6 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">코스피</h6>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink3"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="kospiChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="col-xl-6 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">코스닥</h6>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink4"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="kosdaqChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="col-xl-6 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">환율($)</h6>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink5"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="dollarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="col-xl-6 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">환율(円)</h6>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink6"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="yenChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <!-- /.container-fluid -->
+    <!-- Bootstrap core JavaScript-->
+
+
+    <!-- Page level plugins -->
+    <script src="/chart/js/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/chart/js/chart-area-demo.js"></script>
+
+</div>
+
+
+<!--<th:block layout:fragment="css">-->
+<!--    <link rel="stylesheet" th:href="@{/chart/css/sb-admin-2.min.css}">-->
+
+<!--</th:block>-->
+
+<!--<th:block layout:fragment="script">-->
+<!--    <script th:src="@{/chart/js/Chart.min.js}"></script>-->
+<!--    <script th:src="@{/chart/js/chart-area-demo.js}"></script>-->
+
+<!--</th:block>-->
+
+<!--<div layout:fragment="content">-->
+<!--    <div id="content">-->
+
+<!--        <div class="container-fluid">-->
+
+
+<!--            <div class="row">-->
+
+<!--                <div class="col-xl-8 col-lg-7">-->
+<!--                    <div class="card shadow mb-4">-->
+<!--                        <div-->
+<!--                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">-->
+<!--                            <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>-->
+<!--                            <div class="dropdown no-arrow">-->
+<!--                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"-->
+<!--                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="card-body">-->
+<!--                            <div class="chart-area">-->
+<!--                                <canvas id="myAreaChart"></canvas>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+
+<!--            </div>-->
+
+<!--        </div>-->
+
+<!--    </div>-->
+
+<!--</div>-->
+</html>
