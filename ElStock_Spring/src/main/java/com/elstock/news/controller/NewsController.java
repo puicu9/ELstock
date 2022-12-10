@@ -18,7 +18,7 @@ public class NewsController {
 
     private final NewsService newsService;
 
-    @GetMapping(value = "/news")
+    @GetMapping(value = {"/news", "/"})
     public String test(Model model){
         List<NewsDto> list =this.newsService.getNews();
         model.addAttribute("list", list);

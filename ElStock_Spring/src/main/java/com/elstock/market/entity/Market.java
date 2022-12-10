@@ -13,10 +13,11 @@ import java.util.Date;
 @Table(name ="markets")
 @Getter @Setter @ToString
 public class Market {
-    @Id
-    @Column(name="market_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id; // pk
+//    @Id
+//    @Column(name="market_id")
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private String market_id; // pk
+
     private LocalDateTime date ;
     private int open;
     private int high;
@@ -26,12 +27,16 @@ public class Market {
     private Long total;
     private float rate;
 
+    // 연관 관계 맵핑
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "ticker_code")
+//    private Company company;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ticker_code")
-    private Company company;
-
+    @Id
+    @Column(name="ticker_code")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String ticker_code ;
     private String ticker_name;
 
-//     , insertable = false, updatable = false
+
 }

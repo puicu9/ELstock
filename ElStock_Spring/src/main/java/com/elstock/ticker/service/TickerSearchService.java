@@ -3,6 +3,7 @@ package com.elstock.ticker.service;
 import com.elstock.market.entity.Market;
 import com.elstock.ticker.dto.TickerSearchDto;
 import com.elstock.ticker.repository.TickerSearchRepository;
+import com.querydsl.core.Tuple;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

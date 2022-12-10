@@ -28,10 +28,10 @@ public class MainController {
 //        return "partials/_sidebar" ;
 //    }
 
-    @GetMapping(value = "/")
-    public String main(){
-        return "main.html";
-    }
+//    @GetMapping(value = "/")
+//    public String main(){
+//        return "main.html";
+//    }
 
 
 }

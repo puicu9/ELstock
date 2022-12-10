@@ -4,6 +4,9 @@
       layout:decorate="~{partials/_layout}">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
+<meta name="_csrf" th:content="${_csrf.token}"/>
+<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
 <th:block layout:fragment="script">
     <script th:inline="javascript">
 
@@ -18,10 +21,10 @@
         td{
         word-break: break-all;
         }
-        .aaa{
+        td .company_info{
             font-weight: bold !important;
         }
-        .bbb{
+        td .company_comment{
             line-height: 1.3 !important;
             white-space:normal !important;
         }
@@ -40,9 +43,9 @@
                 <div class="col-lg-8 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">회사명</h4>
+<!--                            <h4 class="card-title">회사명</h4>-->
                             <p class="card-description">
-                                <h3 th:text="${companyDto.ticker_name}"></h3>
+                                <h3 class="card-title" th:text="${companyDto.ticker_name}"></h3>
 <!--                                <code>.table</code>-->
                             </p>
 
@@ -142,8 +145,8 @@
                                     <thead>
 
                                     <tr>
-                                        <th class="aaa">회사개요</th>
-                                        <td class="bbb" th:text="*{company_comment}"></td>
+                                        <th class="company_info">회사개요</th>
+                                        <td class="company_comment" th:text="*{company_comment}"></td>
                                     </tr>
 
                                     </thead>

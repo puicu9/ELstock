@@ -14,15 +14,25 @@ import java.util.List;
 @Table(name="companys")
 @Getter @Setter @ToString
 public class Company {
-    //@Id
-    //@Column(name="ticker_id")
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    //private Long id ; // pk
+//    @Id
+//    @Column(name="company_id")
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private String company_id ; // pk
 //    @JoinColumn(name="ticker_code")
 //    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 //    private List<Market> market = new ArrayList<>() ;
+    
     @Id
-    private String ticker_code;
+    @Column(name="ticker_code")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String ticker_code; // pk
+
+    // 연관관계
+//    @OneToMany(mappedBy = "ticker_code", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+//    private List<Market> markets = new ArrayList<>();
+
+
+
     private String ticker_name;
 
     private String company_capitalization;
