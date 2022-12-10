@@ -16412,6 +16412,21 @@ button.bg-dark:focus,
   margin-right: 0 !important;
 }
 
+.mb-01{
+  font-weight: bold;
+  color : mediumpurple;
+}
+
+.mb-02{
+  font-weight: bold;
+}
+
+.mb-00{
+  font-family: 'Song Myung', serif !important ;
+  font-weight: bold;
+  color : blueviolet;
+}
+
 .mb-0,
 .my-0 {
   margin-bottom: 0 !important;
@@ -24445,7 +24460,7 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-brand-wrapper {
-  background: #844fc1;
+  background: #ffffff;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
@@ -24491,7 +24506,7 @@ div.tagsinput span.tag a {
 
 .navbar .navbar-brand-wrapper .navbar-brand-inner-wrapper .navbar-toggler {
   padding: 0;
-  color: #ffffff;
+  color: #844fc1;
   border: 0;
 }
 
