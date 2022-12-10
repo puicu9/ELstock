@@ -105,7 +105,10 @@ def getData():
 
         # 끝글자가 '위'로 시작하면 company_rank 2번쨰 값은 company_rank
         if second_td[-1:] == '위':
-            company_rank = second_td
+            rankWithSomething = second_td[4::] #ddd위
+
+            company_rank = rankWithSomething[:len(rankWithSomething)-1]
+            # print(company_rank)
 
             # 3번째 순위부터 None인 경우, 해당 -> (상장주식수 : company_share 액면가 : company_value)
             third_tr = findTable.select_one('tr:nth-of-type(3)')

@@ -1,5 +1,6 @@
 package com.elstock.config;
 
+import com.elstock.config.CustomAuthenticationEntryPoint;
 import com.elstock.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -22,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { // SecurityCo
 
     @Bean // 해당 메소드를 이름을 객체로 생성할 겁니다. // SecurityConfig01
     public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder() ;
+        return new BCryptPasswordEncoder();
     }
 
     @Override   // HttpSecurity는 http 요청에 대하여 페이지 권한, 로그인 페이지 설정 등등을 적용시켜주는 클래스
@@ -33,12 +34,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { // SecurityCo
         http.formLogin()
                 .loginPage("/members/login")
                 .defaultSuccessUrl("/")
+                .permitAll()
                 .usernameParameter("email")
                 .failureUrl("/members/login/error")
                 .and()
-                .logout()
+            .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))
-                .logoutSuccessUrl("/") ;
+                .logoutSuccessUrl("/")
+                .invalidateHttpSession(true) ;
 
         // SecurityConfig03
         // authorizeRequests() 메소드는 시큐리티 처리 시, HttpServeletRequests를 사용하겠습니다.
