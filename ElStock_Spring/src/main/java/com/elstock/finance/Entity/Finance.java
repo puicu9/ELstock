@@ -32,4 +32,5 @@ public class Finance {
     private String ticker_code ;
 
 
+
 }

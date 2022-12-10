@@ -2,6 +2,41 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+
+<!--        $(document).ready(function(){-->
+<!--            var token = $("meta[name'_csrf']").attr("content");-->
+<!--            var header = $("meta[name'_csrf_header']").attr("content");-->
+
+<!--            var url = "/";-->
+
+<!--            $.ajax({-->
+<!--              url: url ,-->
+<!--              data : ${companyList},-->
+<!--              type: 'GET',-->
+<!--              success: function onData(data){-->
+<!--                param-->
+
+
+
+<!--              console.log(data);-->
+<!--            },-->
+<!--              error: function onError(error){-->
+<!--                console.error(error);-->
+<!--              }-->
+<!--            });-->
+
+<!--        });-->
+
+
+
+
+    </script>
+</th:block>
+
+
 <!-- 하트 클릭 시, style.css 파일
  i.menu-arrow 검색 -> i.menu-heart로 변경함
 content: "\e088"; 는 풀하트
@@ -16,7 +51,7 @@ template.js에서 collapse 를 검색
 <nav th:fragment="sidebar" class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link">
                 <i class="typcn typcn-device-desktop menu-icon"></i>
                 <span class="menu-title">주식종목</span>
             </a>
@@ -28,13 +63,13 @@ template.js에서 collapse 를 검색
 
 <!--        하트 있음-->
 <!--        <button type="button" class="btnFav"><i class="typcn typcn-heart-full-outline"></i></button>-->
-
-    <ul class="nav" th:object="${marketDtoList}">
-        <li class="nav-item" th:each="bean : ${marketDtoList}">
-            <a class="nav-link" th:href="'/chart/'+${bean.ticker_code}" aria-controls="form-elements">
-                <span class="menu-title" th:text="${bean.ticker_name}"></span>
+    <ul class="nav" th:object="${companyList}">
+        <li class="nav-item" th:each="bean : ${companyList}">
+            <a class="nav-link" href="#form-elements" aria-controls="form-elements">
+                <span class="menu-title"th:text="${bean.ticker_name}" th:href="'/chart/'+${bean.ticker_code}"></span>
             </a>
         </li>
+    </ul>
 
 
 

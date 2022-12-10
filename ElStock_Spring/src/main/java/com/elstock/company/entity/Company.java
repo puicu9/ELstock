@@ -23,6 +23,8 @@ public class Company {
 //    private List<Market> market = new ArrayList<>() ;
     @Id
     private String ticker_code;
+    private String ticker_name;
+
     private String company_capitalization;
     private int company_rank;
     private String company_share;
