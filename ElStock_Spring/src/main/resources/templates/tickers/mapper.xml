@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<select id="autocomplete" parameterType="map" resultType="map">
+    select ticker_name, ticker_code
+    from markets
+    where ticker_name like '%' || #{value} || '%'
+</select>

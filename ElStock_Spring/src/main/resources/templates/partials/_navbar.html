@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
+
+<nav th:fragment="navbar" class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <div class="navbar-brand-wrapper d-flex justify-content-center">
+        <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+            <a class="navbar-brand brand-logo" href="/"><img src="images/elstock_logo03.png" alt="logo"/></a>
+            <a class="navbar-brand brand-logo-mini" href="/"><img src="images/elstock_logo03.png" alt="logo"/></a>
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                <span class="typcn typcn-th-menu"></span>
+            </button>
+        </div>
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <ul class="navbar-nav mr-lg-2">
+            <li class="nav-item nav-profile dropdown">
+                <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
+                    <!--                    <img src="images/faces/face5.jpg" alt="profile"/>-->
+                    <span class="mb-01">닉네임 받기</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                    <a class="dropdown-item">
+                        <i class="typcn typcn-cog-outline text-primary"></i>
+                        마이페이지
+                    </a>
+                    <a class="dropdown-item">
+                        <i class="typcn typcn-eject text-primary"></i>
+                        로그아웃
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item nav-user-status dropdown" style="padding-right: 0px;">
+                <span class="mb-02">님 환영합니다</span>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav mr-lg-2">
+
+            <li class="nav-item ml-4">
+                <a class="atag" href="/news">
+                    <h4 class="mb-00">뉴스</h4>
+                </a>
+            </li>
+
+            <li class="nav-item ml-4">
+                <a class="atag" href="/domestic">
+                    <h4 class="mb-00">국내증시</h4>
+                </a>
+            </li>
+
+            <li class="nav-item ml-4">
+                <a class="atag" href="/theme">
+                    <h4 class="mb-00">테마</h4>
+                </a>
+            </li>
+
+            <li class="nav-item ml-4">
+                <a class="atag" href="/chart">
+                    <h4 class="mb-00">차트</h4>
+                </a>
+            </li>
+
+            <li class="nav-item ml-4">
+                <a class="atag" href="/finance">
+                    <h4 class="mb-00">재무</h4>
+                </a>
+            </li>
+
+        </ul>
+
+
+        <!-- 검색 ticker_name을 검색하도록 -->
+<!--        +${tickers.ticker_code}}  -->
+    <div class="content" layout:fragment="search">
+        <form role="form" method="get" th:object="${tickers}"
+              th:action="@{/search/lists/}" >
+            <ul class="navbar-nav navbar-nav-right">
+                <li class="nav-item nav-search d-none d-md-block mr-0">
+                    <div class="searchBox input-group">
+
+<!--                        <input name="searchQuery" id="search" type="text" class="form-control" placeholder="종목명" aria-label="search"-->
+<!--                               aria-describedby="search" onkeyup="searchFilter()">-->
+
+                        <input name="searchQuery" id="searchQuery" type="text" class="form-control" placeholder="종목명" aria-label="search"
+                               aria-describedby="search">
+
+                        <div class="input-group-prepend">
+                            <button class="input-group-prepend" type="submit">
+                                <span class="input-group-text" >
+                                  <i class="typcn typcn-zoom"></i>
+                                </span>
+                            </button>
+                        </div>
+
+<!--                        <div class="listBox">-->
+<!--                            <div th:each="bean :${tickers}" class="listInner" style="display:none">-->
+<!--                                <span th:text="${bean.ticker_code}" class="ticker_code"></span>-->
+<!--                                <span th:text="${bean.ticker_name}" class="ticker_name"></span>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+                        <select id="autocomplete" parameterType="map" resultType="map">
+                            select ticker_name, ticker_code
+                            from markets
+                            where ticker_name like '%' || #{value} || '%'
+                        </select>
+
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+
+        <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item nav-date dropdown">
+                <a class="nav-link d-flex justify-content-center align-items-center" href="javascript:;">
+                    <span class="date mb-01">Today : Mar 23</span>
+                    <i class="typcn typcn-calendar"></i>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
+                   id="messageDropdown" href="#" data-toggle="dropdown">
+                    <i class="typcn typcn-cog-outline mx-0"></i>
+                    <span class="count"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                     aria-labelledby="messageDropdown">
+                    <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
+                    <a class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <img src="images/faces/face4.jpg" alt="image" class="profile-pic">
+                        </div>
+                        <div class="preview-item-content flex-grow">
+                            <h6 class="preview-subject ellipsis font-weight-normal">David Grey
+                            </h6>
+                            <p class="font-weight-light small-text text-muted mb-0">
+                                The meeting is cancelled
+                            </p>
+                        </div>
+                    </a>
+                    <a class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
+                        </div>
+                        <div class="preview-item-content flex-grow">
+                            <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
+                            </h6>
+                            <p class="font-weight-light small-text text-muted mb-0">
+                                New product launch
+                            </p>
+                        </div>
+                    </a>
+                    <a class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <img src="images/faces/face3.jpg" alt="image" class="profile-pic">
+                        </div>
+                        <div class="preview-item-content flex-grow">
+                            <h6 class="preview-subject ellipsis font-weight-normal"> Johnson
+                            </h6>
+                            <p class="font-weight-light small-text text-muted mb-0">
+                                Upcoming board meeting
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown mr-0">
+                <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center"
+                   id="notificationDropdown" href="#" data-toggle="dropdown">
+                    <i class="typcn typcn-bell mx-0"></i>
+                    <span class="count"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                     aria-labelledby="notificationDropdown">
+                    <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+                    <a class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-success">
+                                <i class="typcn typcn-info mx-0"></i>
+                            </div>
+                        </div>
+                        <div class="preview-item-content">
+                            <h6 class="preview-subject font-weight-normal">Application Error</h6>
+                            <p class="font-weight-light small-text mb-0 text-muted">
+                                Just now
+                            </p>
+                        </div>
+                    </a>
+                    <a class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-warning">
+                                <i class="typcn typcn-cog-outline mx-0"></i>
+                            </div>
+                        </div>
+                        <div class="preview-item-content">
+                            <h6 class="preview-subject font-weight-normal">Settings</h6>
+                            <p class="font-weight-light small-text mb-0 text-muted">
+                                Private message
+                            </p>
+                        </div>
+                    </a>
+                    <a class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-info">
+                                <i class="typcn typcn-user mx-0"></i>
+                            </div>
+                        </div>
+                        <div class="preview-item-content">
+                            <h6 class="preview-subject font-weight-normal">New user registration</h6>
+                            <p class="font-weight-light small-text mb-0 text-muted">
+                                2 days ago
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                data-toggle="offcanvas">
+            <span class="typcn typcn-th-menu"></span>
+        </button>
+    </div>
+</nav>
+
+<!-- JQuery 링크-->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!-- search 활용
+<script src="/js/searchFilter.js"></script>
+-->
+
+
+
+
+
+</html>
