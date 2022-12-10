@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface MarketListRepository extends JpaRepository<Market, String> {
 
-    List<Tuple> getMarketLists() ;
+//    List<Tuple> getMarketLists() ;
 
 //    @Query(" select new com.elstock.market.dto.MarketDto(m.date, m.open, m.high, m.low, m.close, m.volume, m.total, m.rate, m.ticker_code, m.ticker_name, c.company_rank)" +
 //            " from Market m " +

@@ -4,6 +4,9 @@
       layout:decorate="~{partials/_layout}">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
+<meta name="_csrf" th:content="${_csrf.token}"/>
+<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
 <th:block layout:fragment="script">
     <script th:inline="javascript">
 
@@ -12,13 +15,22 @@
 
 
 <!-- 사용자 정의 CSS 추가 -->
-<th:block layout:fragment="css">
-    <style>
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/vertical-layout-light/style.css}">
+        <style>
         td{
-        word-break:break-all;
+        word-break: break-all;
+        }
+        td .company_info{
+            font-weight: bold !important;
+        }
+        td .company_comment{
+            line-height: 1.3 !important;
+            white-space:normal !important;
         }
     </style>
-</th:block>
+    </th:block>
+
 
 
 <div class="content" layout:fragment="content">
@@ -31,9 +43,10 @@
                 <div class="col-lg-8 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">회사명</h4>
+<!--                            <h4 class="card-title">회사명</h4>-->
                             <p class="card-description">
-                                ${financeList.ticker_code}<code>.table</code>
+                                <h3 class="card-title" th:text="${companyDto.ticker_name}"></h3>
+<!--                                <code>.table</code>-->
                             </p>
 
                             <table class="table">
@@ -126,16 +139,14 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">회사 정보</h4>
-                            <p class="card-description">
-                                회사 정보 <code>.table-hover</code>
-                            </p>
+
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <thead>
 
                                     <tr>
-                                        <th>회사개요</th>
-                                        <td style="height:200px"; th:text="*{company_comment}"></td>
+                                        <th class="company_info">회사개요</th>
+                                        <td class="company_comment" th:text="*{company_comment}"></td>
                                     </tr>
 
                                     </thead>
@@ -147,7 +158,7 @@
                                     </tr>
                                     <tr>
                                         <th>시가총액순위</th>
-                                        <td th:text="*{company_rank}"></td>
+                                        <td th:text="*{company_rank}+'위'"></td>
                                     </tr>
 
                                     <tr>

@@ -10176,7 +10176,7 @@ pre code {
 }
 
 .table thead th {
-  vertical-align: bottom;
+  vertical-align: middle;
   border-bottom: 2px solid #f3f3f3;
 }
 
@@ -10497,8 +10497,6 @@ pre code {
 .table-responsive {
   display: block;
   width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 .table-responsive > .table-bordered {
@@ -13301,6 +13299,7 @@ input[type="button"].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+
 }
 
 .card-title {
@@ -16410,6 +16409,21 @@ button.bg-dark:focus,
 .mr-0, .rtl .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown .dropdown-item i, .rtl .settings-panel .sidebar-bg-options .rounded-circle, .rtl .settings-panel .sidebar-bg-options .color-tiles .tiles, .rtl .settings-panel .color-tiles .sidebar-bg-options .tiles, .rtl .settings-panel .events i,
 .mx-0 {
   margin-right: 0 !important;
+}
+
+.mb-01{
+  font-weight: bold;
+  color : mediumpurple;
+}
+
+.mb-02{
+  font-weight: bold;
+}
+
+.mb-00{
+  font-family: 'Song Myung', serif !important ;
+  font-weight: bold;
+  color : blueviolet;
 }
 
 .mb-0,
@@ -23364,7 +23378,7 @@ dl li {
 }
 
 .table td {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .table td img {
@@ -24445,7 +24459,7 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-brand-wrapper {
-  background: #844fc1;
+  background: #ffffff;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
@@ -24491,7 +24505,7 @@ div.tagsinput span.tag a {
 
 .navbar .navbar-brand-wrapper .navbar-brand-inner-wrapper .navbar-toggler {
   padding: 0;
-  color: #ffffff;
+  color: #844fc1;
   border: 0;
 }
 

@@ -29,8 +29,8 @@ public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryC
             // 티커 이름이 검색되면
             return QMarket.market.ticker_name.like("%" + searchQuery + "%");
         }
-            return null ;
-        }
+        return null ;
+    }
 
 
 
@@ -50,7 +50,7 @@ public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryC
 
     BooleanExpression dateRange(){
         LocalDateTime dateTime = LocalDateTime.now();
-        dateTime = dateTime.minusDays(2) ;
+        dateTime = dateTime.minusDays(5) ;
 
 //        BooleanExpression dateAfter = QMarket.market.date.after(dateTime);
         BooleanExpression dateAfter = QMarket.market.date.after(dateTime);
@@ -68,7 +68,7 @@ public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryC
         List<Market> content = this.queryFactory
                 .selectFrom(QMarket.market)
                 .where(searchQueryCondition(
-                        dto.getSearchQuery())
+                                dto.getSearchQuery())
                         , dateRange()
 //                        ,QMarket.market.date.eq(LocalDateTime.parse(dateTimeString))
                 )

@@ -14,8 +14,8 @@ public class MarketListService {
     private final MarketListRepository marketListRepository;
 
     public List<Tuple> getMarketList() {
-        return this.marketListRepository.getMarketLists();
-//        return null;
+//        return this.marketListRepository.getMarketLists();
+        return null;
     }
 
 //    @Transactional(readOnly = true)

@@ -18,7 +18,6 @@ public class TickerSearchService { //
 
     // 검색 조건과 페이징 객체를 이용하여 페이지 결과를 반환
     public Page<Market> getTickerPage(TickerSearchDto dto, Pageable pageable){
-
         return this.tickerSearchRepository.getTickerPage(dto, pageable);
     }
 
