@@ -18,7 +18,10 @@ today = datetime.today().strftime('%Y-%m-%d')
 # print(today)
 
 # 종목코드 리스트
-ticker_list = stock.get_market_ticker_list()# 현재일자 기준 가장 가까운 영업일의 코스피 상장종목 리스트
+# ticker_list = stock.get_market_ticker_list()# 현재일자 기준 가장 가까운 영업일의 코스피 상장종목 리스트
+
+ticker_list = ['005930','035720'] #카카오, 삼성 주식 종목 코드
+
 # print(ticker_list)
 # 날짜	시가	고가	저가	종가	거래량   총거래대금   변동률 	종목코드	종목명
 mycolumns = ['date',
