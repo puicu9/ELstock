@@ -121,7 +121,7 @@ nickname
             <li class="nav-item ml-4">
 
                 <a class="atag" href="/finance/095570">
-                    <h4 class="mb-0">재무</h4>
+                    <h4 class="mb-00">재무</h4>
 
                 </a>
             </li>
@@ -129,36 +129,7 @@ nickname
         </ul>
 
 
-        <!-- 검색 ticker_name을 검색하도록 -->
-<!--        +${tickers.ticker_code}}  -->
-    <div class="content" layout:fragment="search">
-        <form role="form" method="get" th:object="${tickers}"
-              th:action="@{/search/lists/}" >
-            <ul class="navbar-nav navbar-nav-right">
-                <li class="nav-item nav-search d-none d-md-block mr-0">
-                    <div class="searchBox input-group">
-
-<!--                        <input name="searchQuery" id="search" type="text" class="form-control" placeholder="종목명" aria-label="search"-->
-<!--                               aria-describedby="search" onkeyup="searchFilter()">-->
-
-                        <input name="searchQuery" id="searchQuery" type="text" class="form-control" placeholder="종목명" aria-label="search"
-                               aria-describedby="search">
-
-                        <div class="input-group-prepend">
-                            <button class="input-group-prepend" type="submit">
-                                <span class="input-group-text" >
-                                  <i class="typcn typcn-zoom"></i>
-                                </span>
-                            </button>
-                        </div>
-
-
-                    </div>
-                </li>
-            </ul>
-        </form>
-    </div>
-         <!--  검색  -->
+        <!--  찐  검색  찐 -->
         <div class="content navbar-nav navbar-nav-right" layout:fragment="search">
 
 
