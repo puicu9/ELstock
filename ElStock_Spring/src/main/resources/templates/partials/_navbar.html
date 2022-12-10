@@ -1,10 +1,51 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
+
+<!--<meta name="_csrf" th:content="${_csrf?.token}">-->
+<!--<meta name="_csrf_header" th:content="${_csrf?.headerName}">-->
+
+<!--<meta name="_csrf" th:content="${_csrf?.token}" th:if="${_csrf} ne null">-->
+<!--<meta name="_csrf_header" th:content="${_csrf?.headerName}" th:if="${_csrf} ne null">-->
+
+<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+<meta name="_csrf" th:content="${_csrf.token}"/>
+<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+
+<!--        $(document).ready(function(){-->
+<!--            var token = $("meta[name'_csrf']").attr("content");-->
+<!--            var header = $("meta[name'_csrf_header']").attr("content");-->
+
+<!--            function goToLogin(){-->
+
+<!--            };-->
+<!--        });-->
+
+
+
+
+    </script>
+</th:block>
+
+<th:block layout:fragment="css">
+    <style>
+            .nickname{
+
+                font-weight: bold;
+
+            }
+        </style>
+</th:block>
+
+nickname
+
 
 <nav th:fragment="navbar" class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="navbar-brand-wrapper d-flex justify-content-center">
@@ -16,26 +57,38 @@
             </button>
         </div>
     </div>
+
     <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <ul class="navbar-nav mr-lg-2">
+        <ul class="navbar-nav mr-lg-2" sec:authorize="isAuthenticated()">
             <li class="nav-item nav-profile dropdown">
                 <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
-                    <!--                    <img src="images/faces/face5.jpg" alt="profile"/>-->
-                    <span class="mb-01">닉네임 받기</span>
+                    <span class="nav-profile-name nickname" sec:authorize="isAuthenticated()" th:text="${member?.nickname}">상상도 못한 치킨마요</span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                    <a class="dropdown-item">
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown"
+                     sec:authorize="hasAnyAuthority('ROLE_USER')">
+                    <a class="dropdown-item" sec:authorize="isAuthenticated()">
                         <i class="typcn typcn-cog-outline text-primary"></i>
                         마이페이지
                     </a>
-                    <a class="dropdown-item">
+                    <a class="dropdown-item" href="/members/logout" sec:authorize="isAuthenticated()">
                         <i class="typcn typcn-eject text-primary"></i>
                         로그아웃
                     </a>
                 </div>
             </li>
             <li class="nav-item nav-user-status dropdown" style="padding-right: 0px;">
-                <span class="mb-02">님 환영합니다</span>
+
+                <p class="mb-0" sec:authorize="isAuthenticated()">환영합니다</p>
+
+            </li>
+        </ul>
+
+        <ul class="navbar-nav mr-lg-2" sec:authorize="!isAuthenticated()" >
+            <li class="nav-item ml-2">
+                <button type="button" class="btn btn-outline-primary btn-fw" onclick = "location.href = 'members/login'">로그인</button>
+            </li>
+            <li class="nav-item ml-2">
+                <button type="button" class="btn btn-outline-primary btn-fw" onclick = "location.href = 'members/new'">회원가입</button>
             </li>
         </ul>
 
@@ -66,50 +119,49 @@
             </li>
 
             <li class="nav-item ml-4">
-                <a class="atag" href="/finance">
-                    <h4 class="mb-00">재무</h4>
+
+                <a class="atag" href="/finance/095570">
+                    <h4 class="mb-0">재무</h4>
+
                 </a>
             </li>
 
         </ul>
 
+        <!-- 찐 검색  -->
+        <div class="content navbar-nav navbar-nav-right" layout:fragment="search">
 
-        <!-- 검색 ticker_name을 검색하도록 -->
-<!--        +${tickers.ticker_code}}  -->
-    <div class="content" layout:fragment="search">
-        <form role="form" method="get" th:object="${tickers}"
-              th:action="@{/search/lists/}" >
-            <ul class="navbar-nav navbar-nav-right">
-                <li class="nav-item nav-search d-none d-md-block mr-0">
-                    <div class="searchBox input-group">
 
-<!--                        <input name="searchQuery" id="search" type="text" class="form-control" placeholder="종목명" aria-label="search"-->
-<!--                               aria-describedby="search" onkeyup="searchFilter()">-->
-
-                        <input name="searchQuery" id="searchQuery" type="text" class="form-control" placeholder="종목명" aria-label="search"
-                               aria-describedby="search">
-
-                        <div class="input-group-prepend">
-                            <button class="input-group-prepend" type="submit">
-                                <span class="input-group-text" >
-                                  <i class="typcn typcn-zoom"></i>
-                                </span>
-                            </button>
+            <form role="form" method="get" th:object="${tickers}"
+                  th:action="@{/search/lists}">
+                <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-item nav-search d-none d-md-block mr-0">
+                        <div class="searchBox input-group">
+                            <input name="searchQuery" id="searchQuery" type="text" class="form-control"
+                                   placeholder="종목명"
+                                   aria-label="search"
+                                   aria-describedby="search">
+                            <div class="input-group-prepend">
+                                <button class="input-group-prepend" type="submit" id="searchButton">
+                                    <span class="input-group-text">
+                                      <i class="typcn typcn-zoom"></i>
+                                    </span>
+                                </button>
+                            </div>
                         </div>
-
-
-                    </div>
-                </li>
-            </ul>
-        </form>
-    </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <!--    검색 끝-->
 
 
         <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-date dropdown">
                 <a class="nav-link d-flex justify-content-center align-items-center" href="javascript:;">
-                    <span class="date mb-01">Today : Mar 23</span>
-                    <i class="typcn typcn-calendar"></i>
+
+                    <h6 class="mb-0">Today : </h6> <h6 class="date mb-0"></h6>
+
                 </a>
             </li>
             <li class="nav-item dropdown">
@@ -210,11 +262,15 @@
                 </div>
             </li>
         </ul>
+
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
                 data-toggle="offcanvas">
             <span class="typcn typcn-th-menu"></span>
         </button>
+
     </div>
+
+
 </nav>
 
 <!-- JQuery 링크-->
@@ -225,7 +281,7 @@
 <!-- search 활용
 <script src="/js/searchFilter.js"></script>
 -->
-
+<script src="/js/searchNavbar.js"></script>
 
 
 

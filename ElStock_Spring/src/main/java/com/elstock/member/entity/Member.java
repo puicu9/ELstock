@@ -20,7 +20,6 @@ public class Member {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String name;
 
     @Column(unique = true)
@@ -32,7 +31,6 @@ public class Member {
     @Enumerated(EnumType.STRING)
     private Role role; // 일반 사용자, 관리자 모드 구분
 
-    private LocalDateTime regDate;
     private int f_balance;
 
 
@@ -43,7 +41,7 @@ public class Member {
         Member member = new Member();
 
         member.setName(dto.getName());
-        member.setAddress(dto.getAddress());
+//        member.setAddress(dto.getAddress());
         member.setEmail(dto.getEmail());
         member.setRole(Role.USER); // 차후 관리자와 구분이 필요할 듯 ...
         // member.setId();
@@ -52,9 +50,9 @@ public class Member {
         String nickname = getNickname.Nickname();
         member.setNickname(nickname);
 
-
         String password = passEncoder.encode(dto.getPassword()); // 비번 암호화
         member.setPassword(password);
+
         member.setF_balance(100000000);
 
         return member;

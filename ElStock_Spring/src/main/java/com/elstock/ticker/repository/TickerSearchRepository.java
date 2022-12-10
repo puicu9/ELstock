@@ -1,6 +1,6 @@
 package com.elstock.ticker.repository;
 
-import com.elstock.ticker.entity.Market;
+import com.elstock.market.entity.Market;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 

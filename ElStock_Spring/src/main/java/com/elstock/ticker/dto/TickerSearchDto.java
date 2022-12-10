@@ -11,4 +11,5 @@ public class TickerSearchDto {
     // searchQuery 검색키워드 (종목명)
     private String searchQuery ;
 
+
 }

@@ -8,6 +8,7 @@ import dbInsert # 데이터
 today = date.today()
 #종목 코드 전체 불러오기
 stock_code = stock.get_market_ticker_list(date=today, market="ALL")
+print("총 상장 주식 개수 : "+len(stock_code))
 
 for code in stock_code:
  print('종목코드 : ', code)

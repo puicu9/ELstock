@@ -30,26 +30,26 @@
 
         <div class="row">
             <th:block th:each="bean, status: ${list}">
-            <!-- Area Chart -->
-            <!-- 1 -->
-            <div class="col-xl-6 col-lg-7">
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">
-                            <a th:href="${bean.news_url}">[[${bean.news_header}]]</a>
-                        </h6>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <div class="news-area">
-                            <img th:src="${bean.news_img}" width="350px" height="300px">
-                            <br>
-                            [[${bean.news_body}]]
+                <!-- Area Chart -->
+                <!-- 1 -->
+                <div class="col-xl-6 col-lg-7">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">
+                                <a th:href="${bean.news_url}">[[${bean.news_header}]]</a>
+                            </h6>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="news-area">
+                                <img th:src="${bean.news_img}" width="350px" height="300px">
+                                <br>
+                                [[${bean.news_body}]]
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </th:block>
         </div>
 

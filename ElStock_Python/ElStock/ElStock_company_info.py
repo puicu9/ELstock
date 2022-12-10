@@ -52,6 +52,7 @@ def no_space(target):
 def getData():
     count = 0  # 종목코드로 크롤링 얼마나 했는지 세는 count 변수
     ticker_code = ''  # 종목 코드
+    ticker_name = '' # 종목명
     company_capitalization = ''  # 시가총액
     company_rank = ''  # 시가 총액 순위
     company_share = ''  # 상장주식수
@@ -74,7 +75,7 @@ def getData():
     # 총액 / 순위 / 상장주식수 / None(액면가만 없음)
     #  tr  /  tr  /  tr(상장주식수)
 
-    for ticker_code in ticker_list[0:10:]:
+    for ticker_code in ticker_list[::]:
         print('종목코드 : ' + ticker_code)
 
 # 기업정보 크롤링
@@ -82,6 +83,10 @@ def getData():
         html = requests.get(url)
         html = html.content.decode('cp949', 'replace')
         soup = BeautifulSoup(html, 'html.parser')
+
+
+# 종목명 찾기
+        ticker_name = soup.findAll('h2')[1].find('a').text
 
 # csv열 순서 : 종목코드, 시가총액, 시가순위, 상장주식수, 액면가 찾기
 
@@ -105,7 +110,10 @@ def getData():
 
         # 끝글자가 '위'로 시작하면 company_rank 2번쨰 값은 company_rank
         if second_td[-1:] == '위':
-            company_rank = second_td
+            rankWithSomething = second_td[4::] #ddd위
+
+            company_rank = rankWithSomething[:len(rankWithSomething)-1:]
+            # print(company_rank)
 
             # 3번째 순위부터 None인 경우, 해당 -> (상장주식수 : company_share 액면가 : company_value)
             third_tr = findTable.select_one('tr:nth-of-type(3)')
@@ -223,7 +231,11 @@ def getData():
         # print(find_url_table)
         find_url_tr = find_url_table.find_all('tr')[2]
         # print(find_url_tr)
-        company_url = find_url_tr.a.string
+
+        if(find_url_tr.a)==None:
+            company_url ='-'
+        else:
+            company_url = find_url_tr.a.string
         # print(company_url)
 
 # 기업 개요 크롤링
@@ -243,6 +255,7 @@ def getData():
         count += 1
         # end for
         mydata = [ticker_code,# 종목 코드
+                  ticker_name,
                   company_capitalization,# 시가총액
                   company_rank,# 시가순위
                   company_share,# 상장주식수
@@ -256,6 +269,7 @@ def getData():
         saveData.append(mydata)
 
         mycolumns = ['ticker_code',  # 종목 코드
+                     'ticker_name', # 종목 명
                      'company_capitalization',  # 시가총액
                      'company_rank',  # 시가순위
                      'company_share',  # 상장주식수
@@ -269,9 +283,10 @@ def getData():
         myframe = DataFrame(saveData, columns=mycolumns)
 
         #테이블명
-        tableName = 'companys'
+    tableName = 'companys'
+    #DB
 
-        dbInsert.dbInsert(myframe, tableName)
+    dbInsert.dbInsert(myframe, tableName)
 
     # print(saveData)
     print('총 크롤링한 종목코드 개수 : ', count)

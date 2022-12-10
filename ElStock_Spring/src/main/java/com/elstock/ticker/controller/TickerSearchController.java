@@ -1,7 +1,7 @@
 package com.elstock.ticker.controller;
 
+import com.elstock.market.entity.Market;
 import com.elstock.ticker.dto.TickerSearchDto;
-import com.elstock.ticker.entity.Market;
 import lombok.RequiredArgsConstructor;
 import com.elstock.ticker.service.TickerSearchService;
 import org.springframework.data.domain.Page;
@@ -43,6 +43,6 @@ public class TickerSearchController {
         System.out.println("tickers : " + tickers.toString());
         System.out.println("dto : " + dto);
 
-        return "/partials/_navbar";
+        return "/tickers/tiList";
     }
 }
