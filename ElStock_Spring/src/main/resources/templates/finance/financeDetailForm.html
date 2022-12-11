@@ -22,11 +22,11 @@
         word-break: break-all;
         }
         td .company_info{
-            font-weight: bold !important;
+            font-weight: bold
         }
         td .company_comment{
-            line-height: 1.3 !important;
-            white-space:normal !important;
+            line-height: 1.3
+            white-space:normal
         }
     </style>
     </th:block>
@@ -45,7 +45,9 @@
                         <div class="card-body">
 <!--                            <h4 class="card-title">회사명</h4>-->
                             <p class="card-description">
-                                <h3 class="card-title" th:text="${companyDto.ticker_name}"></h3>
+                                <a th:href="${companyDto.company_url}">
+                                     <h3 class="card-title" th:text="${companyDto.ticker_name}"/>
+                                </a>
 <!--                                <code>.table</code>-->
                             </p>
 
@@ -145,8 +147,8 @@
                                     <thead>
 
                                     <tr>
-                                        <th class="company_info">회사개요</th>
-                                        <td class="company_comment" th:text="*{company_comment}"></td>
+                                        <th class="company_info" style="font-weight: bold;">회사개요</th>
+                                        <td class="company_comment" style="white-space:normal; line-height: 1.3;" th:text="*{company_comment}"></td>
                                     </tr>
 
                                     </thead>

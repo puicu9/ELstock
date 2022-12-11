@@ -26,14 +26,12 @@ public class ChartController {
 
 
     @GetMapping(value = "/stock/load")
-    public ResponseEntity<List<Price>> loadChart(@RequestParam String symbol, Model model){
+    public ResponseEntity<List<Price>> loadChart(@RequestParam String symbol){
 
         System.out.println(symbol);
         if(symbol.equals("kakao")){
-            model.addAttribute("ticker_code", "035720");
             return new ResponseEntity<List<Price>>(this.chartService.getKakao(), HttpStatus.OK);
         }else if(symbol.equals("samsung")){
-            model.addAttribute("ticker_code", "005930");
             return new ResponseEntity<List<Price>>(this.chartService.getSamsung(), HttpStatus.OK);
         }else{
             return new ResponseEntity<List<Price>>(this.chartService.getTesla(), HttpStatus.OK);
