@@ -37,10 +37,10 @@ public class FinanceController {
         Company companyDto = this.companyService.getCompanyDate(ticker_code);
         model.addAttribute("companyDto", companyDto) ;
 
-
 //        commonController.commonData(principal, model);
 
         return "finance/financeDetailForm" ;
     }
+
 
 }

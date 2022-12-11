@@ -68,7 +68,7 @@ public class ChartService {
 //    }
 
     public List<Price> getTesla() {
-        List<Tesla> tesla = teslaRepository.findAllByOrderByIdDesc();
+        List<Tesla> tesla = teslaRepository.findAll();
 
         List<Price> priceList = new ArrayList<>();
 
@@ -88,7 +88,7 @@ public class ChartService {
     }
 
     public List<Price> getKakao() {
-        List<Kakao> kakao = kakaoRepository.findAllByOrderByIdDesc();
+        List<Kakao> kakao = kakaoRepository.findAll();
 
         List<Price> priceList = new ArrayList<>();
 
@@ -109,7 +109,7 @@ public class ChartService {
     }
 
     public List<Price> getSamsung() {
-        List<Samsung> samsung = samsungRepository.findAllByOrderByIdDesc();
+        List<Samsung> samsung = samsungRepository.findAll();
 
         List<Price> priceList = new ArrayList<>();
 
