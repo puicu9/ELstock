@@ -99,7 +99,7 @@ nickname
             </li>
 
             <li class="nav-item ml-4">
-                <a class="atag" href="/domestic">
+                <a class="atag" href="/domestic/information">
                     <h4 class="mb-00">국내증시</h4>
                 </a>
             </li>
@@ -123,7 +123,7 @@ nickname
 
 
             <form role="form" method="get" th:object="${tickers}"
-                  th:action="@{/search/lists}">
+                  th:action="@{/search/lists/+${tickers.number}}">
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-search d-none d-md-block mr-0">
                         <div class="searchBox input-group">
