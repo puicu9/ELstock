@@ -1,6 +1,5 @@
 package com.elstock.news.controller;
 
-import com.elstock.chart.service.TeslaService;
 import com.elstock.common.controller.CommonController;
 import com.elstock.news.dto.NewsDto;
 import com.elstock.news.service.NewsService;
@@ -10,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import java.security.Principal;
 import java.util.List;
 

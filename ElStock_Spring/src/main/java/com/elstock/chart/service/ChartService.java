@@ -1,7 +1,11 @@
 package com.elstock.chart.service;
 
 import com.elstock.chart.dto.Price;
+import com.elstock.chart.entity.Kakao;
+import com.elstock.chart.entity.Samsung;
 import com.elstock.chart.entity.Tesla;
+import com.elstock.chart.repository.KakaoRepository;
+import com.elstock.chart.repository.SamsungRepository;
 import com.elstock.chart.repository.TeslaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,11 +18,13 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Transactional
-public class TeslaService {
+public class ChartService {
 
     private final TeslaRepository teslaRepository;
+    private final KakaoRepository kakaoRepository;
+    private final SamsungRepository samsungRepository;
 
-
+//
 //    public void test() throws IOException, ParseException {
 //
 //
@@ -62,7 +68,7 @@ public class TeslaService {
 //    }
 
     public List<Price> getTesla() {
-        List<Tesla> tesla = teslaRepository.findAll();
+        List<Tesla> tesla = teslaRepository.findAllByOrderByIdDesc();
 
         List<Price> priceList = new ArrayList<>();
 
@@ -80,5 +86,48 @@ public class TeslaService {
         }
         return priceList;
     }
+
+    public List<Price> getKakao() {
+        List<Kakao> kakao = kakaoRepository.findAllByOrderByIdDesc();
+
+        List<Price> priceList = new ArrayList<>();
+
+        for(Kakao bean : kakao){
+            Price price = Price.builder()
+                    .close(bean.getClose())
+                    .open(bean.getOpen())
+                    .high(bean.getHigh())
+                    .low(bean.getLow())
+                    .date(bean.getDate())
+                    .adjclose(bean.getAdjclose())
+                    .volume(bean.getVolume())
+                    .build();
+            priceList.add(price);
+        }
+
+        return priceList;
+    }
+
+    public List<Price> getSamsung() {
+        List<Samsung> samsung = samsungRepository.findAllByOrderByIdDesc();
+
+        List<Price> priceList = new ArrayList<>();
+
+        for(Samsung bean : samsung){
+            Price price = Price.builder()
+                    .close(bean.getClose())
+                    .open(bean.getOpen())
+                    .high(bean.getHigh())
+                    .low(bean.getLow())
+                    .date(bean.getDate())
+                    .adjclose(bean.getAdjclose())
+                    .volume(bean.getVolume())
+                    .build();
+            priceList.add(price);
+        }
+        return priceList;
+    }
+
+
 
 }

@@ -75,7 +75,7 @@ def getData():
     # 총액 / 순위 / 상장주식수 / None(액면가만 없음)
     #  tr  /  tr  /  tr(상장주식수)
 
-    for ticker_code in ticker_list[0:10:]:
+    for ticker_code in ticker_list[::]:
         print('종목코드 : ' + ticker_code)
 
 # 기업정보 크롤링
@@ -231,7 +231,11 @@ def getData():
         # print(find_url_table)
         find_url_tr = find_url_table.find_all('tr')[2]
         # print(find_url_tr)
-        company_url = find_url_tr.a.string
+
+        if(find_url_tr.a)==None:
+            company_url ='-'
+        else:
+            company_url = find_url_tr.a.string
         # print(company_url)
 
 # 기업 개요 크롤링
@@ -281,6 +285,7 @@ def getData():
         #테이블명
     tableName = 'companys'
     #DB
+
     dbInsert.dbInsert(myframe, tableName)
 
     # print(saveData)

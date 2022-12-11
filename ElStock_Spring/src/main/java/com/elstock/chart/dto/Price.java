@@ -2,9 +2,11 @@ package com.elstock.chart.dto;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.ToString;
 
 @Data
 @Builder
+@ToString
 public class Price {
 
 //    {"date":1666791000,"volume":85012500,"high":230.60000610351562,

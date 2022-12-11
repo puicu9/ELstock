@@ -7,11 +7,18 @@
 
 <!-- index.html 고유 CSS 추가 -->
 <th:block layout:fragment="css">
-<!--    <link rel="stylesheet" th:href="@{/css/page/home.css}" >-->
+    <!--    <link rel="stylesheet" th:href="@{/css/page/home.css}" >-->
     <!--차트 css-->
     <link rel="stylesheet" th:href="@{/chart/css/chart.css}">
     <!--폰트-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+    g .tick .axis .x-axis {
+    opacity:100%;
+
+    }
+
+
 </th:block>
 
 <!-- index.html 고유 스크립트 추가 -->
@@ -49,7 +56,8 @@
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">삼성전자</h6>
+                <h6 class="m-0 font-weight-bold text-primary" th:text="${#httpServletRequest.getParameter('symbol')}"></h6>
+                <button type="button" class="btn btn-inverse-primary btn-fw" onClick="location.href='/finance/'+${ticker_code}}">재무 정보</button>
             </div>
             <!-- Card Body -->
             <div class="card-body">
@@ -62,15 +70,7 @@
         </div>
     </div>
 
-    <nav class="right-content">
-        <p>1.삼전</p>
-        <p>2.카톡</p>
-        <p>3.삼전</p>
-        <p>4.삼전</p>
-        <p>5.삼전</p>
-        <p>6.삼전</p>
 
-    </nav>
 
 </div>
 

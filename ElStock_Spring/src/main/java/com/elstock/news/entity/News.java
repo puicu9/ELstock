@@ -15,6 +15,7 @@ import javax.persistence.Id;
 @Getter
 @Builder
 @AllArgsConstructor
+
 public class News {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

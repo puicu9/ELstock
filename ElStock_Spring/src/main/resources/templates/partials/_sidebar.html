@@ -47,7 +47,7 @@ content: "\e087"; 는 빈하트
 template.js에서 collapse 를 검색
 
  -->
-
+<body>
 <nav th:fragment="sidebar" class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item">
@@ -63,18 +63,27 @@ template.js에서 collapse 를 검색
 
 <!--        하트 있음-->
 <!--        <button type="button" class="btnFav"><i class="typcn typcn-heart-full-outline"></i></button>-->
-    <ul class="nav" th:object="${companyList}">
-        <li class="nav-item" th:each="bean : ${companyList}">
-            <a class="nav-link" href="#form-elements" aria-controls="form-elements">
-                <span class="menu-title"th:text="${bean.ticker_name}" th:href="'/chart/'+${bean.ticker_code}"></span>
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="/chart?symbol=kakao" aria-controls="form-elements">
+                <span class="menu-title">카카오</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/chart?symbol=samsung" aria-controls="form-elements">
+                <span class="menu-title">삼성</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/chart?symbol=tesla" aria-controls="form-elements">
+                <span class="menu-title">테슬라</span>
             </a>
         </li>
     </ul>
 
-
-
-
 </nav>
-
+</body>
 
 </html>

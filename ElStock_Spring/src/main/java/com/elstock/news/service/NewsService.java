@@ -18,6 +18,8 @@ public class NewsService {
 
     public List<NewsDto> getNews(){
         List<News> news = newsRepository.findAll();
+        System.out.println("news 값 찾기");
+        System.out.println(news.toString());
 
         List<NewsDto> newsList = new ArrayList<>();
 

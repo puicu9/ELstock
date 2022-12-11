@@ -16,7 +16,7 @@ import javax.persistence.Id;
 @Getter
 @Builder
 @AllArgsConstructor //build쓸 때 필요함
-public class Tesla {
+public class Samsung {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +31,7 @@ public class Tesla {
     private Double open;
 
     // @AllArgsConstructor때문에 생성자 만들어줌
-    public Tesla() {
+    public Samsung() {
 
     }
 }

@@ -1,9 +1,23 @@
 
+    // url값 가져와서 split 해줌
+    function getParam(sname) {
+        var params = location.search.substr(location.search.indexOf("?") + 1);
+        var sval = "";
+        params = params.split("&");
+        for (var i = 0; i < params.length; i++) {
+            temp = params[i].split("=");
+            if ([temp[0]] == sname) { sval = temp[1]; }
+        }
+        return sval;
+    }
+
+
     function getStock() {
         /* var token = $("meta[name='_csrf']").attr("content"); */
         /* var header = $("meta[name='_csrf_header']").attr("content"); */
+        var symbol = getParam("symbol")
 
-        var url = "/stock/load";
+        var url = "/stock/load?symbol=" + symbol;
         /* var url = "/stock/load?stock=SAMSUNG"; */
 
         $.ajax({
@@ -123,7 +137,7 @@ function drawChart(prices) {
             })
             .attr('width', xBand.bandwidth())
             .attr('height', d => (d.open === d.close) ? 1 : yScale(Math.min(d.open, d.close))-yScale(Math.max(d.open, d.close)))
-            .attr("fill", d => (d.open === d.close) ? "silver" : (d.open > d.close) ? "red" : "blue")
+            .attr("fill", d => (d.open === d.close) ? "silver" : (d.open > d.close) ? "blue" : "red")
 
             console.log(candles)
 
@@ -137,7 +151,7 @@ function drawChart(prices) {
             .attr("x2", (d, i) => xScale(i) - xBand.bandwidth()/2)
             .attr("y1", d => yScale(d.high))
             .attr("y2", d => yScale(d.low))
-            .attr("stroke", d => (d.open === d.close) ? "white" : (d.open > d.close) ? "red" : "blue");
+            .attr("stroke", d => (d.open === d.close) ? "white" : (d.open > d.close) ? "blue" : "red");
 
         svg.append("defs")
             .append("clipPath")
@@ -201,8 +215,8 @@ function drawChart(prices) {
             clearTimeout(resizeTimer)
             resizeTimer = setTimeout(function() {
 
-                var xmin = new Date(xDateScale(Math.floor(xScaleZ.domain()[0])))
-                xmax = new Date(xDateScale(Math.floor(xScaleZ.domain()[1])))
+                var xmin = new Date(xDateScale(Math.floor(xScaleZ.domain()[0])));
+                xmax = new Date(xDateScale(Math.floor(xScaleZ.domain()[1])));
 
                 filtered = _.filter(prices, d => {
                     const testMin = xmax.getTime();

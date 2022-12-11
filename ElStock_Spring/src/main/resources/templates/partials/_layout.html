@@ -3,7 +3,7 @@
         lagn="ko"
         xmlns:th="http://www.thymeleaf.org"
 
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 
 <head>
@@ -20,36 +20,36 @@
 </head>
 <body>
 
-    <div class="container-scroller">
-        <!-- partial:partials/_navbar.html -->
-        <div th:replace="partials/_navbar::navbar"></div>
-        <!--    <div th:replace="partials/_navbar::navbar2"></div>-->
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <div th:replace="partials/_navbar::navbar"></div>
+    <!--    <div th:replace="partials/_navbar::navbar2"></div>-->
 
 
-        <div class="container-fluid page-body-wrapper">
-            <!-- partial:partials/_settings-panel.html -->
-            <div th:replace="partials/_settings-panel::settings-panel"></div>
+    <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_settings-panel.html -->
+        <div th:replace="partials/_settings-panel::settings-panel"></div>
 
-            <!-- partial:partials/_sidebar.html -->
-            <div th:replace="partials/_sidebar::sidebar"></div>
-
-
-            <!--   메인     -->
-                <div th:frament="content" class="content main-panel">
-                <!-- content-wrapper ends -->
-
-                    <!--본문-->
-                    <th:block layout:fragment="content"></th:block>
+        <!-- partial:partials/_sidebar.html -->
+        <div th:replace="partials/_sidebar::sidebar"></div>
 
 
-                <!-- partial:partials/_footer.html -->
-                <div th:replace="partials/_footer :: footer"></div>
-                <!-- main-panel ends -->
-                </div>
-        <!-- page-body-wrapper ends -->
+        <!--   메인     -->
+        <div th:frament="content" class="content main-panel">
+            <!-- content-wrapper ends -->
+
+            <!--본문-->
+            <th:block layout:fragment="content"></th:block>
+
+
+            <!-- partial:partials/_footer.html -->
+            <div th:replace="partials/_footer :: footer"></div>
+            <!-- main-panel ends -->
         </div>
-    <!-- container-scroller -->
+        <!-- page-body-wrapper ends -->
     </div>
+    <!-- container-scroller -->
+</div>
 
 
 
