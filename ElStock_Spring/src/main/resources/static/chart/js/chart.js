@@ -215,6 +215,7 @@ function drawChart(prices) {
             clearTimeout(resizeTimer)
             resizeTimer = setTimeout(function() {
 
+//찐
                var xmin = new Date(xDateScale(Math.floor(xScaleZ.domain()[1])))
                xmax = new Date(xDateScale(Math.floor(xScaleZ.domain()[0])))
 

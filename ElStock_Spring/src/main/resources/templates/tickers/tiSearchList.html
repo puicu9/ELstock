@@ -7,7 +7,7 @@
 
 <th:block layout:fragment="script">
     <script th:inline="javascript">
-
+<!--찐-->
           $(document).ready(function(){
             $('#searchButton').on('click', function(event){
                 event.preventDefault(); /* 이벤트 전파 방지 효과 */
@@ -111,7 +111,6 @@
                             <span aria-hidden='true'>Previous</span>
                         </a>
                     </li>
-
 
                     <!-- 숫자 반복 영역  -->
                     <li class="page-item" th:each="page:${#numbers.sequence(start, end)}"
