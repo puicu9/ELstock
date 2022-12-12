@@ -5,158 +5,179 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
 <th:block layout:fragment="script">
-  <script th:inline="javascript">
+    <script th:inline="javascript">
 
-  </script>
+    </script>
 </th:block>
 
 
 <!-- 사용자 정의 CSS 추가 -->
 <th:block layout:fragment="css">
-  <style>
+    <style>
         td{
         word-break: break-all;
         }
+
+
     </style>
 </th:block>
 
 
 <div class="content" layout:fragment="content">
+    <div class="container-fluid">
+    <div class="main-panel">
 
-  <div class="main-panel">
-      <div class="row">
-        <div class="col-lg-6 grid-margin stretch-card">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">코스피 지수</h4>
-              <table class="table">
-                  <thead>
-                  <tr>
-                    <th>번호</th>
-                    <th>날짜</th>
-                    <th>지수</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr th:each = "kospi:${kospi}">
-                    <td th:text="${kospi.id}">1</td>
-                    <td th:text="${kospi.kospi_date}"></td>
-                    <td th:text="${kospi.kospi_index}"></td>
-                  </tr>
-                  </tbody>
-                </table>
+        <div id="income-chart-legend" class="d-flex flex-wrap mt-1 mt-md-0">
+            <div class="d-flex align-items-center mr-3">
 
-                <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">
-                  <a th:if="${page != nowPage}" th:href="@{/domestic/information(page=${page})}" th:text ="${page}"></a>
-                  <strong th:if="${page==nowPage}" th:text ="${page}" style="color:red"></strong>
-
-                </th:block>
-
+                <a href="/domestic/chart" class="btn btn-inverse-primary btn-fw">
+                    <p class="mb-0">그래프로 보기</p>
+                </a>
             </div>
-          </div>
-        </div>
-        <div class="col-lg-6 grid-margin stretch-card">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">코스닥 지수</h4>
-              <table class="table">
-                <thead>
-                <tr>
-                  <th>번호</th>
-                  <th>날짜</th>
-                  <th>지수</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each = "kosdaq:${kosdaq}">
-                  <td th:text="${kosdaq.id}">1</td>
-                  <td th:text="${kosdaq.kosdaq_date}"></td>
-                  <td th:text="${kosdaq.kosdaq_index}"></td>
-                </tr>
-                </tbody>
-              </table>
-
-              <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">
-                <a th:if="${page != nowPage}" th:href="@{/domestic/information(page=${page})}" th:text ="${page}"></a>
-                <strong th:if="${page==nowPage}" th:text ="${page}" style="color:red"></strong>
-
-              </th:block>
-
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 grid-margin stretch-card">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">달러 환율</h4>
-              <table class="table">
-                <thead>
-                <tr>
-                  <th>번호</th>
-                  <th>날짜</th>
-                  <th>가격</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each = "USD:${USD}">
-                  <td th:text="${USD.id}">1</td>
-                  <td th:text="${USD.usd_date}"></td>
-                  <td th:text="${USD.usd_price}"></td>
-                </tr>
-                </tbody>
-              </table>
-
-              <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">
-                <a th:if="${page != nowPage}" th:href="@{/domestic/information(page=${page})}" th:text ="${page}"></a>
-                <strong th:if="${page==nowPage}" th:text ="${page}" style="color:red"></strong>
-
-              </th:block>
-
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 grid-margin stretch-card">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">엔화 환율</h4>
-              <table class="table">
-                <thead>
-                <tr>
-                  <th>번호</th>
-                  <th>날짜</th>
-                  <th>가격</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each = "JPY:${JPY}">
-                  <td th:text="${JPY.id}">1</td>
-                  <td th:text="${JPY.jpy_date}"></td>
-                  <td th:text="${JPY.jpy_price}"></td>
-                </tr>
-                </tbody>
-              </table>
-
-              <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">
-                <a th:if="${page != nowPage}" th:href="@{/domestic/information(page=${page})}" th:text ="${page}"></a>
-                <strong th:if="${page==nowPage}" th:text ="${page}" style="color:red"></strong>
-
-              </th:block>
-
-            </div>
-          </div>
         </div>
 
+        <div class="row">
+            <div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
 
 
-      </div>
+
+                    <div class="card-body">
+                        <h4 class="card-title">코스피 지수</h4>
 
 
 
+
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>번호</th>
+                                <th>날짜</th>
+                                <th>지수</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="kospi:${kospi}">
+                                <td th:text="${kospi.id}">1</td>
+                                <td th:text="${kospi.kospi_date}"></td>
+                                <td th:text="${kospi.kospi_index}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">
+                            <a th:if="${page != nowPage}" th:href="@{/domestic/information(page=${page})}"
+                               th:text="${page}"></a>
+                            <strong th:if="${page==nowPage}" th:text="${page}" style="color:red"></strong>
+
+                        </th:block>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">코스닥 지수</h4>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>번호</th>
+                                <th>날짜</th>
+                                <th>지수</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="kosdaq:${kosdaq}">
+                                <td th:text="${kosdaq.id}">1</td>
+                                <td th:text="${kosdaq.kosdaq_date}"></td>
+                                <td th:text="${kosdaq.kosdaq_index}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">
+                            <a th:if="${page != nowPage}" th:href="@{/domestic/information(page=${page})}"
+                               th:text="${page}"></a>
+                            <strong th:if="${page==nowPage}" th:text="${page}" style="color:red"></strong>
+
+                        </th:block>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">달러 환율</h4>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>번호</th>
+                                <th>날짜</th>
+                                <th>가격</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="USD:${USD}">
+                                <td th:text="${USD.id}">1</td>
+                                <td th:text="${USD.usd_date}"></td>
+                                <td th:text="${USD.usd_price}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">
+                            <a th:if="${page != nowPage}" th:href="@{/domestic/information(page=${page})}"
+                               th:text="${page}"></a>
+                            <strong th:if="${page==nowPage}" th:text="${page}" style="color:red"></strong>
+
+                        </th:block>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">엔화 환율</h4>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>번호</th>
+                                <th>날짜</th>
+                                <th>가격</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="JPY:${JPY}">
+                                <td th:text="${JPY.id}">1</td>
+                                <td th:text="${JPY.jpy_date}"></td>
+                                <td th:text="${JPY.jpy_price}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">
+                            <a th:if="${page != nowPage}" th:href="@{/domestic/information(page=${page})}"
+                               th:text="${page}"></a>
+                            <strong th:if="${page==nowPage}" th:text="${page}" style="color:red"></strong>
+
+                        </th:block>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
 
     </div>
     <!-- content-wrapper ends -->
 
-  </div>
+</div>
 
 
 </div>

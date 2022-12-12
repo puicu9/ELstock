@@ -51,7 +51,7 @@ public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryC
 
     BooleanExpression dateRange(){
         LocalDateTime dateTime = LocalDateTime.now();
-        dateTime = dateTime.minusDays(5) ;
+        dateTime = dateTime.minusDays(6) ;
 
 //        BooleanExpression dateAfter = QMarket.market.date.after(dateTime);
         BooleanExpression dateAfter = QMarket.market.date.after(dateTime);
