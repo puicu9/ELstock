@@ -2,7 +2,6 @@ package com.elstock.market.controller;
 
 import com.elstock.market.dto.MarketDto;
 import com.elstock.market.service.MarketListService;
-import com.querydsl.core.Tuple;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

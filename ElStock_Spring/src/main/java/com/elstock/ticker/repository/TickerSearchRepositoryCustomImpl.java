@@ -51,7 +51,7 @@ public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryC
 
     BooleanExpression dateRange(){
         LocalDateTime dateTime = LocalDateTime.now();
-        dateTime = dateTime.minusDays(6) ;
+        dateTime = dateTime.minusDays(2) ;
 
 //        BooleanExpression dateAfter = QMarket.market.date.after(dateTime);
         BooleanExpression dateAfter = QMarket.market.date.after(dateTime);
@@ -63,15 +63,11 @@ public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryC
     public Page<Market> getTickerPage(TickerSearchDto dto, Pageable pageable) {
         LocalDateTime dateTime = LocalDateTime.now();
 
-//        String dateTimeString = dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd 00:00:00"));
-//        LocalDateTime today = LocalDateTime.parse(dateTime, dateTimeString);
-// 찐
         QueryResults<Market> result = this.queryFactory
                 .selectFrom(QMarket.market)
                 .where(searchQueryCondition(
                                 dto.getSearchQuery())
                         , dateRange()
-//                        ,QMarket.market.date.eq(LocalDateTime.parse(dateTimeString))
                 )
                 .orderBy(QMarket.market.ticker_name.asc())
                 .offset(pageable.getOffset())

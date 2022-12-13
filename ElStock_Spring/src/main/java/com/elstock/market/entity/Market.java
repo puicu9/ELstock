@@ -1,13 +1,11 @@
 package com.elstock.market.entity;
 
-import com.elstock.company.entity.Company;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name ="markets")

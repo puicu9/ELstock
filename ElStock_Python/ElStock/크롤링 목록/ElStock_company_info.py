@@ -10,7 +10,7 @@ from pykrx import stock
 
 from bs4 import BeautifulSoup
 from selenium import webdriver
-import requests
+# import requests
 
 from ElStock import dbInsert
 
