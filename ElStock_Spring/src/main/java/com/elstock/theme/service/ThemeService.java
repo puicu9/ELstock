@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,12 +22,15 @@ import java.util.List;
 public class ThemeService {
     private final themeRepository themeRepository;
     private final ticker_by_themeRepository ticker_by_themeRepository;
+
+    //페이지
     public Page<Theme> themeList(Pageable pageable) {
         int page = (pageable.getPageNumber() == 0) ? 0 : (pageable.getPageNumber() - 1);
         pageable = PageRequest.of(page, 10);
 
         return themeRepository.findAll(pageable);
     }
+
     public List<Ticker_by_themeDto> ticker_by_themeList(String th_code){
 
         List<Ticker_by_themeDto> ticker_by_themeDtos =

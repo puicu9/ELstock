@@ -11,10 +11,9 @@
         margin: 0 auto;
         margin-top: 40px;
     }
-
-
-
-
+    a. atag{
+        color:black;
+    }
 
 </style>
 <body>
@@ -32,7 +31,7 @@
 
                     <div class="card-body">
                         <div class="layout">
-                            <table>
+                            <table class="table">
                                 <thead>
                                 <tr>
                                     <th>테마 코드</th>
@@ -42,9 +41,15 @@
                                 </thead>
                                 <tbody>
                                 <tr th:each="Ticker_by_theme:${tickerlist}">
-                                    <td th:hidden="${Ticker_by_theme.id}">1</td>
+                                    <!--                                    <td th:hidden="${Ticker_by_theme.id}">1</td>-->
                                     <td th:text="${Ticker_by_theme.th_code}"></td>
-                                    <td th:text="${Ticker_by_theme.ticker_name}"></td>
+
+
+                                    <td>
+                                        <a class="atag" th:href="@{/finance/{ticker_code}(ticker_code=${Ticker_by_theme.ticker_code})}"
+                                           th:text="${Ticker_by_theme.ticker_name}">
+                                        </a>
+                                    </td>
                                     <td th:text="${Ticker_by_theme.ticker_code}"></td>
                                 </tr>
                                 </tbody>

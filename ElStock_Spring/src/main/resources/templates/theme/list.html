@@ -15,6 +15,7 @@
 
 
 
+
 </style>
 <body>
 
@@ -28,7 +29,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="layout">
-                            <table>
+                            <table class="table">
                                 <thead>
                                 <tr>
                                     <th>테마 코드</th>
@@ -38,8 +39,9 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+
                                 <tr th:each="Theme:${theme}">
-                                    <td th:hidden="${Theme.id}">1</td>
+                                    <!--                                    <td th:hidden="${Theme.id}">1</td>-->
                                     <td>
                                         <a th:href="'/theme/detail/'+${Theme.th_code} " th:text="${Theme.th_code}"></a>
                                     </td>
@@ -47,6 +49,7 @@
                                     <td th:text="${Theme.th_updown}"></td>
                                     <td th:text="${Theme.th_avg_3}"></td>
                                 </tr>
+
                                 </tbody>
                             </table>
 

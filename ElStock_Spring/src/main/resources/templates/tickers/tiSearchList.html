@@ -24,6 +24,8 @@
 
 
 
+
+
     </script>
 </th:block>
 
@@ -32,6 +34,8 @@
 <th:block layout:fragment="css">
     <style>
     select{margin-right:10px;}
+
+
 
 
 
@@ -57,7 +61,7 @@
                             <input type="hidden" id="searchQuery" name="searchQuery"
                                    th:value="${searchDto.searchQuery}">
                             <div th:if="${not #strings.isEmpty(searchDto.searchQuery)}" class="center">
-                                <p class="h3 font-weight-bold" th:text="${searchDto.searchQuery} + ' 검색 결과'"></p>
+                                <p class="h3 font-weight-bold" th:text="${searchDto.searchQuery} + ' 검색 결과 (22.12.13 기준)'"></p>
                             </div>
 
                             <div class="table-responsive">
@@ -79,12 +83,14 @@
 
                                     <tbody>
                                     <tr th:each="bean : ${tickers}">
-                                        <a th:href="'/finance/'+${bean.ticker_code}">
-                                            <td class="py-1" th:text="${bean.ticker_name}"></td>
-                                        </a>
-                                        <a th:href="'/finance/'+${bean.ticker_code}">
-                                            <td class="py-1" th:text="${bean.ticker_code}"></td>
-                                        </a>
+
+                                        <td class="py-1">
+                                            <a class="atag" th:href="@{/finance/{ticker_code}(ticker_code=${bean.ticker_code})}"
+                                               th:text="${bean.ticker_name}"></a>
+                                        </td>
+
+                                        <td class="py-1" th:text="${bean.ticker_code}"></td>
+
                                         <td class="py-1" th:text="${bean.open}"></td>
                                         <td class="py-1" th:text="${bean.high}"></td>
                                         <td class="py-1" th:text="${bean.low}"></td>
