@@ -4,6 +4,7 @@ import com.elstock.market.entity.Market;
 import com.elstock.market.entity.QMarket;
 import com.elstock.ticker.dto.TickerSearchDto;
 
+import com.querydsl.core.QueryResults;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.data.domain.Page;
@@ -50,7 +51,7 @@ public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryC
 
     BooleanExpression dateRange(){
         LocalDateTime dateTime = LocalDateTime.now();
-        dateTime = dateTime.minusDays(5) ;
+        dateTime = dateTime.minusDays(2) ;
 
 //        BooleanExpression dateAfter = QMarket.market.date.after(dateTime);
         BooleanExpression dateAfter = QMarket.market.date.after(dateTime);
@@ -62,22 +63,20 @@ public class TickerSearchRepositoryCustomImpl implements TickerSearchRepositoryC
     public Page<Market> getTickerPage(TickerSearchDto dto, Pageable pageable) {
         LocalDateTime dateTime = LocalDateTime.now();
 
-//        String dateTimeString = dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd 00:00:00"));
-//        LocalDateTime today = LocalDateTime.parse(dateTime, dateTimeString);
-
-        List<Market> content = this.queryFactory
+        QueryResults<Market> result = this.queryFactory
                 .selectFrom(QMarket.market)
                 .where(searchQueryCondition(
                                 dto.getSearchQuery())
                         , dateRange()
-//                        ,QMarket.market.date.eq(LocalDateTime.parse(dateTimeString))
                 )
                 .orderBy(QMarket.market.ticker_name.asc())
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
-                .fetch();
+                .fetchResults();
+        List<Market> content = result.getResults() ;
+        long total = result.getTotal() ; // 결과 집합의 총 개수를 반환해줍니다.
 
-        return new PageImpl<>(content, pageable, content.size());
+        return new PageImpl<>(content, pageable, total);
     }
 
 

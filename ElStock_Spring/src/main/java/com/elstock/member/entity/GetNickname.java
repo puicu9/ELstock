@@ -20,7 +20,7 @@ public class GetNickname {
 //        jsonArray에는 jsonArray 형태로 2개의 닉네임을 부여함. 여기에 더하여 랜덤(0~1)값으로 닉네임 가져오게 하게끔 설정
         int random = (int) Math.floor(Math.random() * 2) ;
         String nickname = jsonArray.getString(random);
-        System.out.println("회원가입 시 부여할 닉네임");
+//        System.out.println("회원가입 시 부여할 닉네임");
         System.out.println(nickname);
 
         return nickname ;

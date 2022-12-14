@@ -33,21 +33,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { // SecurityCo
         // SecurityConfig02
         http.formLogin()
                 .loginPage("/members/login")
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/news")
                 .permitAll()
                 .usernameParameter("email")
                 .failureUrl("/members/login/error")
                 .and()
             .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))
-                .logoutSuccessUrl("/")
+                .logoutSuccessUrl("/news")
                 .invalidateHttpSession(true) ;
 
         // SecurityConfig03
         // authorizeRequests() 메소드는 시큐리티 처리 시, HttpServeletRequests를 사용하겠습니다.
 
         http.authorizeRequests()
-                .mvcMatchers("/","/members/**","/bootstrap/**","/stockMarket/**","/ticker/**", "/**").permitAll()
+                .mvcMatchers("/","/members/**","/bootstrap/**","/stockMarket/**","/ticker/**", "/**","/news/**", "/finance/**", "/domestic/**",
+                        "/theme/**","/chart/**","/search/**").permitAll()
                 .mvcMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated() ;
 
@@ -68,7 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { // SecurityCo
     @Override
     public void configure(WebSecurity web) throws Exception {  // SecurityConfig03
         // static file(js, css, 이미지 등등) 에 대해서는 그냥 무시하겠습니다.
-        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**", "/vendors/**");
+        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**", "/vendors/**","/members/**");
     }
 
 
