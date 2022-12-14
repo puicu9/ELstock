@@ -14,8 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     g .tick .axis .x-axis {
-    opacity:100%;
-
+        opacity:100%;
     }
 
 
@@ -43,6 +42,14 @@
     <script th:src="@{/chart/js/chart.js}"></script>
     <!--차트 실제로 그려주는애-->
 
+    $(document).ready(function(){
+
+    function gotoPage(page){
+        location.href = "/finance/" + ticker_code;
+    };
+
+
+
 </th:block>
 
 
@@ -51,13 +58,14 @@
 
 <div layout:fragment="content" style="display:flex;">
 
-
-    <div class="col-xl-8 col-lg-5">
+    <div class="col-xl-12 col-lg-5">
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary" th:text="${#httpServletRequest.getParameter('symbol')}"></h6>
-                <button type="button" class="btn btn-inverse-primary btn-fw" onClick="location.href='/finance/'+${ticker_code}}">재무 정보</button>
+                    <a class="btn btn-inverse-primary btn-fw" href="/finance/005930">
+                        <span>재무 정보</span>
+                    </a>
             </div>
             <!-- Card Body -->
             <div class="card-body">

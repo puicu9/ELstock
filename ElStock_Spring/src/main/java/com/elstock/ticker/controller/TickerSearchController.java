@@ -29,7 +29,7 @@ public class TickerSearchController {
         // page) 조회할 페이지 번호로써, 옵션 사항(없는 경우 0으로 대체)
         // model) 데이터 저장용 모델 객체
 
-        int pageSize = 3 ;
+        int pageSize = 20 ;
         int pageNumber = page.isPresent() ? page.get() : 0 ;
 
         Pageable pageable = PageRequest.of(pageNumber, pageSize) ;
@@ -38,11 +38,11 @@ public class TickerSearchController {
 
         model.addAttribute("tickers", tickers) ;
         model.addAttribute("searchDto", dto) ; // for 검색 조건 유지
-        model.addAttribute("maxPage", 5) ; // 하단에 보여줄 페이지 번호의 최대 개수
+        model.addAttribute("maxPage", 10) ; // 하단에 보여줄 페이지 번호의 최대 개수
 
         System.out.println("tickers : " + tickers.toString());
         System.out.println("dto : " + dto);
 
-        return "/tickers/tiList";
+        return "/tickers/tiSearchList";
     }
 }

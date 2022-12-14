@@ -3,6 +3,7 @@ package com.elstock.finance.Entity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 
@@ -19,7 +20,9 @@ public class Finance {
     private double net_profit_rate	;
     private double roe;
     private double debt_ratio	;
+
     private double quick_ratio	;
+
     private double reserve_ratio ;
     private double eps;
     private double per ;

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{partials/_layout}">
+
+
+<style>
+    .layout {
+        width: 500px;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+
+
+
+
+</style>
+<body>
+
+<div layout:fragment="content" id="content">
+    <div class="container-fluid">
+
+        <!-- Content Row -->
+
+        <div class="row">
+            <div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="layout">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>테마 코드</th>
+                                    <th>테마 명</th>
+                                    <th>전날 대비</th>
+                                    <th>3일 평균</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <tr th:each="Theme:${theme}">
+                                    <!--                                    <td th:hidden="${Theme.id}">1</td>-->
+                                    <td>
+                                        <a th:href="'/theme/detail/'+${Theme.th_code} " th:text="${Theme.th_code}"></a>
+                                    </td>
+                                    <td th:text="${Theme.th_name}"></td>
+                                    <td th:text="${Theme.th_updown}"></td>
+                                    <td th:text="${Theme.th_avg_3}"></td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+
+                            <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">
+                                <a th:if="${page != nowPage}" th:href="@{/theme/list(page=${page})}"
+                                   th:text="${page}"></a>
+                                <strong th:if="${page==nowPage}" th:text="${page}" style="color:red"></strong>
+
+                            </th:block>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

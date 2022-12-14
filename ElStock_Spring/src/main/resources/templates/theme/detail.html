@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{partials/_layout}">
+
+
+<style>
+    .layout {
+        width: 500px;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+    a. atag{
+        color:black;
+    }
+
+</style>
+<body>
+
+<div layout:fragment="content" id="content">
+
+    <div class="container-fluid">
+
+        <!-- Content Row -->
+
+        <div class="row">
+            <div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
+
+
+                    <div class="card-body">
+                        <div class="layout">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>테마 코드</th>
+                                    <th>티커 명</th>
+                                    <th>티커 코드</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="Ticker_by_theme:${tickerlist}">
+                                    <!--                                    <td th:hidden="${Ticker_by_theme.id}">1</td>-->
+                                    <td th:text="${Ticker_by_theme.th_code}"></td>
+
+
+                                    <td>
+                                        <a class="atag" th:href="@{/finance/{ticker_code}(ticker_code=${Ticker_by_theme.ticker_code})}"
+                                           th:text="${Ticker_by_theme.ticker_name}">
+                                        </a>
+                                    </td>
+                                    <td th:text="${Ticker_by_theme.ticker_code}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <!--  <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">-->
+                            <!--    <a th:if="${page != nowPage}" th:href="@{/domestic/theme(page=${page})}" th:text ="${page}"></a>-->
+                            <!--    <strong th:if="${page==nowPage}" th:text ="${page}" style="color:red"></strong>-->
+
+                            <!--  </th:block>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
+
