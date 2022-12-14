@@ -7,15 +7,15 @@
 }
 
 .news-area{
-    position:relative;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    height:10rem;
-    width:100%;
-    white-space:nowrap;
-    font-weight:bold;
-
-}@media (min-width:768px){
+    position:relative !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+    height:10rem !important;
+    width:100% !important;
+    white-space:nowrap !important;
+    font-weight:bold !important;
+}
+@media (min-width:768px){
         .news-area{height:20rem}
 }
 

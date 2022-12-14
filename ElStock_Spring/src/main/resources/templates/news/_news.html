@@ -8,6 +8,7 @@
 <th:block layout:fragment="css">
     <link rel="stylesheet" th:href="@{/chart/css/chart.css}">
 
+
 </th:block>
 
 <!--<th:block layout:fragment="script">-->
@@ -43,7 +44,9 @@
                         </div>
                         <!-- Card Body -->
                         <div class="card-body">
-                            <div class="news-area">
+                            <div class="news-area" style="position:relative;
+                                overflow:hidden;
+                                text-overflow:ellipsis;">
                                 <img th:src="${bean.news_img}" width="350px" height="300px">
                                 <br>
                                 [[${bean.news_body}]]
